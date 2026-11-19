@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f1f0e9">
+  <meta name="description" content="GTA VI is $79.99 in the US. What does it actually cost to play? Compare a console you own, buying new hardware, and Xbox cloud streaming. See every source and assumption.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GTA VI Cost Truth — the real price of playing">
+  <meta property="og:description" content="Verified game prices. Honest unknowns. Your own shareable cost receipt.">
+  <meta property="og:image" content="https://fraware.github.io/gta-vi-cost-truth/assets/og.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./src/style.css">
+  <title>GTA VI Cost Truth — How much does playing actually cost?</title>
+  
+  <script type="module" src="./src/app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#calculator">Skip to calculator</a>
+  <div class="site-wrap">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="GTA VI Cost Truth, home">
+        <span class="brand-stamp" aria-hidden="true"><span>VI</span></span>
+        <span class="brand-type">COST <strong>TRUTH</strong><small>An independent cost ledger</small></span>
+      </a>
+      <div class="header-right"><span class="edition-mark">ISSUE 001 / NOV 2026</span><a class="small-link" href="#method">The methodology <span aria-hidden="true">↗</span></a></div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="signal" aria-hidden="true"></span> GRAND THEFT AUTO VI / LAUNCH EDITION</p>
+          <h1 id="hero-title">The game is <span>$79.99.</span><br> What's the cost of <em>playing?</em></h1>
+          <p class="deck">The price tag is one number. Your actual bill is another. Build a personal cost receipt with dated storefront evidence, explicit assumptions, and no invented prices.</p>
+          <div class="hero-bottom"><span>01 &nbsp; SET YOUR SITUATION</span><span>02 &nbsp; READ THE RECEIPT</span><span>03 &nbsp; SHARE THE TRUTH</span></div>
+        </div>
+        <aside class="date-stamp" aria-label="Release information"><span>OFFICIAL RELEASE</span><strong>19<span>NOV</span></strong><span>2026 / PS5 · XBOX SERIES X|S</span><a href="https://ir.take2games.com/node/32311" target="_blank" rel="noopener noreferrer">Publisher source ↗</a></aside>
+      </section>
+
+      <section class="workspace" id="calculator" aria-label="Interactive cost calculator">
+        <div class="work-panel">
+          <div class="panel-top"><span class="panel-number">01 / YOUR SETUP</span><span class="panel-side">EDIT ANYTHING</span></div>
+          <div class="field-block">
+            <label for="market">Where are you buying?</label>
+            <div class="select-wrap"><select id="market" name="market"><option value="US">United States · USD</option><option value="FR">France · EUR</option><option value="GB">United Kingdom · GBP</option></select></div>
+            <p class="field-note">Prices are checked against the selected platform’s official storefront; they are dated observations.</p>
+          </div>
+          <div class="field-block">
+            <div class="field-heading"><span>Which edition?</span><a id="edition-source" class="micro-link" href="https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVISTANDARD001/" target="_blank" rel="noopener noreferrer">Verify listing ↗</a></div>
+            <div class="choices editions" role="group" aria-label="Game edition">
+              <button type="button" class="choice is-active" data-edition="standard" aria-pressed="true"><span>STANDARD</span><strong id="standard-price">$79.99</strong><small>Complete base game</small></button>
+              <button type="button" class="choice" data-edition="ultimate" aria-pressed="false"><span>ULTIMATE</span><strong id="ultimate-price">$99.99</strong><small>Optional premium content</small></button>
+            </div>
+          </div>
+          <div class="field-block route-block">
+            <label>Your way to play</label>
+            <div class="route-tabs" role="group" aria-label="Route to play">
+              <button type="button" data-route="own" class="route-tab is-active" aria-pressed="true">I own a console</button>
+              <button type="button" data-route="buy" class="route-tab" aria-pressed="false">I'm buying one</button>
+              <button type="button" data-route="cloud" class="route-tab" aria-pressed="false">Cloud streaming</button>
+            </div>
+            <p id="route-description" class="route-description">You already have supported hardware. Count the game and only the extras you choose.</p>
+          </div>
+          <div class="field-block" id="platform-field">
+            <label for="platform" id="platform-label">Your console</label>
+            <div class="select-wrap"><select id="platform" name="platform"></select></div>
+          </div>
+          <div id="buy-fields" class="conditional-group" hidden>
+            <div class="field-block">
+              <label for="hardware">Console price <span class="input-status">YOUR QUOTE</span></label>
+              <div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="hardware" type="text" inputmode="decimal" autocomplete="off" placeholder="Enter your actual price" aria-describedby="hardware-hint"></div>
+              <p class="field-note" id="hardware-hint">Unknown until you enter a quote. Used and refurbished prices are welcome.</p>
+              <button type="button" id="reference-quote" class="reference-button" hidden>Use Microsoft's published Series S price of $499.99 ↗</button>
+            </div>
+            <div class="field-block secondary-field">
+              <label for="resale">Expected resale value <span class="input-status">OPTIONAL ESTIMATE</span></label>
+              <div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="resale" type="text" inputmode="decimal" autocomplete="off" placeholder="Leave blank if keeping it"></div>
+              <p class="field-note">Reduces projected cost of ownership only. It never reduces cash needed today.</p>
+            </div>
+          </div>
+          <div id="cloud-fields" class="conditional-group" hidden>
+            <div class="cloud-warning"><strong>Cloud access is real. The tariff is not assumed.</strong><p>Microsoft confirms launch-day Xbox One streaming and paid playtime in supported markets. Check eligibility and enter a quotation from your account.</p><a href="https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/" target="_blank" rel="noopener noreferrer">Xbox announcement ↗</a></div>
+            <div class="field-block"><label for="cloud-pack">Price per cloud-time pack <span class="input-status">YOUR QUOTE</span></label><div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="cloud-pack" type="text" inputmode="decimal" autocomplete="off" placeholder="Unknown until quoted"></div></div>
+            <div class="two-fields"><div class="field-block"><label for="cloud-hours">Hours per pack</label><input id="cloud-hours" type="number" min="1" max="10000" step="1" placeholder="e.g. 10"></div><div class="field-block"><label for="planned-hours">Hours you plan to play</label><input id="planned-hours" type="number" min="1" max="10000" step="1" value="40"></div></div>
+            <p class="field-note cloud-note">Illustrative whole-pack billing. Subscription entitlements and other cloud payment models are not priced here. Verify actual offers before spending.</p>
+          </div>
+          <div class="more-fields">
+            <div class="field-block"><label for="extras">Extra one-time spending <span class="input-status">OPTIONAL</span></label><div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="extras" type="text" inputmode="decimal" autocomplete="off" value="0.00"></div><p class="field-note">Accessories or other spending you decide to include.</p></div>
+            <div class="field-block" id="tax-field"><label for="tax">Estimated local sales tax <span class="input-status">US ONLY</span></label><div class="currency-field pct"><input id="tax" type="text" inputmode="decimal" autocomplete="off" placeholder="Enter your rate"><span>%</span></div><p class="field-note">Illustrative uniform rate. Exact tax treatment depends on location and item.</p></div>
+          </div>
+        </div>
+
+        <div class="receipt-side">
+          <div class="receipt">
+            <div class="receipt-head"><span>02 / YOUR RECEIPT</span><span class="receipt-id">COST TRUTH — 001</span></div>
+            <div class="receipt-title"><span class="receipt-strap">A COST, NOT A PROMISE</span><h2 id="receipt-headline">Your cost<br>of entry.</h2><div class="total" id="main-total" aria-live="polite">$79.99<span>+ unknown tax</span></div><p id="total-context">Known minimum, before applicable sales tax.</p></div>
+            <div class="receipt-lines"><div class="receipt-line-head"><span>ITEMIZED COST</span><span>AMOUNT</span></div><div id="line-items"></div><div class="receipt-divider"></div><div class="receipt-subtotal"><span>Known subtotal</span><strong id="subtotal">$79.99</strong></div></div>
+            <div id="net-block" class="net-block" hidden><span>POTENTIAL NET COST IF RESOLD</span><strong id="net-value"></strong><small>Future estimate. Today's checkout total is unchanged.</small></div>
+            <div class="receipt-status" id="receipt-status"><span class="status-dot"></span><span id="receipt-status-text">Local tax rate is still unknown.</span></div>
+            <p class="receipt-footnote">Source checked <span id="checked-date">18 NOV 2026</span>. Your own inputs are estimates. This receipt is independent of Rockstar, Take-Two, Sony, and Microsoft.</p>
+            <div class="receipt-actions"><button type="button" id="share-btn" class="action-primary">Copy my receipt link <span aria-hidden="true">↗</span></button><button type="button" id="export-btn" class="action-secondary">Save as SVG <span aria-hidden="true">↓</span></button></div>
+            <p id="action-feedback" class="action-feedback" role="status" aria-live="polite"></p>
+          </div>
+          <div class="under-receipt"><span class="small-cross" aria-hidden="true">✳</span><p>Numbers marked <strong>VERIFIED</strong> reference a dated public storefront. <strong>YOUR INPUT</strong> means no official price was inferred. Missing costs stay missing.</p></div>
+        </div>
+      </section>
+
+      <section class="compare" aria-labelledby="compare-title">
+        <div class="compare-heading"><span>THREE ROUTES / ONE GAME</span><h2 id="compare-title">How you play changes the bill.</h2><p>Illustrative baseline choices. Select a route to inspect its full, editable receipt.</p></div>
+        <div class="compare-cards" role="group" aria-label="Quick cost scenarios">
+          <button type="button" data-preset="own" class="compare-card"><span class="compare-index">01 / ALREADY EQUIPPED</span><strong id="compare-own">$79.99</strong><span>Game only, with applicable tax noted separately</span><em>View receipt ↗</em></button>
+          <button type="button" data-preset="buy" class="compare-card"><span class="compare-index">02 / BUY THE HARDWARE</span><strong id="compare-buy">$579.98</strong><span id="compare-buy-note">US Xbox Series S reference, before tax</span><em>View receipt ↗</em></button>
+          <button type="button" data-preset="cloud" class="compare-card"><span class="compare-index">03 / STREAM ON XBOX ONE</span><strong id="compare-cloud">$79.99+</strong><span>Game plus cloud access, tariff unresolved</span><em>View receipt ↗</em></button>
+        </div>
+      </section>
+
+      <section class="facts" aria-labelledby="facts-title"><div class="section-header"><span>BEYOND THE STICKER</span><h2 id="facts-title">Four things worth knowing.</h2></div><div class="facts-grid"><article><span class="fact-number">01</span><h3>You might need no new console.</h3><p>Owners of supported PS5 and Xbox Series X|S systems already have the main piece of hardware.</p></article><article><span class="fact-number">02</span><h3>Xbox One gets a cloud route.</h3><p>Xbox announced launch-day cloud streaming to Xbox One. Streaming is a separate expense and subject to market and account availability.</p></article><article><span class="fact-number">03</span><h3>Single-player is not an online subscription.</h3><p>The base campaign is a single-player experience with offline play on PlayStation. Do not automatically add PS Plus or GTA+ to the minimum cost.</p></article><article><span class="fact-number">04</span><h3>Resale isn't money in your pocket yet.</h3><p>A future resale price is speculative. Our receipt keeps that projection separate from today's purchase.</p></article></div></section>
+      <section class="method" id="method" aria-labelledby="method-title"><div><p class="eyebrow">THE METHODOLOGY</p><h2 id="method-title">No mystery numbers.</h2><p>Every published price has a source and verification date. User quotations are marked as such. Unknown tax, hardware, or cloud fees remain unresolved until entered. No registration, cookies, third-party analytics, or external fonts. The calculation runs in your browser.</p><a href="./SOURCE_NOTES.md" class="small-link">Read the full evidence log ↗</a></div><div class="method-list"><div><span>01</span><p>Verified PlayStation and Xbox storefront prices for the US, France, and UK.</p></div><div><span>02</span><p>Integer-based arithmetic, with tests for taxes, unknowns, cloud packs, and projected resale.</p></div><div><span>03</span><p>Shareable URL state with no identity or location tracking.</p></div><div><span>04</span><p>No official GTA art, branding assets, or claim of affiliation.</p></div></div></section>
+    </main>
+    <footer class="footer"><div class="brand-mini">VI <span>COST TRUTH</span></div><div>INDEPENDENT. OPEN SOURCE. BUILT TO BE CHECKED.</div><a href="#hero-title">BACK TO TOP ↑</a></footer>
+  </div>
+
+</body>
+</html>
