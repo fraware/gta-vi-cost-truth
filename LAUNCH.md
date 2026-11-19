@@ -16,7 +16,7 @@ The open-source differentiator is a country-aware data catalog, pure calculation
 - [x] Mark unresolved tax, eligibility, unverified device support and game prices.
 - [ ] Confirm successful GitHub Actions test and static publishing workflows for the exact release SHA.
 - [ ] Confirm GitHub Pages is enabled and the public URL loads without errors.
-- [ ] Verify mobile, tablet and desktop interaction in a real browser against the live URL.
+- [ ] Inspect the GitHub browser-test workflow evidence, and verify mobile and desktop interactions against the live URL.
 - [ ] Verify link sharing from a clean browser, quote provenance, source links and PNG export.
 - [ ] Inspect social-platform open graph previews and accessibility with automated and manual audit.
 - [ ] Check current storefront prices on release day and update sources if they changed.

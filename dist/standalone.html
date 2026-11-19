@@ -80,7 +80,7 @@
       <div class="layout-container">
         <div class="section-head"><div><p class="section-index">01 / THE BIG PICTURE</p><h2 id="compare-title">Same game.<br><em>Different bill.</em></h2></div><div class="section-side"><label for="market-compare">Your country</label><select id="market-compare" aria-label="Country for price comparison"></select><p id="comparison-note">Published costs, not guaranteed checkout totals.</p></div></div>
         <div class="route-comparison" id="route-comparison" aria-live="polite"></div>
-        <p class="section-annotation"><span class="annotation-star">✳</span> Comparisons use Standard Edition, a first-party hardware quote only if verified, and 40 prepaid cloud hours. Local taxes, eligibility, and unknown quotations are identified explicitly. <a href="#method">How we calculate ↗</a></p>
+        <p class="section-annotation"><span class="annotation-star">✳</span> Comparisons reflect the selected edition, a first-party hardware quote only if verified, and 40 planned cloud hours. Local taxes, eligibility, and unknown quotations are identified explicitly. <a href="#method">How we calculate ↗</a></p>
       </div>
     </section>
 
@@ -573,6 +573,7 @@ function renderReceipt() {
 }
 function makeComparison(route) {
   const scenario={...defaultScenario(),market:state.market,edition:state.edition,route};
+  if (route==='own' && !MARKETS[state.market].game.playstation) scenario.platform='xbox-series-s';
   if(route==='buy'){
     scenario.platform='xbox-series-s';
     const ref=HARDWARE_REFERENCES[`${state.market}:${scenario.platform}`];
@@ -635,7 +636,7 @@ function resetPriceQuotes() {
 }
 function applyPreset(route) {
   state.route=route;
-  state.platform=route==='cloud'?'xbox-one':route==='buy'?'xbox-series-s':'ps5-digital';
+  state.platform=route==='cloud'?'xbox-one':route==='buy'?'xbox-series-s':MARKETS[state.market].game.playstation?'ps5-digital':'xbox-series-s';
   state.cloudPricingMode='official';resetPriceQuotes();
   const ref=route==='buy'?HARDWARE_REFERENCES[`${state.market}:${state.platform}`]:null;
   if(ref){state.hardwareCents=ref.amount;state.hardwareQuote=ref.id;}

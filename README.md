@@ -61,6 +61,8 @@ node scripts/cost.mjs --market US --route buy --device xbox-series-s --use-offic
 node scripts/cost.mjs --market JP --route own --device xbox-series-x --edition ultimate
 ```
 
+The desktop and mobile browser interaction suite runs in GitHub Actions. To run it locally, install `@playwright/test@1.56.1` and Chromium, then execute `npx playwright test --config=playwright.config.mjs`. The production site itself has zero dependencies.
+
 The export at [`data/prices.json`](data/prices.json) is generated from [`src/catalog.mjs`](src/catalog.mjs). It contains the observation date, currency metadata, prices, and first-party links. **It is a curated dated snapshot, not a live price-feed API.** The arithmetic operates on integer minor units (including zero-decimal JPY) and never performs foreign-exchange conversion.
 
 ## Evidence and limitations

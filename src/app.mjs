@@ -143,6 +143,7 @@ function renderReceipt() {
 }
 function makeComparison(route) {
   const scenario={...defaultScenario(),market:state.market,edition:state.edition,route};
+  if (route==='own' && !MARKETS[state.market].game.playstation) scenario.platform='xbox-series-s';
   if(route==='buy'){
     scenario.platform='xbox-series-s';
     const ref=HARDWARE_REFERENCES[`${state.market}:${scenario.platform}`];
@@ -205,7 +206,7 @@ function resetPriceQuotes() {
 }
 function applyPreset(route) {
   state.route=route;
-  state.platform=route==='cloud'?'xbox-one':route==='buy'?'xbox-series-s':'ps5-digital';
+  state.platform=route==='cloud'?'xbox-one':route==='buy'?'xbox-series-s':MARKETS[state.market].game.playstation?'ps5-digital':'xbox-series-s';
   state.cloudPricingMode='official';resetPriceQuotes();
   const ref=route==='buy'?HARDWARE_REFERENCES[`${state.market}:${state.platform}`]:null;
   if(ref){state.hardwareCents=ref.amount;state.hardwareQuote=ref.id;}
