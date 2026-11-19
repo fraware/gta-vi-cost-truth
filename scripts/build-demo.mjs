@@ -11,7 +11,7 @@ const read = name => readFileSync(resolve(root,name),'utf8');
 let html = read('index.html');
 const css = read('src/style.css');
 const favicon = readFileSync(resolve(root,'assets/favicon.svg')).toString('base64');
-const js = ['src/catalog.mjs','src/engine.mjs','src/app.mjs']
+const js = ['src/catalog.mjs','src/cloud.mjs','src/engine.mjs','src/app.mjs']
   .map(name => read(name).replace(/^import .*?;\s*$/gm,'').replace(/^export (?=(?:const|function|class)\b)/gm,''))
   .join('\n\n');
 html = html.replace('<link rel="stylesheet" href="./src/style.css">','<style>\n' + css.replace(/<\/style/gi,'<\\/style') + '\n</style>');

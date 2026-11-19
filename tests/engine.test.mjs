@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { MARKETS, HARDWARE_REFERENCE } from '../src/catalog.mjs';
+import { MARKETS, HARDWARE_REFERENCE, HARDWARE_REFERENCES, CLOUD_PACKS } from '../src/catalog.mjs';
+import { cheapestCloudPacks } from '../src/cloud.mjs';
 import { calculate, defaultScenario, encodeScenario, decodeScenario, parseMoney, printMoney } from '../src/engine.mjs';
 
 const scenario = (overrides = {}) => ({ ...defaultScenario(), ...overrides });
@@ -41,18 +42,18 @@ test('missing hardware quote blocks complete total', () => {
 
 test('cloud cost is unknown until pack tariff and size are provided', () => {
   const r = calculate(scenario({ route: 'cloud', platform: 'xbox-one', taxBasisPoints: 0 }));
-  assert.equal(r.checkout, null);
-  assert.ok(r.unknown.includes('Cloud-play tariff'));
+  assert.equal(r.subtotal, 9198);
+  assert.ok(!r.unknown.includes('Cloud-play tariff'));
 });
 
 test('cloud rounds the number of packs up', () => {
-  const r = calculate(scenario({ market: 'FR', route: 'cloud', platform: 'xbox-one', cloudPackCents: 200, cloudHoursPerPack: 10, plannedHours: 21 }));
+  const r = calculate(scenario({ market: 'FR', route: 'cloud', platform: 'xbox-one', cloudPricingMode: 'custom', cloudPackCents: 200, cloudHoursPerPack: 10, plannedHours: 21 }));
   assert.equal(r.checkout, 8599);
   assert.equal(r.lines.find(x => x.id === 'cloud').cents, 600);
 });
 
 test('explicit free pack is not mistaken for missing price', () => {
-  const r = calculate(scenario({ market: 'FR', route: 'cloud', platform: 'xbox-one', cloudPackCents: 0, cloudHoursPerPack: 5, plannedHours: 6 }));
+  const r = calculate(scenario({ market: 'FR', route: 'cloud', platform: 'xbox-one', cloudPricingMode: 'custom', cloudPackCents: 0, cloudHoursPerPack: 5, plannedHours: 6 }));
   assert.equal(r.checkout, 7999);
 });
 
@@ -81,6 +82,60 @@ test('invalid routes and devices are rejected', () => {
   assert.throws(()=>calculate(scenario({ route:'own', platform:'xbox-one' })));
   assert.throws(()=>calculate(scenario({ route:'cloud', platform:'ps5-digital' })));
   assert.throws(()=>calculate(scenario({ edition:'special' })));
+});
+
+test('three-market, first-party cloud pack catalogs are complete', () => {
+  assert.deepEqual(Object.keys(CLOUD_PACKS), ['US','FR','GB']);
+  assert.deepEqual(CLOUD_PACKS.US.map(x=>x.cents),[399,799,1199]);
+  assert.deepEqual(CLOUD_PACKS.FR.map(x=>x.cents),[349,699,1099]);
+  assert.deepEqual(CLOUD_PACKS.GB.map(x=>x.cents),[299,599,899]);
+  for (const market of Object.keys(CLOUD_PACKS)) {
+    assert.deepEqual(CLOUD_PACKS[market].map(x=>x.hours),[10,25,50]);
+    for (const pack of CLOUD_PACKS[market]) assert.match(pack.source,/^https:\/\/www\.xbox\.com\//);
+  }
+});
+
+test('optimal pack planner never overcharges against exhaustive small search', () => {
+  const packs = CLOUD_PACKS.US;
+  for (let hours = 1; hours <= 125; hours++) {
+    const got = cheapestCloudPacks(hours,packs);
+    let best = Infinity;
+    for (let a = 0; a <= 13; a++) for (let b = 0; b <= 6; b++) for (let c = 0; c <= 3; c++) {
+      if (a*10+b*25+c*50 >= hours) best = Math.min(best,a*399+b*799+c*1199);
+    }
+    assert.equal(got.totalCents,best,`Incorrect min-cost for ${hours} hours`);
+    assert.ok(got.coveredHours >= hours);
+    assert.equal(got.selection.reduce((sum,p)=>sum+p.cents*p.quantity,0),got.totalCents);
+  }
+});
+
+test('40h cloud route buys one 50h pack, not four 10h packs', () => {
+  for (const [market,expected] of [['US',1199],['FR',1099],['GB',899]]) {
+    const r = calculate(scenario({market,route:'cloud',platform:'xbox-one',taxBasisPoints:0}));
+    assert.equal(r.cloudPlan.totalCents,expected);
+    assert.equal(r.cloudPlan.coveredHours,50);
+    assert.equal(r.lines.find(x=>x.id==='cloud-50').evidence,'verified');
+  }
+});
+
+test('cloud supports PC and smart TV without claiming a native GTA VI release', () => {
+  assert.equal(calculate(scenario({market:'GB',route:'cloud',platform:'pc-cloud'})).checkout,7898);
+  assert.equal(calculate(scenario({market:'FR',route:'cloud',platform:'tv-cloud'})).checkout,9098);
+  assert.throws(()=>calculate(scenario({market:'FR',route:'own',platform:'pc-cloud'})));
+});
+
+test('official PS5 Digital quote is source-backed only at the exact quoted price', () => {
+  const q=HARDWARE_REFERENCES['US:ps5-digital'];
+  const data=scenario({route:'buy',platform:'ps5-digital',market:'US',hardwareCents:q.cents,hardwareQuote:q.id,taxBasisPoints:0});
+  assert.equal(calculate(data).lines[1].evidence,'verified');
+  assert.equal(calculate({...data,hardwareCents:q.cents+1}).lines[1].evidence,'entered');
+});
+
+test('custom cloud offers remain explicitly unknown without a quote', () => {
+  const r=calculate(scenario({route:'cloud',platform:'xbox-one',cloudPricingMode:'custom',taxBasisPoints:0}));
+  assert.equal(r.checkout,null);
+  assert.ok(r.unknown.includes('Cloud-play tariff'));
+  assert.throws(()=>calculate(scenario({route:'cloud',platform:'xbox-one',cloudPricingMode:'free'})));
 });
 
 test('game provenance follows platform ecosystem', () => {

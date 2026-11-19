@@ -3,7 +3,7 @@
  * These records are a curated snapshot, not a live pricing API.
  * ISO dates refer to verification during preparation of this release.
  */
-export const VERIFIED_ON = '2026-11-18';
+export const VERIFIED_ON = '2026-11-19';
 
 export const MARKETS = Object.freeze({
   US: Object.freeze({
@@ -47,12 +47,13 @@ export const MARKETS = Object.freeze({
 export const SOURCES = Object.freeze({
   release: 'https://ir.take2games.com/node/32311',
   cloud: 'https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/',
-  xboxHardware: 'https://www.microsoft.com/en-us/p/-xbox-series-s--/942J774TP9JN/5NCQ',
+  xboxHardware: 'https://www.microsoft.com/en-us/p/xbox-series-s/942J774TP9JN/2JBX',
+  ps5Hardware: 'https://direct.playstation.com/en-us/hardware/ps5',
   gameOffline: 'https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVISTANDARD001/',
 });
 
-// A single US manufacturer's public starting price is included as an illustration.
-// All other hardware quotations are explicitly entered by the visitor.
+// Two first-party US console quotations. Other hardware values remain visitor-supplied.
+// A verified quote is market- and device-specific, not a universal checkout price.
 export const HARDWARE_REFERENCE = Object.freeze({
   id: 'series-s-us-2026-11-18',
   market: 'US',
@@ -63,6 +64,38 @@ export const HARDWARE_REFERENCE = Object.freeze({
   description: 'Microsoft Store starting price; configuration, promotions and tax may vary',
 });
 
+export const HARDWARE_REFERENCES = Object.freeze({
+  'US:xbox-series-s': HARDWARE_REFERENCE,
+  'US:ps5-digital': Object.freeze({
+    id: 'ps5-digital-us-2026-11-19', market: 'US', model: 'ps5-digital',
+    cents: 59999, source: SOURCES.ps5Hardware, verifiedOn: VERIFIED_ON,
+    description: 'PlayStation Direct US PS5 Digital 825GB starting price, before local tax',
+  }),
+});
+
+/**
+ * These are regional first-party Xbox Store *purchase* prices, not recurring
+ * subscriptions or per-hour unit prices. No price conversion is performed.
+ * A user can override them if their account presents a different offer.
+ */
+export const CLOUD_PACKS = Object.freeze({
+  US: Object.freeze([
+    { hours: 10, cents: 399, source: 'https://www.xbox.com/en-US/games/store/cloud-playtime-10-hours/9pl4njhpdn7l' },
+    { hours: 25, cents: 799, source: 'https://www.xbox.com/en-US/games/store/cloud-playtime-25-hours/9pg1fs0brh5h' },
+    { hours: 50, cents: 1199, source: 'https://www.xbox.com/en-US/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0' },
+  ]),
+  FR: Object.freeze([
+    { hours: 10, cents: 349, source: 'https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-10-heures/9pl4njhpdn7l' },
+    { hours: 25, cents: 699, source: 'https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-25-heures/9pg1fs0brh5h' },
+    { hours: 50, cents: 1099, source: 'https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-50-heures/9mtv0kn0j3c0' },
+  ]),
+  GB: Object.freeze([
+    { hours: 10, cents: 299, source: 'https://www.xbox.com/en-GB/games/store/cloud-playtime-10-hours/9pl4njhpdn7l' },
+    { hours: 25, cents: 599, source: 'https://www.xbox.com/en-GB/games/store/cloud-playtime-25-hours/9pg1fs0brh5h' },
+    { hours: 50, cents: 899, source: 'https://www.xbox.com/en-GB/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0' },
+  ]),
+});
+
 export const HARDWARE = Object.freeze({
   'ps5-digital': { label: 'PlayStation 5 Digital', ecosystem: 'playstation' },
   'ps5-disc': { label: 'PlayStation 5 with disc drive', ecosystem: 'playstation' },
@@ -70,4 +103,7 @@ export const HARDWARE = Object.freeze({
   'xbox-series-s': { label: 'Xbox Series S', ecosystem: 'xbox' },
   'xbox-one': { label: 'Xbox One (cloud streaming only)', ecosystem: 'xbox' },
   'xbox-series-x': { label: 'Xbox Series X', ecosystem: 'xbox' },
+  'pc-cloud': { label: 'Windows PC (cloud streaming only)', ecosystem: 'xbox', cloudOnly: true },
+  'tv-cloud': { label: 'Supported smart TV (cloud streaming only)', ecosystem: 'xbox', cloudOnly: true },
+  'phone-cloud': { label: 'Supported phone or tablet (cloud only)', ecosystem: 'xbox', cloudOnly: true },
 });

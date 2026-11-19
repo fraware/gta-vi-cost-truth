@@ -1,4 +1,4 @@
-import { MARKETS, HARDWARE, HARDWARE_REFERENCE, VERIFIED_ON } from './catalog.mjs';
+import { MARKETS, HARDWARE, HARDWARE_REFERENCE, HARDWARE_REFERENCES, CLOUD_PACKS, VERIFIED_ON } from './catalog.mjs';
 import { calculate, defaultScenario, parseMoney, printMoney, encodeScenario, decodeScenario } from './engine.mjs';
 
 const $ = (id) => document.getElementById(id);
@@ -12,12 +12,12 @@ let receipt;
 const descriptions = {
   own: 'You already own a PS5 or Xbox Series X|S. Count the game and only the extras you choose.',
   buy: 'Enter your real console quote. A future resale estimate will appear separately from the upfront bill.',
-  cloud: 'Xbox One cloud streaming is confirmed for launch in supported markets. Purchased playtime is an additional cost.',
+  cloud: 'Stream on a supported device using first-party Xbox cloud-playtime packs, or enter a different offer from your account.',
 };
 
 function compatibleHardware() {
-  return Object.entries(HARDWARE).filter(([id]) => state.route === 'cloud'
-    ? id.startsWith('xbox-') : id !== 'xbox-one');
+  return Object.entries(HARDWARE).filter(([id,device]) => state.route === 'cloud'
+    ? device.ecosystem === 'xbox' : id !== 'xbox-one' && !device.cloudOnly);
 }
 
 function renderForm() {
@@ -38,7 +38,7 @@ function renderForm() {
   $('route-description').textContent = descriptions[state.route];
   $('buy-fields').hidden = state.route !== 'buy';
   $('cloud-fields').hidden = state.route !== 'cloud';
-  $('platform-label').textContent = state.route === 'cloud' ? 'Your Xbox device' : state.route === 'buy' ? 'Console to purchase' : 'Your console';
+  $('platform-label').textContent = state.route === 'cloud' ? 'Device you will stream on' : state.route === 'buy' ? 'Console to purchase' : 'Your console';
   const valid = compatibleHardware();
   if (!valid.some(([id]) => id === state.platform)) state.platform = valid[0][0];
   $('edition-source').href = HARDWARE[state.platform].ecosystem === 'xbox' ?
@@ -54,11 +54,15 @@ function renderForm() {
   $('hardware').value = moneyInput(state.hardwareCents);
   $('resale').value = moneyInput(state.resaleCents);
   $('extras').value = moneyInput(state.extraCents);
+  $('cloud-pricing').value = state.cloudPricingMode;
+  $('cloud-quote-fields').hidden = state.cloudPricingMode !== 'custom';
   $('cloud-pack').value = moneyInput(state.cloudPackCents);
   $('cloud-hours').value = state.cloudHoursPerPack ?? '';
   $('planned-hours').value = state.plannedHours;
   $('tax').value = state.taxBasisPoints === null ? '' : (state.taxBasisPoints / 100).toFixed(2);
-  $('reference-quote').hidden = !(state.market === 'US' && state.platform === 'xbox-series-s' && state.route === 'buy');
+  const reference = HARDWARE_REFERENCES[`${state.market}:${state.platform}`];
+  $('reference-quote').hidden = !(reference && state.route === 'buy');
+  if (reference) $('reference-quote').textContent = `Use official US quote · ${printMoney(reference.cents,state.market)} ↗`;
 }
 
 function lineElement(line) {
@@ -99,6 +103,8 @@ function renderReceipt() {
   total.append(suffix);
   $('net-block').hidden = receipt.futureNetIfResold === null;
   if (receipt.futureNetIfResold !== null) $('net-value').textContent = printMoney(receipt.futureNetIfResold, state.market);
+  $('cloud-breakdown').hidden = state.route !== 'cloud' || !receipt.cloudPlan;
+  if (receipt.cloudPlan) $('cloud-breakdown').textContent = `Covers ${receipt.cloudPlan.coveredHours}h for ${state.plannedHours}h planned. ${receipt.cloudPlan.unusedHours}h left in purchased packs. Verify eligibility and local offers.`;
   $('receipt-status').classList.toggle('complete', receipt.fullyPriced);
   $('receipt-status-text').textContent = receipt.fullyPriced ?
     'All selected line items have values. Personal estimates are not verified prices.' :
@@ -111,7 +117,9 @@ function renderComparison() {
   $('compare-own').textContent = printMoney(baseline, state.market) + (state.market === 'US' ? '+' : '');
   $('compare-buy').textContent = state.market === 'US' ? printMoney(buy, state.market) + '+' : 'QUOTE NEEDED';
   $('compare-buy-note').textContent = state.market === 'US' ? 'US Xbox Series S starting-price example, before tax' : 'Enter a local console price; no amount has been assumed';
-  $('compare-cloud').textContent = printMoney(baseline, state.market) + '+';
+  const cloud = calculate({ ...defaultScenario(), market: state.market, edition: state.edition, route: 'cloud', platform: 'xbox-one', plannedHours: state.plannedHours });
+  $('compare-cloud').textContent = printMoney(cloud.subtotal, state.market) + (state.market === 'US' ? '+' : '');
+  $('compare-cloud-note').textContent = `${state.plannedHours}h of official cloud packs plus game` + (state.market === 'US' ? ', tax unresolved' : '');
 }
 
 function refresh() {
@@ -152,6 +160,7 @@ for (const button of document.querySelectorAll('[data-preset]')) {
     state.hardwareCents = state.route === 'buy' && state.market === 'US' ? HARDWARE_REFERENCE.cents : null;
     state.hardwareQuote = state.route === 'buy' && state.market === 'US' ? HARDWARE_REFERENCE.id : 'personal';
     state.resaleCents = null; state.extraCents = 0;
+    state.cloudPricingMode = 'official';
     refresh(); document.getElementById('calculator').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
@@ -189,8 +198,14 @@ for (const [id, prop] of [['hardware','hardwareCents'],['resale','resaleCents'],
   $(id).addEventListener('change', (e) => changeMoney(e.target, prop));
 }
 $('reference-quote').addEventListener('click', () => {
-  state.hardwareCents = HARDWARE_REFERENCE.cents;
-  state.hardwareQuote = HARDWARE_REFERENCE.id;
+  const reference = HARDWARE_REFERENCES[`${state.market}:${state.platform}`];
+  if (!reference) return;
+  state.hardwareCents = reference.cents;
+  state.hardwareQuote = reference.id;
+  refresh();
+});
+$('cloud-pricing').addEventListener('change', e => {
+  state.cloudPricingMode = e.target.value;
   refresh();
 });
 $('tax').addEventListener('change', (e) => {
@@ -248,7 +263,7 @@ ${text(80,245,printMoney(total,state.market),84,'#dcfa72','800')}
 ${text(80,286,receipt.fullyPriced?'MODELLED TOTAL':'KNOWN COST · OTHER COSTS UNRESOLVED',19,'#dce7d9','700')}
 ${text(80,350,`${MARKETS[state.market].label.toUpperCase()}  /  ${state.route.toUpperCase()}  /  ${state.edition.toUpperCase()}`,18,'#a8bea4')}
 ${lines}${text(80,height-158,`KNOWN SUBTOTAL   ${printMoney(receipt.subtotal,state.market)}`,21,'#e4f3df','700')}
-${text(80,height-117,'OFFICIAL GAME PRICES CHECKED 18 NOV 2026 · ALL OTHER QUOTES ARE PERSONAL INPUTS',12,'#b8c9b5')}
+${text(80,height-117,'OFFICIAL STOREFRONT PRICES CHECKED 19 NOV 2026 · PERSONAL INPUTS MARKED',12,'#b8c9b5')}
 ${text(80,height-91,'INDEPENDENT PROJECT · NOT AFFILIATED WITH ROCKSTAR, TAKE-TWO, SONY OR MICROSOFT',11,'#b8c9b5')}
 </svg>`;
 }

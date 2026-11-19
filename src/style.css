@@ -7,3 +7,9 @@
 @media(max-width:530px){.compare{margin-top:40px}.compare-cards{grid-template-columns:1fr}.compare-card:last-child{grid-column:auto}.compare-card{min-height:160px}.compare-card strong{font-size:39px}
 .site-wrap{padding:0 13px}.site-header{height:74px}.brand-stamp{width:44px;height:44px}.brand-type{font-size:16px}.header-right{display:none}.hero{padding:34px 1px 24px;min-height:auto}.hero h1{font-size:clamp(43px,11vw,58px);letter-spacing:-.08em}.deck{font-size:14px}.hero-bottom{gap:9px;flex-wrap:wrap;font-size:8px;line-height:1.5}.hero-bottom span:nth-child(3){display:none}.workspace{margin-top:18px;gap:20px}.work-panel,.receipt{padding:22px 17px}.field-block label,.field-heading{font-size:14px}.choice{padding:10px;min-height:109px}.choice.is-active{padding:9px}.choice strong{font-size:26px}.route-tab{font-size:10px;padding:10px 3px}.conditional-group{padding-left:12px;padding-right:12px}.receipt-title h2{font-size:49px}.total{font-size:58px}.receipt-actions{grid-template-columns:1fr 1fr}.receipt-actions button{font-size:11px}.under-receipt{margin:23px 9px}.facts{padding:57px 0 48px}.section-header{display:block}.section-header h2{font-size:35px;margin-top:18px}.facts-grid{grid-template-columns:1fr;gap:27px}.facts-grid h3{margin-top:13px;margin-bottom:10px}.method{padding:26px 18px;margin-bottom:48px}.method h2{font-size:43px}.footer{padding:20px 0}.footer a{font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Cloud quote controls keep source-backed pricing primary and custom inputs secondary. */
+.cloud-quote-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.cloud-quote-fields[hidden],#cloud-breakdown[hidden]{display:none!important}
+#cloud-breakdown:not([hidden]){font-weight:700;color:var(--pine);background:#edf2e6;padding:12px;border-left:3px solid #819572}
+@media(max-width:530px){.cloud-quote-fields{grid-template-columns:1fr}}

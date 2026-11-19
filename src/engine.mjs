@@ -1,4 +1,5 @@
-import { HARDWARE, MARKETS, VERIFIED_ON, HARDWARE_REFERENCE } from './catalog.mjs';
+import { HARDWARE, MARKETS, VERIFIED_ON, HARDWARE_REFERENCES, CLOUD_PACKS } from './catalog.mjs';
+import { cheapestCloudPacks } from './cloud.mjs';
 
 /**
  * Monetary values are integer minor units (cents/pence). For this catalog all
@@ -28,7 +29,7 @@ export function defaultScenario() {
     market: 'US', edition: 'standard', route: 'own', platform: 'ps5-digital',
     hardwareCents: null, hardwareQuote: 'personal', extraCents: 0,
     taxBasisPoints: null, resaleCents: null, cloudPackCents: null,
-    cloudHoursPerPack: null, plannedHours: 40,
+    cloudHoursPerPack: null, plannedHours: 40, cloudPricingMode: 'official',
   };
 }
 
@@ -49,10 +50,10 @@ export function calculate(input) {
   if (!['standard', 'ultimate'].includes(input.edition)) throw new RangeError('Unsupported edition');
   if (!['own', 'buy', 'cloud'].includes(input.route)) throw new RangeError('Unsupported route');
   if (!HARDWARE[input.platform]) throw new RangeError('Unsupported hardware');
-  if (input.route === 'cloud' && !input.platform.startsWith('xbox-'))
-    throw new RangeError('Cloud route is represented with an Xbox device only');
-  if (input.route !== 'cloud' && input.platform === 'xbox-one')
-    throw new RangeError('Xbox One is a cloud-only path for GTA VI');
+  if (input.route === 'cloud' && HARDWARE[input.platform].ecosystem !== 'xbox')
+    throw new RangeError('Selected device does not support the modelled Xbox cloud route');
+  if (input.route !== 'cloud' && (input.platform === 'xbox-one' || HARDWARE[input.platform].cloudOnly))
+    throw new RangeError('Selected device has no confirmed native GTA VI release');
 
   const market = MARKETS[input.market];
   const game = market.prices[input.edition];
@@ -71,34 +72,51 @@ export function calculate(input) {
       lines.push({ id: 'hardware', label: HARDWARE[input.platform].label, cents: null, evidence: 'unknown' });
     } else {
       subtotal += hardware;
-      const verified = input.market === HARDWARE_REFERENCE.market &&
-        input.platform === HARDWARE_REFERENCE.model &&
-        input.hardwareQuote === HARDWARE_REFERENCE.id &&
-        hardware === HARDWARE_REFERENCE.cents;
+      const reference = HARDWARE_REFERENCES[`${input.market}:${input.platform}`];
+      const verified = !!reference && input.hardwareQuote === reference.id &&
+        hardware === reference.cents;
       lines.push({
         id: 'hardware', label: HARDWARE[input.platform].label, cents: hardware,
         evidence: verified ? 'verified' : 'entered',
-        source: verified ? HARDWARE_REFERENCE.source : null,
-        checked: verified ? HARDWARE_REFERENCE.verifiedOn : null,
+        source: verified ? reference.source : null,
+        checked: verified ? reference.verifiedOn : null,
       });
     }
   }
   if (extra > 0) lines.push({ id: 'extras', label: 'Other one-time costs', cents: extra, evidence: 'entered' });
 
+  let cloudPlan = null;
   if (input.route === 'cloud') {
-    const pack = money(input.cloudPackCents, 'Cloud pack price');
-    const perPack = input.cloudHoursPerPack;
     const hours = input.plannedHours;
     if (!Number.isInteger(hours) || hours < 1 || hours > 10000)
       throw new RangeError('Planned hours must be between 1 and 10,000');
-    if (pack === null || !Number.isInteger(perPack) || perPack < 1 || perPack > 10000) {
-      unknown.push('Cloud-play tariff');
-      lines.push({ id: 'cloud', label: `Cloud access · ${hours} planned hours`, cents: null, evidence: 'unknown' });
+    const mode = input.cloudPricingMode ?? 'official';
+    if (!['official', 'custom'].includes(mode))
+      throw new RangeError('Unsupported cloud pricing mode');
+    if (mode === 'official') {
+      cloudPlan = cheapestCloudPacks(hours, CLOUD_PACKS[input.market]);
+      for (const pack of cloudPlan.selection) {
+        const cents = pack.cents * pack.quantity;
+        subtotal += cents;
+        lines.push({
+          id: `cloud-${pack.hours}`, label: `Cloud access · ${pack.quantity} × ${pack.hours}h pack`,
+          cents, evidence: 'verified', source: pack.source, checked: VERIFIED_ON,
+        });
+      }
     } else {
-      const packs = Math.ceil(hours / perPack);
-      const cloudCost = packs * pack;
-      subtotal += cloudCost;
-      lines.push({ id: 'cloud', label: `Cloud play · ${packs} × ${perPack}h pack`, cents: cloudCost, evidence: 'entered' });
+      const pack = money(input.cloudPackCents, 'Cloud pack price');
+      const perPack = input.cloudHoursPerPack;
+      if (pack === null || !Number.isInteger(perPack) || perPack < 1 || perPack > 10000) {
+        unknown.push('Cloud-play tariff');
+        lines.push({ id: 'cloud', label: `Cloud access · ${hours} planned hours`, cents: null, evidence: 'unknown' });
+      } else {
+        const count = Math.ceil(hours / perPack);
+        const cloudCost = count * pack;
+        subtotal += cloudCost;
+        cloudPlan = { totalCents: cloudCost, coveredHours: count * perPack, unusedHours: count * perPack - hours,
+          selection: [{ hours: perPack, cents: pack, quantity: count }] };
+        lines.push({ id: 'cloud', label: `Cloud access · ${count} × ${perPack}h pack`, cents: cloudCost, evidence: 'entered' });
+      }
     }
   }
   let tax = 0;
@@ -120,13 +138,13 @@ export function calculate(input) {
   const net = checkout !== null && resale !== null ? checkout - resale : null;
   return {
     currency: market.currency, market: input.market, edition: input.edition,
-    route: input.route, lines, subtotal, checkout, futureNetIfResold: net,
+    route: input.route, lines, subtotal, checkout, cloudPlan, futureNetIfResold: net,
     estimatedFutureResale: resale, unknown, fullyPriced: unknown.length === 0,
     assumptions: [
       'Published game prices are dated snapshots; verify again before purchase.',
       ...(market.taxesIncluded ? ['Storefront game price includes local indirect tax.'] :
         ['US tax model applies one illustrative rate to all selected items; actual tax can differ.']),
-      ...(input.route === 'cloud' ? ['Cloud plan availability and eligibility must be confirmed; no streaming tariff is assumed.'] : []),
+      ...(input.route === 'cloud' ? ['Official cloud prices are dated first-party store snapshots; eligibility, streaming availability and ad-supported alternatives differ by account and region.', 'Unused prepaid hours are not a refund or a guaranteed resale value.'] : []),
       ...(resale !== null ? ['Future resale is a personal estimate, not guaranteed money or a checkout discount.'] : []),
     ],
   };

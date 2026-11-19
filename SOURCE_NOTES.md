@@ -37,3 +37,19 @@ One dated example of a first-party US console starting quotation is Xbox Series 
 ## Prior art
 
 [GTA6Cost](https://gta6cost.com/calculator/), [GTA Corner](https://www.gtacorner.com/cost-to-play), [Kalkio](https://kalkio.vercel.app/tools/gta-6-total-cost/), [AxeeTech](https://axeetech.com/gta-6-console-vs-pc-cost-calculator/), [LeonidaLab/gta6-price-index](https://github.com/LeonidaLab/gta6-price-index). This project does not claim to be the first calculator in its category.
+
+## Microsoft cloud-playtime pack prices, first-party listings checked 2026-11-19
+
+These are prices for whole packs, not game purchases. Minimum-cost pack selection is computed independently for each region. The calculator does not establish eligibility for any particular account, title, or device.
+
+| Market | 10 hours | 25 hours | 50 hours |
+| --- | --- | --- | --- |
+| United States | [$3.99](https://www.xbox.com/en-US/games/store/cloud-playtime-10-hours/9pl4njhpdn7l) | [$7.99](https://www.xbox.com/en-US/games/store/cloud-playtime-25-hours/9pg1fs0brh5h) | [$11.99](https://www.xbox.com/en-US/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0) |
+| France | [€3.49](https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-10-heures/9pl4njhpdn7l) | [€6.99](https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-25-heures/9pg1fs0brh5h) | [€10.99](https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-50-heures/9mtv0kn0j3c0) |
+| United Kingdom | [£2.99](https://www.xbox.com/en-GB/games/store/cloud-playtime-10-hours/9pl4njhpdn7l) | [£5.99](https://www.xbox.com/en-GB/games/store/cloud-playtime-25-hours/9pg1fs0brh5h) | [£8.99](https://www.xbox.com/en-GB/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0) |
+
+Microsoft describes other streaming options, including supported free ad-funded access and Game Pass monthly hour allowances, at [Xbox Cloud Gaming](https://www.xbox.com/en-US/cloud-gaming). These are separate service models and are excluded from the prepaid-pack optimization. Availability is account-, game-, device-, and region-dependent. **No general claim of zero-cost GTA VI cloud access is made.**
+
+## Additional first-party US console example
+
+[PlayStation Direct](https://direct.playstation.com/en-us/hardware/ps5) lists PlayStation 5 Digital Edition (825GB) at a starting price of $599.99 on the US storefront. This is a dated hardware reference, not a guaranteed checkout price. Other regions and models remain without a prefilled quote.
