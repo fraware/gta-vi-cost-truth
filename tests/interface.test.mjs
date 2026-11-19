@@ -18,7 +18,7 @@ test('cloud controls are labelled and the rate selector has a manual fallback', 
   }
   assert.match(html, /option value="official"/);
   assert.match(html, /option value="custom"/);
-  assert.match(html, /id="cloud-breakdown"/);
+  assert.match(html, /id="cloud-pack-note"/);
 });
 
 test('portable demo includes the pack optimiser and the published social graphic is a PNG', () => {
@@ -33,7 +33,7 @@ test('project does not inject tracking scripts, remote fonts, or inline external
 });
 
 test('hours presets have explicit numeric values and accessible pressed states', () => {
-  for (const hours of [10,25,40,50,100]) {
+  for (const hours of [10,40,100,200]) {
     assert.match(html,new RegExp(`data-hours="${hours}" aria-pressed="(?:true|false)"`));
   }
   assert.match(app, /dataset\.hours/);
