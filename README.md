@@ -1,86 +1,102 @@
 # GTA VI Cost Truth
 
-### The $80 question.
+**GTA VI cost calculator for PS5, Xbox, and supported cloud routes. Official regional prices, honest unknowns, and a receipt you can verify.**
 
-GTA VI's US Standard Edition is listed at $79.99. The hardware you own, the device you might buy, your country, and the way you play change the bill. **GTA VI Cost Truth** turns those choices into an independently auditable cost receipt.
+**[Try the live calculator](https://fraware.github.io/gta-vi-cost-truth/)** · [Use the calculation API](docs/API.md) · [Download the price data](data/prices.json) · [Review the sources](SOURCE_NOTES.md)
 
-**[Open the website](https://fraware.github.io/gta-vi-cost-truth/)** · [Explore the price snapshot](data/prices.json) · [Check the sources](SOURCE_NOTES.md) · [Run the tests](tests/engine.test.mjs)
+![GTA VI Cost Truth — The $80 Question](assets/og.png)
 
-![The $80 question — GTA VI Cost Truth](assets/og.png)
+GTA VI's US Standard Edition is listed at $79.99. That is not necessarily the cost of getting started. This free, privacy-first calculator compares the game, console hardware, eligible cloud-playtime packs, optional expenditure, and estimated local taxes for your actual situation.
 
-## What you get
+The output is a **source-linked receipt**, with each value classified as a dated first-party listing, visitor-provided quote, or unresolved amount. It never silently substitutes zero for a missing price.
 
-- **Three purchasing routes.** Use an existing console, buy new hardware, or use a documented Xbox console cloud path. These routes are deliberately not presented as interchangeable; cloud access and device eligibility need separate checks.
-- **Nine markets.** United States, France, United Kingdom, Canada, Australia, Germany, Spain, Italy, and Japan. Game prices come from regional Xbox storefronts; independently verified PlayStation prices are used only in markets where sources were checked. We never derive local list prices from exchange rates.
-- **Five verified cloud-playtime catalogs.** Prepaid Xbox Store 10-, 25-, and 50-hour packs for US, FR, GB, CA, and AU. An exact optimizer selects the least expensive whole-pack combination for the requested time horizon. Other markets remain unpriced unless a personal quote is provided.
-- **First-party hardware reference prices.** Dated quotations for selected PlayStation and Xbox hardware in supported markets. A user-entered price stays clearly identified as a personal estimate, even if it matches an official amount.
-- **Receipts with evidence.** Every line is a verified listing, personal quotation, unknown, or conditional item. The headline shows a known subtotal, not a complete total, if important costs are absent.
-- **Private sharing.** Shareable URLs contain only scenario settings. PNG receipt export is produced locally in the browser. No user accounts, analytics scripts, cookies, backend, affiliate links, or runtime scraping.
-- **Auditable tooling.** A dependency-free JavaScript engine, Node CLI, machine-readable JSON price dataset, and automated tests.
+## Try it
 
-## Run the website
+[**Open the interactive calculator**](https://fraware.github.io/gta-vi-cost-truth/). No account, backend, tracking, or API key is needed. Your inputs stay in the browser; shared URLs contain the scenario values you choose to share.
 
-The production site is static HTML, CSS, and ES modules. It needs no server-side runtime, framework, package installation, or API key.
+The first-party price snapshot covers nine markets: United States, France, United Kingdom, Canada, Australia, Germany, Spain, Italy, and Japan. Five markets have documented prepaid Xbox cloud-playtime packs. Hardware quotations are included only for verified market/model combinations. Unsupported price or eligibility claims stay unresolved.
+
+## Reuse it
+
+The core is a zero-dependency ES module. Node.js 20+ is supported for command-line and test workflows.
 
 ```bash
-python3 -m http.server 8080
-# Visit http://localhost:8080/
+git clone https://github.com/fraware/gta-vi-cost-truth.git
+cd gta-vi-cost-truth
+npm run verify
 ```
 
-Node.js 20+ is used for tests, machine-readable snapshots, and the standalone build.
-
-```bash
-npm test
-npm run build:data
-npm run build:demo
-# Open dist/standalone.html as a self-contained offline preview.
-```
-
-### Use the calculation engine
+### Import the engine
 
 ```js
-import { calculate, defaultScenario } from './src/engine.mjs';
+import { calculate, defaultScenario, printMoney } from './src/index.mjs';
 
 const result = calculate({
   ...defaultScenario(),
   market: 'FR',
-  route: 'cloud',
   platform: 'xbox-one',
+  route: 'cloud',
   plannedHours: 40,
 });
 
-console.log(result.checkout);     // 9098 euro cents: game + 50-hour pack
-console.log(result.cloudPlan);    // Exact pack selection and unused hours
-console.log(result.lines);        // Sources, prices, and evidence statuses
+console.log(printMoney(result.checkout, result.market)); // 90,98 €
+console.log(result.cloudPlan?.selection);                // Cheapest whole-pack mix
+console.log(result.lines);                               // Itemized first-party sources
 ```
+
+The amount above is a dated **game-plus-playtime projection**, not a promise of subscription or device eligibility. Integer amounts use the currency's smallest unit, including zero-decimal JPY; there is no implicit exchange-rate conversion.
+
+### Run the command-line calculator
 
 ```bash
-# JSON receipts for scripts, reports, and independent checks
 node scripts/cost.mjs --market FR --route cloud --device xbox-one --hours 40
 node scripts/cost.mjs --market US --route buy --device xbox-series-s --use-official-hardware --tax-rate 8.25
-node scripts/cost.mjs --market JP --route own --device xbox-series-x --edition ultimate
 ```
 
-The desktop and mobile browser interaction suite runs in GitHub Actions. To run it locally, install `@playwright/test@1.56.1` and Chromium, then execute `npx playwright test --config=playwright.config.mjs`. The production site itself has zero dependencies.
+The command prints a structured JSON receipt for independent scripts and reports. [API reference](docs/API.md) documents the complete input and output contracts, evidence statuses, invalid cases, and exported functions.
 
-The export at [`data/prices.json`](data/prices.json) is generated from [`src/catalog.mjs`](src/catalog.mjs). It contains the observation date, currency metadata, prices, and first-party links. **It is a curated dated snapshot, not a live price-feed API.** The arithmetic operates on integer minor units (including zero-decimal JPY) and never performs foreign-exchange conversion.
+### Use the machine-readable price data
 
-## Evidence and limitations
+[`data/prices.json`](data/prices.json) is a versioned JSON export of [`src/catalog.mjs`](src/catalog.mjs), with source links, dates, market currencies, available game prices, cloud packs, and hardware quotations.
 
-The source ledger documents observations made November 19, 2026. Actual checkout amounts, taxes, availability, promotional discounts, cloud service restrictions, game editions, and regional entitlement rules can differ. Changes to market or currency clear stored personal quotes to avoid accidental conversion. US and Canadian sales taxes are deliberately unresolved until a local rate is entered; the illustrative rate applies uniformly to the known subtotal and is not a merchant-specific tax computation. For cloud play, game purchase and prepaid time expenditure are combined into a **playtime-horizon projection**, not a claim that both charges occur at checkout simultaneously.
+```bash
+npm run build:data    # Regenerate prices.json from the source catalog
+npm run check:data    # Check that prices.json matches the catalog
+npm run build:seo     # Update the crawlable nine-market HTML price table
+npm run check:seo     # Check that the static table matches the catalog
+```
 
-The official GTA VI native launch platform list contains PlayStation 5 and Xbox Series X|S. Xbox One is documented as a cloud streaming path. PC, phone, and television options are individually marked conditional: **a generic Xbox Cloud Gaming device list does not establish GTA VI launch availability for every device.** Neither free ad-supported access nor unlimited entitlement is presumed. The price and provenance of each included product are linked in the receipt.
+[Data format and correction policy](docs/DATA.md). Pin a Git commit if building another tool from this snapshot. This is a dated, curated dataset, **not** a live-price API.
 
-See [SOURCE_NOTES.md](SOURCE_NOTES.md) for the exact references and [LAUNCH.md](LAUNCH.md) for publication checks.
+## Run the website locally
 
-## Prior art and positioning
+```bash
+python3 -m http.server 8080
+# Open http://localhost:8080/
+```
 
-GTA VI total-cost calculators and market-price indexes already exist, including GTA6Cost, GTA Corner, Kalkio, and LeonidaLab's GTA VI Price Index. This is **not** a claim of being the first calculator in the category. Its design emphasis is a comparison-first editorial interface, local-first receipt sharing, exact cloud-pack optimization, and price/evidence provenance in an independently testable open-source engine.
+The website uses static HTML, CSS, and native ES modules. `npm run build:demo` creates a self-contained offline HTML file. Test both the engine and the publication artifacts with `npm run verify`; CI also runs automated desktop/mobile Chromium flows.
 
-## Contributing
+## Trust boundaries
 
-Corrections, first-party market sources, localization, accessibility repairs, and reproducible test cases are welcome through GitHub issues and pull requests. An additional verified quote needs an official product-page URL, specific market, currency, edition or device, date of observation, tax treatment, and regression test. Never replace an absent price with an inferred exchange-rate conversion. If uncertain about a listing, prefer an explicit unknown.
+- **Unknowns stay unknown.** Missing console quotes, local tax rates, and unsupported cloud offers prevent a complete total. A known subtotal is still displayed and explained.
+- **Platform claims stay separate.** PlayStation 5 and Xbox Series X|S are the confirmed native launch platforms. Xbox One has a documented Xbox cloud route; other cloud devices need title/device eligibility confirmation. A native PC launch is not included.
+- **Tax and resale are conditional.** US and Canadian rates are visitor-entered estimates; merchant-specific rules may differ. Potential future resale proceeds do not reduce the initial amount due.
+- **Prices have an observation date.** Source-backed means traceable to a first-party listing at the recorded time, not currently guaranteed at checkout.
+- **No third-party game assets.** The interface uses original graphics and is unaffiliated with Rockstar Games, Take-Two Interactive, Sony, or Microsoft.
 
-## License and independence
+See [the detailed evidence ledger](SOURCE_NOTES.md) and [the release checklist](LAUNCH.md).
 
-[MIT](LICENSE). Independently developed and unaffiliated with Rockstar Games, Take-Two Interactive, Sony, Microsoft, or their affiliates. All product and company names are trademarks of their respective owners. Original graphics contain no copied game or console artwork.
+## Extend or contribute
+
+Found an incorrect amount or a missing first-party listing? [Open a price correction](https://github.com/fraware/gta-vi-cost-truth/issues/new/choose). Reusing the engine in research or other tools? The module entry point and JSON format are documented and testable.
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). Corrections need an official retailer URL, edition or model, country, currency, observation date, tax interpretation, and regression test. Small accessibility and interface improvements are welcome.
+
+## Prior art
+
+Several GTA VI cost calculators and price indexes already exist, including GTA6Cost, GTA Corner, Kalkio, and LeonidaLab's pricing index. We do not claim to be the first. This project emphasizes explicit uncertainty, source-linked calculations, reproducible cloud-pack optimization, local-first sharing, and a reusable source catalog.
+
+## License
+
+[MIT](LICENSE) for original code and project material. Vendor trademarks and first-party storefront content remain the property of their respective owners. Copyright © 2026 Matéo Petel.

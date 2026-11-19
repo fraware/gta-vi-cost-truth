@@ -10,9 +10,37 @@
     "serve": "python3 -m http.server 8080",
     "build:demo": "node scripts/build-demo.mjs",
     "build:data": "node scripts/export-data.mjs",
-    "cost": "node scripts/cost.mjs"
+    "cost": "node scripts/cost.mjs",
+    "build:seo": "node scripts/render-seo.mjs",
+    "check:seo": "node scripts/render-seo.mjs --check",
+    "check:data": "node scripts/check-data.mjs",
+    "verify": "npm test && npm run check:seo && npm run check:data && npm run build:demo"
   },
   "engines": {
     "node": ">=20"
-  }
+  },
+  "main": "./src/index.mjs",
+  "exports": {
+    ".": "./src/index.mjs",
+    "./prices.json": "./data/prices.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fraware/gta-vi-cost-truth.git"
+  },
+  "homepage": "https://fraware.github.io/gta-vi-cost-truth/",
+  "bugs": {
+    "url": "https://github.com/fraware/gta-vi-cost-truth/issues"
+  },
+  "keywords": [
+    "gta-vi",
+    "gta-6",
+    "cost-calculator",
+    "playstation-5",
+    "xbox",
+    "game-prices",
+    "open-data",
+    "price-transparency",
+    "cloud-gaming"
+  ]
 }

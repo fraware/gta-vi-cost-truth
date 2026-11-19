@@ -1,0 +1,31 @@
+name: Calculation or interface bug
+description: Report a reproducible issue with totals, sharing, accessibility, or rendering.
+title: "Bug: "
+labels: []
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include country, edition, route, device, relevant inputs, and browser if applicable. Remove sensitive details from shared links.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting evidence
+      description: Optional test, screenshot, or relevant public source link.
+    validations:
+      required: false

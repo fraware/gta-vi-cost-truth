@@ -1,0 +1,45 @@
+name: Price or source correction
+description: Report an outdated listing, incorrect currency, or missing official storefront quote.
+title: "Price correction: "
+labels: []
+body:
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: What needs correction?
+      options:
+        - Game edition price
+        - Console hardware quote
+        - Cloud-playtime offer
+        - Tax treatment or eligibility
+        - Official source link
+    validations:
+      required: true
+  - type: input
+    id: market
+    attributes:
+      label: Country / market
+      placeholder: "US, FR, GB, CA, AU, DE, ES, IT, JP, or a new market"
+    validations:
+      required: true
+  - type: input
+    id: product
+    attributes:
+      label: Exact product or edition
+      placeholder: "Xbox Standard Edition / PS5 Digital 825GB / 25h cloud pack"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Official first-party source URL
+      placeholder: https://www.xbox.com/...
+    validations:
+      required: true
+  - type: textarea
+    id: observation
+    attributes:
+      label: Observed price and date
+      description: Include currency, date, applicable taxes, and any known restrictions or inconsistencies.
+    validations:
+      required: true
