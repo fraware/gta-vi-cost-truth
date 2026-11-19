@@ -1,4 +1,4 @@
-# Evidence ledger — initial snapshot 2026-11-18
+# Evidence ledger — sources initially collected 2026-11-18, cloud packs verified 2026-11-19
 
 This is a dated, manually curated source record, not a live feed. An earlier observation does not guarantee the current checkout price. Compare all quotations with the retailer before purchasing.
 
@@ -21,13 +21,13 @@ Some Xbox storefront displays append a plus sign to prices in product cards, ref
 
 ## Hardware reference
 
-One dated example of a first-party US console starting quotation is Xbox Series S at $499.99. [Microsoft Store](https://www.microsoft.com/en-us/p/-xbox-series-s--/942J774TP9JN/5NCQ). This quotation is not assumed for other markets or configurations. All other console values are user inputs.
+Two dated examples of first-party US console starting quotations are Xbox Series S at $499.99 and PlayStation 5 Digital Edition (825GB) at $599.99. [Microsoft Store](https://www.microsoft.com/en-us/p/-xbox-series-s--/942J774TP9JN/5NCQ). These quotes are not assumed for other markets or configurations. All other console values are visitor inputs. [PlayStation Direct source](https://direct.playstation.com/en-us/hardware/ps5).
 
 ## Scope and exclusions
 
 - No native PC release is represented as confirmed. Streaming from an eligible Xbox One is not a native PC release.
 - No PlayStation Plus, Game Pass, or GTA+ subscription is assumed for offline single-player gameplay.
-- Cloud access tariffs, package sizes and eligibility must be confirmed by the visitor. The model purchases a whole number of user-defined hours packs.
+- Cloud pack quotations for US, France, and UK are dated first-party observations in the table below. Other cloud access offers, regional availability, and eligibility must be confirmed by the visitor. The model buys the cheapest combination of published whole packs covering selected hours, or uses a visitor-entered custom quote.
 - US taxation applies a single illustrative user-entered rate to the modelled subtotal. Actual sales-tax sourcing, taxable item categories, jurisdiction, and final checkout treatment can differ. A blank tax field is unresolved.
 - France and UK are treated as storefront VAT-inclusive game-price markets. Entered hardware costs should also include applicable tax.
 - The resale value is contingent, speculative and distinct from cash needed to purchase.
