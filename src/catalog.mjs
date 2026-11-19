@@ -3,7 +3,7 @@
  * These records are a curated snapshot, not a live pricing API.
  * ISO dates refer to verification during preparation of this release.
  */
-const VERIFIED_ON = '2026-11-18';
+export const VERIFIED_ON = '2026-11-18';
 
 export const MARKETS = Object.freeze({
   US: Object.freeze({

@@ -4,7 +4,9 @@
 
 Independent, open-source cost receipts for Grand Theft Auto VI, released November 19, 2026, on PlayStation 5 and Xbox Series X|S. This project is unaffiliated with Rockstar Games, Take-Two Interactive, Sony, or Microsoft.
 
-**[Open the calculator](https://fraware.github.io/gta-vi-cost-truth/)** · [Read the evidence log](SOURCE_NOTES.md) · [Reproduce the tests](tests/engine.test.mjs)
+[Read the evidence log](SOURCE_NOTES.md) · [Reproduce the tests](tests/engine.test.mjs)
+
+The site is prepared for GitHub Pages. Publishing needs repository Pages to be enabled in **Settings → Pages → Build and deployment → GitHub Actions**. Until then, the public URL is not live.
 
 ![GTA VI Cost Truth](assets/og.svg)
 
