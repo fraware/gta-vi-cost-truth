@@ -42,3 +42,11 @@
 .faq-items details p{max-width:720px;margin:0 0 24px;color:#bdc3bf;line-height:1.75}
 .faq-items summary:focus-visible{outline:2px solid #ff9b84;outline-offset:5px}
 @media(max-width:760px){.faq-grid{grid-template-columns:1fr}.faq-items summary{padding:19px 0}}
+
+/* Launch announcement. A normal link, not a request for votes or engagement. */
+.product-hunt-promo{position:relative;z-index:5;background:#20232d;color:#f6f3ed;border-top:1px solid #333642;border-bottom:1px solid #333642}
+.product-hunt-promo-inner{display:flex;align-items:center;justify-content:center;gap:14px;padding-top:10px;padding-bottom:10px;font-size:12px;letter-spacing:.015em}
+.product-hunt-monogram{display:inline-flex;align-items:center;justify-content:center;flex:0 0 27px;width:27px;height:27px;border-radius:7px;background:#ff6154;color:#fff;font-size:17px;font-weight:800;font-family:var(--sans)}
+.product-hunt-promo-inner>a{font-weight:700;text-decoration:underline;text-underline-offset:3px;color:var(--acid)}
+.product-hunt-promo-inner>a:hover{color:#fff}
+@media(max-width:650px){.product-hunt-promo-inner{gap:8px;justify-content:flex-start;flex-wrap:wrap;font-size:11px;line-height:1.45;padding-top:9px;padding-bottom:9px}.product-hunt-monogram{width:24px;height:24px;flex-basis:24px}.product-hunt-promo-inner>a{margin-left:32px}}

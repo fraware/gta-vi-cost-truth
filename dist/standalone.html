@@ -104,6 +104,14 @@
 .faq-items summary:focus-visible{outline:2px solid #ff9b84;outline-offset:5px}
 @media(max-width:760px){.faq-grid{grid-template-columns:1fr}.faq-items summary{padding:19px 0}}
 
+/* Launch announcement. A normal link, not a request for votes or engagement. */
+.product-hunt-promo{position:relative;z-index:5;background:#20232d;color:#f6f3ed;border-top:1px solid #333642;border-bottom:1px solid #333642}
+.product-hunt-promo-inner{display:flex;align-items:center;justify-content:center;gap:14px;padding-top:10px;padding-bottom:10px;font-size:12px;letter-spacing:.015em}
+.product-hunt-monogram{display:inline-flex;align-items:center;justify-content:center;flex:0 0 27px;width:27px;height:27px;border-radius:7px;background:#ff6154;color:#fff;font-size:17px;font-weight:800;font-family:var(--sans)}
+.product-hunt-promo-inner>a{font-weight:700;text-decoration:underline;text-underline-offset:3px;color:var(--acid)}
+.product-hunt-promo-inner>a:hover{color:#fff}
+@media(max-width:650px){.product-hunt-promo-inner{gap:8px;justify-content:flex-start;flex-wrap:wrap;font-size:11px;line-height:1.45;padding-top:9px;padding-bottom:9px}.product-hunt-monogram{width:24px;height:24px;flex-basis:24px}.product-hunt-promo-inner>a{margin-left:32px}}
+
 </style>
   
   <title>GTA VI Cost Calculator (2026) | PS5, Xbox &amp; Cloud Costs</title>
@@ -114,6 +122,14 @@
     <a href="./" class="brand" aria-label="GTA VI Cost Truth home"><span class="brand-emblem">VI<span class="brand-dot">.</span></span><span class="brand-wordmark">COST<br>TRUTH<span class="wordmark-period">.</span></span></a>
     <nav class="top-nav" aria-label="Main navigation"><a href="#compare">Compare</a><a href="#calculator">Calculator</a><a href="#price-data">The data</a><a class="nav-github" href="https://github.com/fraware/gta-vi-cost-truth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.53v-1.99c-3.08.67-3.73-1.3-3.73-1.3-.51-1.29-1.25-1.63-1.25-1.63-1.03-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1.01 1.72 2.64 1.22 3.28.94.1-.73.4-1.22.72-1.5-2.46-.28-5.05-1.23-5.05-5.49 0-1.22.44-2.22 1.15-3.01-.11-.28-.5-1.43.11-2.97 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.22 2.69.11 2.97.72.79 1.15 1.79 1.15 3.01 0 4.27-2.59 5.2-5.06 5.48.41.35.77 1.04.77 2.1v3.11c0 .29.2.64.77.53A11.2 11.2 0 0 0 12 .8Z"/></svg>Star on GitHub <span class="arrow">↗</span></a></nav>
   </header>
+
+  <aside class="product-hunt-promo" aria-label="Product Hunt launch">
+    <div class="layout-container product-hunt-promo-inner">
+      <span class="product-hunt-monogram" aria-hidden="true">P</span>
+      <span>GTA VI Cost Truth is launching on Product Hunt.</span>
+      <a href="https://www.producthunt.com/products/gta-vi-cost-truth?launch=gta-vi-cost-truth" target="_blank" rel="noopener noreferrer">Explore the launch <span aria-hidden="true">↗</span></a>
+    </div>
+  </aside>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
