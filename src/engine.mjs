@@ -172,6 +172,27 @@ export function decodeScenario(payload) {
     for (const key of Object.keys(defaults)) {
       if (Object.hasOwn(parsed, key)) result[key] = parsed[key];
     }
+    // Shared URLs are untrusted input. Validate *inactive* fields as well:
+    // an invalid hidden cloud quote must not crash the UI if the user toggles routes.
+    for (const field of ['hardwareCents','resaleCents','cloudPackCents']) {
+      const value = result[field];
+      if (value !== null && (!Number.isSafeInteger(value) || value < 0 || value > 999999999))
+        return null;
+    }
+    if (!Number.isSafeInteger(result.extraCents) || result.extraCents < 0 || result.extraCents > 999999999)
+      return null;
+    if (result.taxBasisPoints !== null &&
+        (!Number.isInteger(result.taxBasisPoints) || result.taxBasisPoints < 0 || result.taxBasisPoints > 10000))
+      return null;
+    if (!Number.isInteger(result.plannedHours) || result.plannedHours < 1 || result.plannedHours > 10000)
+      return null;
+    if (result.cloudHoursPerPack !== null &&
+        (!Number.isInteger(result.cloudHoursPerPack) || result.cloudHoursPerPack < 1 || result.cloudHoursPerPack > 10000))
+      return null;
+    if (!['official','custom'].includes(result.cloudPricingMode))
+      return null;
+    if (typeof result.hardwareQuote !== 'string' || result.hardwareQuote.length > 100)
+      return null;
     calculate(result);
     return result;
   } catch { return null; }

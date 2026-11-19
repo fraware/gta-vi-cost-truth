@@ -59,6 +59,11 @@ function renderForm() {
   $('cloud-pack').value = moneyInput(state.cloudPackCents);
   $('cloud-hours').value = state.cloudHoursPerPack ?? '';
   $('planned-hours').value = state.plannedHours;
+  for (const button of document.querySelectorAll('[data-hours]')) {
+    const active = Number(button.dataset.hours) === state.plannedHours;
+    button.classList.toggle('is-active', active);
+    button.setAttribute('aria-pressed', String(active));
+  }
   $('tax').value = state.taxBasisPoints === null ? '' : (state.taxBasisPoints / 100).toFixed(2);
   const reference = HARDWARE_REFERENCES[`${state.market}:${state.platform}`];
   $('reference-quote').hidden = !(reference && state.route === 'buy');
@@ -208,6 +213,12 @@ $('cloud-pricing').addEventListener('change', e => {
   state.cloudPricingMode = e.target.value;
   refresh();
 });
+for (const button of document.querySelectorAll('[data-hours]')) {
+  button.addEventListener('click', () => {
+    state.plannedHours = Number(button.dataset.hours);
+    refresh();
+  });
+}
 $('tax').addEventListener('change', (e) => {
   const amount = parseMoney(e.target.value);
   if (e.target.value.trim() && (amount === null || amount > 10000)) {

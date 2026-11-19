@@ -152,3 +152,27 @@ test('game provenance follows platform ecosystem', () => {
     }
   }
 });
+
+test('untrusted shared links reject invalid values in currently hidden fields', () => {
+  const base = defaultScenario();
+  for (const changes of [
+    { cloudPricingMode: 'unsupported' },
+    { cloudPackCents: -1 },
+    { hardwareCents: 9999999999999999 },
+    { resaleCents: '5000' },
+    { cloudHoursPerPack: 0 },
+    { taxBasisPoints: 10001 },
+    { hardwareQuote: { id: 'fake' } },
+    { extraCents: null },
+    { plannedHours: 10001 },
+  ]) {
+    assert.equal(decodeScenario(encodeURIComponent(JSON.stringify({ ...base, ...changes }))), null);
+  }
+});
+
+test('valid share links preserve official/custom price modes and user quotes', () => {
+  for (const mode of ['official','custom']) {
+    const input = scenario({market:'FR',route:'cloud',platform:'xbox-one',cloudPricingMode:mode,cloudPackCents:800,cloudHoursPerPack:25,plannedHours:60});
+    assert.deepEqual(decodeScenario(encodeScenario(input)),input);
+  }
+});

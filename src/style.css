@@ -13,3 +13,9 @@
 .cloud-quote-fields[hidden],#cloud-breakdown[hidden]{display:none!important}
 #cloud-breakdown:not([hidden]){font-weight:700;color:var(--pine);background:#edf2e6;padding:12px;border-left:3px solid #819572}
 @media(max-width:530px){.cloud-quote-fields{grid-template-columns:1fr}}
+
+/* Small direct-manipulation controls for exploring the official stepped tariffs. */
+.hours-presets{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.hours-presets button{min-width:49px;border:1px solid #b6c2b0;background:#f7f9f0;padding:9px 11px;font-size:12px;font-weight:700;color:var(--pine)}
+.hours-presets button.is-active,.hours-presets button[aria-pressed=true]{background:var(--pine);border-color:var(--pine);color:#f7faed}
+.hours-presets button:focus-visible{outline:3px solid #668245;outline-offset:2px}

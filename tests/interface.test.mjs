@@ -31,3 +31,10 @@ test('project does not inject tracking scripts, remote fonts, or inline external
   assert.doesNotMatch(html, /<script[^>]+src="https?:\/\//i);
   assert.doesNotMatch(html, /fonts\.googleapis|google-analytics|googletagmanager|plausible\.io/i);
 });
+
+test('hours presets have explicit numeric values and accessible pressed states', () => {
+  for (const hours of [10,25,40,50,100]) {
+    assert.match(html,new RegExp(`data-hours="${hours}" aria-pressed="(?:true|false)"`));
+  }
+  assert.match(app, /dataset\.hours/);
+});
