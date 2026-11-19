@@ -1,199 +1,159 @@
-import { HARDWARE, MARKETS, VERIFIED_ON, HARDWARE_REFERENCES, CLOUD_PACKS } from './catalog.mjs';
+import { MARKETS, HARDWARE, HARDWARE_REFERENCES, CLOUD_PACKS, VERIFIED_ON } from './catalog.mjs';
 import { cheapestCloudPacks } from './cloud.mjs';
 
-/**
- * Monetary values are integer minor units (cents/pence). For this catalog all
- * currencies have two decimal places; introduce currency metadata for others.
- * This engine does no currency conversion and never represents unknown as zero.
- */
-export function parseMoney(value) {
-  if (value === '' || value === null || value === undefined) return null;
-  const s = String(value).trim().replace(',', '.');
-  if (!/^(?:\d{1,7})(?:\.\d{1,2})?$/.test(s)) return null;
-  const [whole, fractional = ''] = s.split('.');
-  const cents = Number(whole) * 100 + Number(fractional.padEnd(2, '0'));
-  return Number.isSafeInteger(cents) && cents <= 999999999 ? cents : null;
-}
+const MAX_AMOUNT = 999999999;
+const monetary = (value, field, nullable = true) => {
+  if (value === null && nullable) return null;
+  if (!Number.isSafeInteger(value) || value < 0 || value > MAX_AMOUNT) throw new RangeError(`Invalid ${field}`);
+  return value;
+};
 
-export function printMoney(cents, market) {
-  if (!Number.isSafeInteger(cents)) return 'Unknown';
-  const m = MARKETS[market];
-  if (!m) throw new RangeError(`Unknown market: ${market}`);
-  return new Intl.NumberFormat(m.locale, {
-    style: 'currency', currency: m.currency, minimumFractionDigits: 2,
-  }).format(cents / 100);
+/** Parse a nonnegative amount into the market currency's smallest unit. */
+export function parseMoney(value, market='US') {
+  if (value === null || value === undefined || String(value).trim() === '') return null;
+  const d=MARKETS[market]?.decimals;
+  if (d === undefined) throw new RangeError('Unknown market');
+  const s=String(value).trim().replace(/\s/g,'').replace(',','.');
+  if (!(d === 0 ? /^\d{1,9}$/.test(s) : new RegExp(`^\\d{1,9}(?:\\.\\d{1,${d}})?$`).test(s))) return null;
+  const [whole,part='']=s.split('.');
+  const unit=10**d;
+  const valueMinor=Number(whole)*unit+Number(part.padEnd(d,'0'));
+  return Number.isSafeInteger(valueMinor) && valueMinor <= MAX_AMOUNT ? valueMinor : null;
 }
-
+export function printMoney(amount, market) {
+  if (amount === null || !Number.isSafeInteger(amount)) return 'Not priced';
+  const m=MARKETS[market]; if(!m)throw new RangeError('Unknown market');
+  return new Intl.NumberFormat(m.locale,{style:'currency',currency:m.currency,minimumFractionDigits:m.decimals,maximumFractionDigits:m.decimals}).format(amount / (10**m.decimals));
+}
 export function defaultScenario() {
   return {
-    market: 'US', edition: 'standard', route: 'own', platform: 'ps5-digital',
-    hardwareCents: null, hardwareQuote: 'personal', extraCents: 0,
-    taxBasisPoints: null, resaleCents: null, cloudPackCents: null,
-    cloudHoursPerPack: null, plannedHours: 40, cloudPricingMode: 'official',
+    market:'US', edition:'standard', route:'own', platform:'ps5-digital',
+    hardwareCents:null, hardwareQuote:'personal', gameCents:null,
+    extraCents:0, taxBasisPoints:null, resaleCents:null,
+    plannedHours:40, cloudPricingMode:'official', cloudPackCents:null, cloudHoursPerPack:null,
   };
 }
-
-function money(value, field, { nullable = true } = {}) {
-  if (value === null && nullable) return null;
-  if (!Number.isSafeInteger(value) || value < 0 || value > 999999999)
-    throw new RangeError(`${field} must be a nonnegative integer of minor currency units`);
-  return value;
-}
+const rule = (bool,message) => { if(!bool)throw new RangeError(message); };
 
 /**
- * Return a receipt with typed evidence and explicit unresolved obligations.
- * Cash now is never offset by hypothetical future resale. Unknown local taxes
- * and unknown cloud tariffs block an all-in checkout figure.
+ * Compute a source-linked cost receipt. Unknown values are kept distinct from
+ * zero and block the claim that a receipt is a complete cost projection.
+ * Currency conversion is never performed.
  */
-export function calculate(input) {
-  if (!input || !MARKETS[input.market]) throw new RangeError('Unsupported market');
-  if (!['standard', 'ultimate'].includes(input.edition)) throw new RangeError('Unsupported edition');
-  if (!['own', 'buy', 'cloud'].includes(input.route)) throw new RangeError('Unsupported route');
-  if (!HARDWARE[input.platform]) throw new RangeError('Unsupported hardware');
-  // The GTA VI announcement specifically confirms Xbox-console cloud access.
-  // General Xbox Cloud Gaming device compatibility is not GTA VI support evidence.
-  if (input.route === 'cloud' && !['xbox-one','xbox-series-s','xbox-series-x'].includes(input.platform))
-    throw new RangeError('GTA VI cloud streaming is documented for Xbox consoles');
-  if (input.route !== 'cloud' && (input.platform === 'xbox-one' || HARDWARE[input.platform].cloudOnly))
-    throw new RangeError('Selected device has no confirmed native GTA VI release');
-
-  const market = MARKETS[input.market];
-  const game = market.prices[input.edition];
-  const extra = money(input.extraCents, 'Extra expenditure', { nullable: false });
-  const lines = [{
-    id: 'game', label: `GTA VI · ${input.edition === 'standard' ? 'Standard' : 'Ultimate'}`,
-    cents: game, evidence: 'verified', source: HARDWARE[input.platform].ecosystem === 'xbox' ? market.xboxSource[input.edition] : market.source[input.edition],
-    checked: VERIFIED_ON,
-  }];
-  let subtotal = game + extra;
-  const unknown = [];
-  if (input.route === 'buy') {
-    const hardware = money(input.hardwareCents, 'Hardware price');
-    if (hardware === null) {
-      unknown.push('Console quotation');
-      lines.push({ id: 'hardware', label: HARDWARE[input.platform].label, cents: null, evidence: 'unknown' });
+export function calculate(scenario) {
+  rule(scenario && MARKETS[scenario.market], 'Unsupported country');
+  const m=MARKETS[scenario.market];
+  rule(['standard','ultimate'].includes(scenario.edition),'Unsupported edition');
+  rule(['own','buy','cloud'].includes(scenario.route),'Unsupported play route');
+  const hardware=HARDWARE[scenario.platform];
+  rule(hardware,'Unsupported device');
+  rule(scenario.route === 'cloud' ? hardware.ecosystem === 'xbox' : !hardware.cloudOnly, 'Device not supported for this play route');
+  rule(Number.isSafeInteger(scenario.plannedHours) && scenario.plannedHours>=1 && scenario.plannedHours<=10000,'Hours must be between 1 and 10,000');
+  const extra = monetary(scenario.extraCents,'extras',false);
+  const resale = scenario.route==='buy' ? monetary(scenario.resaleCents,'resale') : null;
+  const quote = scenario.route==='buy' ? monetary(scenario.hardwareCents,'hardware quotation') : null;
+  const userGame = monetary(scenario.gameCents,'personal game price');
+  const lines=[]; const unknown=[]; const caveats=[];
+  let subtotal=0; let cloudPlan=null;
+  const push=(id,label,amount,evidence,source=null,category='other')=>{
+    lines.push({id,label,amount,evidence,source,category,checked:source?VERIFIED_ON:null});
+    if(amount!==null)subtotal+=amount;
+  };
+  const currentGame=m.game[hardware.ecosystem];
+  if(currentGame) {
+    push('game',`GTA VI · ${scenario.edition==='standard'?'Standard':'Ultimate'} edition`,currentGame.prices[scenario.edition],'verified',currentGame.source[scenario.edition],'game');
+  } else if(userGame!==null) {
+    push('game',`GTA VI · ${scenario.edition==='standard'?'Standard':'Ultimate'} (your quote)`,userGame,'entered',null,'game');
+    caveats.push('The game price for this platform and region was entered by you; first-party verification is pending.');
+  } else {
+    unknown.push('First-party PlayStation price for this country');
+    push('game','GTA VI · price not verified for this platform',null,'unknown',null,'game');
+  }
+  if(scenario.route==='buy') {
+    const ref=HARDWARE_REFERENCES[`${scenario.market}:${scenario.platform}`];
+    if(quote===null) {
+      unknown.push('New or refurbished console price');
+      push('hardware',hardware.label,null,'unknown',null,'hardware');
     } else {
-      subtotal += hardware;
-      const reference = HARDWARE_REFERENCES[`${input.market}:${input.platform}`];
-      const verified = !!reference && input.hardwareQuote === reference.id &&
-        hardware === reference.cents;
-      lines.push({
-        id: 'hardware', label: HARDWARE[input.platform].label, cents: hardware,
-        evidence: verified ? 'verified' : 'entered',
-        source: verified ? reference.source : null,
-        checked: verified ? reference.verifiedOn : null,
-      });
+      const verified=Boolean(ref && ref.amount===quote && ref.id===scenario.hardwareQuote);
+      push('hardware',hardware.label,quote,verified?'verified':'entered',verified?ref.source:null,'hardware');
     }
   }
-  if (extra > 0) lines.push({ id: 'extras', label: 'Other one-time costs', cents: extra, evidence: 'entered' });
-
-  let cloudPlan = null;
-  if (input.route === 'cloud') {
-    const hours = input.plannedHours;
-    if (!Number.isInteger(hours) || hours < 1 || hours > 10000)
-      throw new RangeError('Planned hours must be between 1 and 10,000');
-    const mode = input.cloudPricingMode ?? 'official';
-    if (!['official', 'custom'].includes(mode))
-      throw new RangeError('Unsupported cloud pricing mode');
-    if (mode === 'official') {
-      cloudPlan = cheapestCloudPacks(hours, CLOUD_PACKS[input.market]);
-      for (const pack of cloudPlan.selection) {
-        const cents = pack.cents * pack.quantity;
-        subtotal += cents;
-        lines.push({
-          id: `cloud-${pack.hours}`, label: `Cloud access · ${pack.quantity} × ${pack.hours}h pack`,
-          cents, evidence: 'verified', source: pack.source, checked: VERIFIED_ON,
-        });
-      }
-    } else {
-      const pack = money(input.cloudPackCents, 'Cloud pack price');
-      const perPack = input.cloudHoursPerPack;
-      if (pack === null || !Number.isInteger(perPack) || perPack < 1 || perPack > 10000) {
-        unknown.push('Cloud-play tariff');
-        lines.push({ id: 'cloud', label: `Cloud access · ${hours} planned hours`, cents: null, evidence: 'unknown' });
+  if(extra) push('extras','Accessories and other one-time costs',extra,'entered',null,'extras');
+  if(scenario.route==='cloud') {
+    const mode=scenario.cloudPricingMode ?? 'official';
+    rule(['official','custom','ad'].includes(mode),'Unsupported cloud payment type');
+    if(hardware.unconfirmedDevice) {
+      unknown.push('GTA VI availability on the selected cloud device');
+      caveats.push('Xbox documents cloud gaming for several device types, but GTA VI launch support is explicitly announced for Xbox One and Xbox Series X|S. Verify this device in the Xbox app.');
+    }
+    if(mode==='ad') {
+      push('cloud-ad','Ad-supported access · coverage not established',null,'conditional',null,'cloud');
+      unknown.push('Ad-supported session and monthly limits for planned hours');
+      caveats.push('Microsoft lists a zero-subscription-cost ad-supported route, with session and monthly caps. This receipt does not establish sufficient access for your planned hours. Game purchase remains necessary.');
+    } else if(mode==='official') {
+      const packs=CLOUD_PACKS[scenario.market];
+      if(!packs) {
+        unknown.push('Local prepaid cloud pack prices');
+        push('cloud','Cloud access · official local tariff unavailable',null,'unknown',null,'cloud');
       } else {
-        const count = Math.ceil(hours / perPack);
-        const cloudCost = count * pack;
-        subtotal += cloudCost;
-        cloudPlan = { totalCents: cloudCost, coveredHours: count * perPack, unusedHours: count * perPack - hours,
-          selection: [{ hours: perPack, cents: pack, quantity: count }] };
-        lines.push({ id: 'cloud', label: `Cloud access · ${count} × ${perPack}h pack`, cents: cloudCost, evidence: 'entered' });
+        cloudPlan=cheapestCloudPacks(scenario.plannedHours,packs);
+        for(const p of cloudPlan.selection)push(`cloud-${p.hours}`,`${p.quantity} × ${p.hours}-hour Xbox cloud pack`,p.quantity*p.amount,'verified',p.source,'cloud');
+        caveats.push(`Prepaid pack estimate covers ${cloudPlan.coveredHours} hours; ${cloudPlan.unusedHours} hours exceed your requested playtime. Eligibility and playable titles vary.`);
+      }
+    } else {
+      const pack=monetary(scenario.cloudPackCents,'custom cloud price');
+      const packHours=scenario.cloudHoursPerPack;
+      if(pack===null || !Number.isSafeInteger(packHours) || packHours<1 || packHours>10000) {
+        unknown.push('Custom cloud access tariff');
+        push('cloud','Cloud access · personal rate missing',null,'unknown',null,'cloud');
+      } else {
+        const quantity=Math.ceil(scenario.plannedHours/packHours);
+        cloudPlan={ totalAmount:quantity*pack, coveredHours:quantity*packHours, unusedHours:quantity*packHours-scenario.plannedHours,
+          selection:[{hours:packHours,amount:pack,quantity}]};
+        push('cloud',`${quantity} × ${packHours}-hour custom cloud pack`,cloudPlan.totalAmount,'entered',null,'cloud');
       }
     }
   }
-  let tax = 0;
-  if (!market.taxesIncluded) {
-    const bps = input.taxBasisPoints;
-    if (bps === null || bps === undefined) {
-      unknown.push('Applicable sales tax');
-      tax = null;
-      lines.push({ id: 'tax', label: 'Sales tax · rate not entered', cents: null, evidence: 'unknown' });
+  let tax=null;
+  if(!m.taxIncluded) {
+    const bps=scenario.taxBasisPoints;
+    if(bps===null || bps===undefined) {
+      unknown.push('Local sales tax');
+      push('tax','Estimated checkout taxes',null,'unknown',null,'tax');
     } else {
-      if (!Number.isInteger(bps) || bps < 0 || bps > 10000)
-        throw new RangeError('Illustrative tax percentage outside 0–100%');
-      tax = Math.round((subtotal * bps) / 10000);
-      lines.push({ id: 'tax', label: `Estimated sales tax · ${(bps / 100).toFixed(2)}%`, cents: tax, evidence: 'entered' });
+      rule(Number.isSafeInteger(bps) && bps>=0 && bps<=10000,'Invalid sales tax rate');
+      tax=Math.round(subtotal*bps/10000);
+      push('tax',`Illustrative tax · ${(bps/100).toFixed(2)}%`,tax,'entered',null,'tax');
     }
+    caveats.push('One entered rate is applied to all modelled items. Actual game, hardware, and cloud tax treatment differs by jurisdiction and merchant.');
+  } else {
+    caveats.push('Storefront game and cloud prices are displayed inclusive of applicable indirect taxes; personal hardware quotes should include tax.');
   }
-  const resale = input.route === 'buy' ? money(input.resaleCents, 'Projected resale') : null;
-  const checkout = unknown.length === 0 && tax !== null ? subtotal + tax : null;
-  const net = checkout !== null && resale !== null ? checkout - resale : null;
+  const complete=unknown.length===0;
+  const total=complete?subtotal:null;
+  const net=total!==null&&resale!==null?total-resale:null;
   return {
-    currency: market.currency, market: input.market, edition: input.edition,
-    route: input.route, lines, subtotal, checkout, cloudPlan, futureNetIfResold: net,
-    estimatedFutureResale: resale, unknown, fullyPriced: unknown.length === 0,
-    assumptions: [
-      'Published game prices are dated snapshots; verify again before purchase.',
-      ...(market.taxesIncluded ? ['Storefront game price includes local indirect tax.'] :
-        ['US tax model applies one illustrative rate to all selected items; actual tax can differ.']),
-      ...(input.route === 'cloud' ? ['Official cloud prices are dated first-party store snapshots; eligibility, streaming availability and ad-supported alternatives differ by account and region.', 'Unused prepaid hours are not a refund or a guaranteed resale value.'] : []),
-      ...(resale !== null ? ['Future resale is a personal estimate, not guaranteed money or a checkout discount.'] : []),
-    ],
+    market:scenario.market,currency:m.currency,edition:scenario.edition,route:scenario.route,platform:scenario.platform,
+    lines,subtotal,checkout:total,unknown,fullyPriced:complete,cloudPlan,estimatedFutureResale:resale,futureNetIfResold:net,
+    caveats,checked:VERIFIED_ON,
   };
 }
 
-/** URL payload encodes scenario values only; no user identity or location is read. */
+/** URL encoding preserves only allowlisted scenario keys and strictly validates decoded state. */
 export function encodeScenario(scenario) {
-  const keys = Object.keys(defaultScenario());
-  const payload = Object.fromEntries(keys.map(k => [k, scenario[k] ?? null]));
-  const json = JSON.stringify(payload);
-  // encodeURIComponent ensures an ASCII, URL-safe and Unicode-safe payload.
-  return encodeURIComponent(json);
+  const fields=Object.keys(defaultScenario());
+  return 'v1.'+encodeURIComponent(JSON.stringify(Object.fromEntries(fields.map(k=>[k,scenario[k]]))));
 }
-
-/** Strict bounded decode avoids oversized or malformed shared links. */
-export function decodeScenario(payload) {
-  if (!payload || typeof payload !== 'string' || payload.length > 4096) return null;
+export function decodeScenario(value) {
+  if(typeof value!=='string' || value.length>2500 || !value.startsWith('v1.'))return null;
   try {
-    const parsed = JSON.parse(decodeURIComponent(payload));
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
-    const defaults = defaultScenario();
-    const result = { ...defaults };
-    for (const key of Object.keys(defaults)) {
-      if (Object.hasOwn(parsed, key)) result[key] = parsed[key];
-    }
-    // Shared URLs are untrusted input. Validate *inactive* fields as well:
-    // an invalid hidden cloud quote must not crash the UI if the user toggles routes.
-    for (const field of ['hardwareCents','resaleCents','cloudPackCents']) {
-      const value = result[field];
-      if (value !== null && (!Number.isSafeInteger(value) || value < 0 || value > 999999999))
-        return null;
-    }
-    if (!Number.isSafeInteger(result.extraCents) || result.extraCents < 0 || result.extraCents > 999999999)
-      return null;
-    if (result.taxBasisPoints !== null &&
-        (!Number.isInteger(result.taxBasisPoints) || result.taxBasisPoints < 0 || result.taxBasisPoints > 10000))
-      return null;
-    if (!Number.isInteger(result.plannedHours) || result.plannedHours < 1 || result.plannedHours > 10000)
-      return null;
-    if (result.cloudHoursPerPack !== null &&
-        (!Number.isInteger(result.cloudHoursPerPack) || result.cloudHoursPerPack < 1 || result.cloudHoursPerPack > 10000))
-      return null;
-    if (!['official','custom'].includes(result.cloudPricingMode))
-      return null;
-    if (typeof result.hardwareQuote !== 'string' || result.hardwareQuote.length > 100)
-      return null;
+    const raw=JSON.parse(decodeURIComponent(value.slice(3)));
+    if(!raw || typeof raw!=='object' || Array.isArray(raw))return null;
+    const defaults=defaultScenario();
+    const result={...defaults};
+    for(const k of Object.keys(defaults))if(Object.hasOwn(raw,k))result[k]=raw[k];
     calculate(result);
     return result;
-  } catch { return null; }
+  } catch {return null;}
 }

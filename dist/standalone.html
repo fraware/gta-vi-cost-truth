@@ -1,638 +1,748 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#f1f0e9">
-  <meta name="description" content="GTA VI is $79.99 in the US. What does it actually cost to play? Compare a console you own, buying new hardware, and Xbox cloud streaming. See every source and assumption.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e1115">
+  <meta name="description" content="The game is $79.99. What's the full price of playing GTA VI? Compare a console you own, new hardware, and cloud streaming across nine countries. Source-backed, transparent, open source.">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="GTA VI Cost Truth — the real price of playing">
-  <meta property="og:description" content="Verified game prices. Honest unknowns. Your own shareable cost receipt.">
-  <meta property="og:image" content="./assets/og.png">
+  <meta property="og:title" content="GTA VI Cost Truth — The $80 question">
+  <meta property="og:description" content="A game, a console, a subscription? Discover the real cost of entry — with receipts, not guesses.">
+  <meta property="og:url" content="https://fraware.github.io/gta-vi-cost-truth/">
+  <meta property="og:image" content="https://fraware.github.io/gta-vi-cost-truth/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4MCIgaGVpZ2h0PSI4MCIgdmlld0JveD0iMCAwIDgwIDgwIj48cmVjdCB3aWR0aD0iODAiIGhlaWdodD0iODAiIHJ4PSIxMyIgZmlsbD0iIzFjMjQyMSIvPjxwYXRoIGQ9Ik0xMiAxNGg4bDggMzcgOS0zN2g4TDMzIDY2aC05em00MyAwaDExdjUySDU1eiIgZmlsbD0iI2RhZmY2NCIvPjwvc3ZnPgo=">
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTMiIGZpbGw9IiMxNzE5MjIiLz48cGF0aCBkPSJNNiA2aDUydjUySDZ6IiByeD0iNyIgZmlsbD0iI2Q4ZmY3YyIvPjx0ZXh0IHg9IjExIiB5PSI0NiIgZm9udC1mYW1pbHk9IkFyaWFsLEhlbHZldGljYSxzYW5zLXNlcmlmIiBmb250LXNpemU9IjM1IiBmb250LXdlaWdodD0iOTAwIiBsZXR0ZXItc3BhY2luZz0iLTQiIGZpbGw9IiMxNzE5MjIiPlZJLjwvdGV4dD48L3N2Zz4K" type="image/svg+xml">
   <style>
-:root { --paper:#f1f0e9;--white:#fffefa;--ink:#202722;--muted:#687068;--line:#d2d3c7;--lime:#dcfa72;--pine:#1b2923;--receipt:#dce4d8;--red:#ad4a30;--serif:Georgia,'Times New Roman',serif;--sans:Arial,'Helvetica Neue',Helvetica,sans-serif }
-* {box-sizing:border-box} html {scroll-behavior:smooth} body {margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased} button,input,select{font:inherit} button{cursor:pointer} a{color:inherit} a:hover{text-decoration-thickness:2px} button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #408a5b;outline-offset:3px} [hidden]{display:none!important}.skip{position:absolute;top:-100px;left:20px;background:var(--lime);padding:12px;z-index:10}.skip:focus{top:10px}.site-wrap{max-width:1660px;margin:0 auto;padding:0 52px}.site-header{height:108px;border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;gap:13px;align-items:center;text-decoration:none}.brand-stamp{width:53px;height:53px;background:var(--pine);color:var(--lime);display:grid;place-items:center;transform:rotate(-7deg);border-radius:2px}.brand-stamp span{transform:rotate(7deg);font-size:25px;font-weight:900;letter-spacing:-.13em;padding-right:5px}.brand-type{font-size:19px;line-height:1.03;font-weight:400;letter-spacing:-1.1px}.brand-type strong{font-weight:900}.brand-type small{display:block;letter-spacing:2.3px;text-transform:uppercase;color:var(--muted);font-size:8px;font-weight:800;margin-top:7px}.header-right{display:flex;align-items:center;gap:38px}.edition-mark,.small-link,.eyebrow,.panel-top,.panel-number,.panel-side,.receipt-head,.receipt-strap,.receipt-line-head,.receipt-footnote,.receipt-actions,.fact-number,.section-header>span,.footer,.input-status,.micro-link,.method-list>div>span{font-size:11px;font-weight:800;letter-spacing:1.45px}.edition-mark{color:var(--muted)}.small-link{text-underline-offset:5px}.hero{min-height:398px;padding:52px 0 35px;display:grid;grid-template-columns:1fr 220px;gap:38px;border-bottom:1px solid var(--ink)}.eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 25px}.signal{display:inline-block;width:9px;height:9px;border-radius:50%;background:#4d8158;box-shadow:0 0 0 4px #d5e0cf}.hero h1{font-size:clamp(54px,6.25vw,110px);font-weight:800;letter-spacing:-.082em;line-height:.99;margin:0 0 27px;max-width:1130px}.hero h1 span{color:#486c3e}.hero h1 em{font-family:var(--serif);font-weight:400;letter-spacing:-.08em}.deck{font-size:16px;line-height:1.55;color:#4c574d;max-width:760px;margin:0}.hero-bottom{display:flex;gap:34px;margin-top:28px;color:var(--muted);font-size:9px;letter-spacing:1.4px;font-weight:800}.date-stamp{border:1px solid var(--ink);align-self:start;display:flex;flex-direction:column;padding:19px;gap:16px;transform:rotate(3deg);background:var(--lime);box-shadow:7px 7px 0 var(--ink)}.date-stamp>span{font-size:10px;letter-spacing:1.4px;font-weight:800}.date-stamp strong{font-size:105px;font-weight:900;letter-spacing:-.105em;line-height:.77;padding-top:12px}.date-stamp strong span{display:block;font-size:31px;letter-spacing:-2px;margin-top:11px}.date-stamp a{font-size:12px;border-top:1px solid var(--ink);padding-top:15px;font-weight:bold;text-decoration:none}.workspace{display:grid;grid-template-columns:minmax(0,1.07fr) minmax(370px,.93fr);align-items:start;gap:22px;margin-top:32px}.work-panel{background:var(--white);border:1px solid var(--ink);padding:29px 33px 38px;box-shadow:5px 5px 0 #d3d4ca}.panel-top{display:flex;justify-content:space-between;padding-bottom:25px;border-bottom:1px solid var(--line)}.panel-side{color:var(--muted)}.field-block{margin-top:29px}.field-block label,.field-heading{display:flex;justify-content:space-between;gap:12px;font-weight:750;font-size:16px;margin-bottom:13px;align-items:center}.field-note{font-size:12px;color:var(--muted);margin:10px 0 0;line-height:1.55}.field-block select,.field-block input{background:#fbfbf6;color:var(--ink);border:1px solid #bfc3b9;border-radius:0;width:100%;height:52px;padding:0 14px;outline-offset:1px}.field-block input:focus,.field-block select:focus{border-color:#52724a}.select-wrap{position:relative}.select-wrap:after{content:'⌄';position:absolute;right:16px;top:8px;font-size:26px;pointer-events:none;line-height:1}.select-wrap select{appearance:none;padding-right:42px;font-weight:700}.micro-link{font-size:9px;color:#506c4e;text-underline-offset:3px}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice{text-align:left;border:1px solid #bdc3b9;min-height:117px;background:#f9f9f4;padding:16px;display:flex;flex-direction:column;align-items:flex-start;gap:9px}.choice.is-active{border:2px solid var(--pine);background:#f0f6dd;padding:15px}.choice>span{font-size:10px;font-weight:800;letter-spacing:1.2px}.choice strong{font-size:31px;letter-spacing:-1.6px}.choice small{font-size:11px;color:var(--muted)}.route-block{border-top:1px solid var(--line);padding-top:27px;margin-top:31px}.route-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:#e5e7dd;padding:5px}.route-tab{border:0;background:transparent;padding:13px 7px;font-size:11px;font-weight:800;line-height:1.25;min-height:51px}.route-tab.is-active{background:var(--pine);color:#eaf3dc}.route-description{font-size:13px;line-height:1.5;color:var(--muted);margin:13px 0 0}.conditional-group{margin-top:5px;padding:2px 20px 23px;border:1px dashed #aeb6a8;background:#f9fbf2}.input-status{font-size:9px;font-weight:800;color:#71816b;white-space:nowrap}.currency-field{display:flex;position:relative}.currency-field .currency-symbol{position:absolute;left:15px;top:15px;color:var(--muted);font-weight:750}.currency-field input{padding-left:35px}.currency-field.pct input{padding-left:14px;padding-right:40px}.currency-field.pct>span{position:absolute;right:16px;top:16px;color:var(--muted)}.reference-button{border:0;background:transparent;color:#3e6444;font-size:12px;font-weight:800;padding:12px 0 0;text-decoration:underline;text-underline-offset:3px;text-align:left}.secondary-field{margin-top:23px}.cloud-warning{border-left:4px solid #7eae55;padding:13px 16px;margin-top:19px;background:#ecf1e2}.cloud-warning strong{font-size:14px}.cloud-warning p{color:#505b4c;font-size:12px;line-height:1.6}.cloud-warning a{font-size:11px;font-weight:800}.cloud-note{margin-bottom:6px}.two-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.two-fields label{font-size:12px}.two-fields input{padding:0 10px}.more-fields{border-top:1px solid var(--line);margin-top:28px}.receipt-side{position:sticky;top:22px}.receipt{background:var(--pine);color:#f0f5e9;border:1px solid var(--ink);padding:30px 35px 27px;box-shadow:8px 8px 0 #cfddc8}.receipt-head{display:flex;justify-content:space-between;gap:8px;padding-bottom:22px;border-bottom:1px solid #536054}.receipt-id{color:#b7c6b5}.receipt-title{padding:32px 0 28px}.receipt-strap{color:var(--lime)}.receipt-title h2{font-family:var(--serif);font-size:clamp(41px,4vw,65px);font-weight:400;letter-spacing:-2px;line-height:1.05;margin:15px 0 18px}.total{color:var(--lime);font-size:clamp(47px,5vw,87px);font-weight:800;letter-spacing:-.075em;line-height:1.1;word-break:break-word}.total span{display:block;font-size:14px;letter-spacing:0;color:#dce3d8;font-weight:400;margin-top:7px}.receipt-title>p{font-size:12px;line-height:1.5;color:#b3c4b2;margin:14px 0 0}.receipt-lines{border-top:1px solid #546358;padding-top:18px}.receipt-line-head{color:#afbfaa;display:flex;justify-content:space-between;padding-bottom:11px}.line-item{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #38483e;font-size:13px;line-height:1.4}.line-item strong{font-size:14px;white-space:nowrap}.evidence-tag{display:inline-flex;gap:4px;align-items:center;font-size:9px;letter-spacing:1px;font-weight:800;padding-top:4px;color:#a7b3a5}.evidence-tag.verified{color:var(--lime)}.evidence-tag.unknown{color:#f1b4a4}.evidence-tag a{text-decoration:underline;text-underline-offset:2px}.receipt-divider{margin-top:12px}.receipt-subtotal{display:flex;align-items:center;justify-content:space-between;font-size:13px;padding:8px 0 16px}.receipt-subtotal strong{font-size:21px;letter-spacing:-.04em}.net-block{border:1px solid #a9c175;padding:16px;display:flex;flex-direction:column;gap:10px;margin-top:7px}.net-block>span{font-size:10px;letter-spacing:1px;color:var(--lime);font-weight:800}.net-block strong{font-size:34px}.net-block small{color:#bbcbb5;line-height:1.4}.receipt-status{border-top:1px solid #536054;margin-top:12px;padding:22px 0 7px;display:flex;align-items:flex-start;gap:9px;font-size:12px;line-height:1.5}.status-dot{width:8px;height:8px;background:#eb9f7b;border-radius:50%;flex:none;margin-top:5px}.receipt-status.complete .status-dot{background:var(--lime)}.receipt-footnote{font-size:10px;letter-spacing:0;font-weight:400;color:#b0c0ad;line-height:1.6}.receipt-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:20px;letter-spacing:0}.receipt-actions button{border:1px solid #e4eadb;min-height:52px;padding:9px 12px;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left}.action-primary{background:var(--lime);color:var(--pine);border-color:var(--lime)!important}.action-secondary{background:transparent;color:#e4eadb}.action-feedback{font-size:11px;margin:7px 0 0;color:var(--lime);min-height:13px}.under-receipt{margin:29px 12px;display:flex;align-items:start;gap:12px;color:#536252}.under-receipt .small-cross{font-size:23px;line-height:1.1}.under-receipt p{margin:0;font-size:12px;line-height:1.65}.compare{margin-top:66px;border-top:1px solid var(--ink);padding-top:30px}.compare-heading{display:grid;grid-template-columns:190px 1fr 255px;align-items:center;gap:22px;margin-bottom:23px}.compare-heading>span,.compare-index{font-size:10px;font-weight:800;letter-spacing:1.5px;color:#526553}.compare-heading h2{font-family:var(--serif);font-size:37px;letter-spacing:-1.2px;font-weight:400;margin:0}.compare-heading p{font-size:12px;line-height:1.6;color:var(--muted);margin:0}.compare-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.compare-card{border:1px solid #9fa99d;background:#f9f9f3;text-align:left;padding:23px;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-height:220px;transition:background .12s ease}.compare-card:hover{background:#e4ecd8}.compare-card strong{font-size:clamp(28px,3.2vw,49px);font-weight:800;letter-spacing:-2px;line-height:1.1;overflow-wrap:anywhere}.compare-card>span:nth-of-type(2){font-size:12px;color:var(--muted);line-height:1.5}.compare-card em{font-size:12px;font-style:normal;font-weight:800;text-decoration:underline;text-underline-offset:4px;margin-top:auto}
-.facts{padding:92px 0 89px}.section-header{display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding-bottom:28px;border-bottom:1px solid var(--ink)}.section-header h2{font-family:var(--serif);font-size:clamp(32px,4vw,55px);font-weight:400;letter-spacing:-2.4px;margin:0}.facts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;padding-top:34px}.facts-grid article{border-top:3px solid var(--ink);padding-top:13px}.fact-number{font-size:13px;color:#647963}.facts-grid h3{font-size:22px;letter-spacing:-.7px;line-height:1.2;min-height:80px;margin:18px 0 14px}.facts-grid p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}.method{display:grid;grid-template-columns:1fr 1fr;gap:80px;background:#e5e9df;border:1px solid #c9d1c4;padding:48px;margin-bottom:77px}.method h2{font-family:var(--serif);font-size:55px;letter-spacing:-2.4px;font-weight:400;margin:0}.method>div>p:not(.eyebrow){max-width:480px;font-size:14px;line-height:1.8;color:#4c5c4c}.method-list{display:flex;flex-direction:column}.method-list>div{display:flex;gap:19px;border-bottom:1px solid #b4beb0;padding:15px 0}.method-list>div>span{color:#547050;padding-top:3px}.method-list p{font-size:14px;line-height:1.5;margin:0}.footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--ink);padding:28px 0 42px;color:var(--muted);gap:10px}.brand-mini{font-size:25px;color:var(--ink);font-weight:900;letter-spacing:-3px}.brand-mini span{font-size:13px;letter-spacing:-.2px;margin-left:8px}.footer a{font-size:10px}
-@media(max-width:1160px){.site-wrap{padding:0 28px}.workspace{grid-template-columns:1fr 1fr}.work-panel,.receipt{padding-left:24px;padding-right:24px}.receipt-title h2{font-size:49px}.total{font-size:60px}.hero h1{font-size:70px}.date-stamp{transform:rotate(2deg)}}
-@media(max-width:860px){.compare-heading{grid-template-columns:1fr;gap:10px}.compare-heading h2{font-size:34px}.compare-cards{grid-template-columns:1fr 1fr}.compare-card:last-child{grid-column:1/-1}.compare-card{min-height:180px}
-.site-wrap{padding:0 20px}.header-right .edition-mark{display:none}.site-header{height:85px}.hero{grid-template-columns:1fr;padding-top:43px}.hero h1{font-size:clamp(47px,9vw,70px)}.date-stamp{display:none}.workspace{grid-template-columns:1fr}.receipt-side{position:static}.facts-grid{grid-template-columns:1fr 1fr}.facts-grid h3{min-height:0}.method{grid-template-columns:1fr;gap:20px}.footer>div:nth-child(2){display:none}}
-@media(max-width:530px){.compare{margin-top:40px}.compare-cards{grid-template-columns:1fr}.compare-card:last-child{grid-column:auto}.compare-card{min-height:160px}.compare-card strong{font-size:39px}
-.site-wrap{padding:0 13px}.site-header{height:74px}.brand-stamp{width:44px;height:44px}.brand-type{font-size:16px}.header-right{display:none}.hero{padding:34px 1px 24px;min-height:auto}.hero h1{font-size:clamp(43px,11vw,58px);letter-spacing:-.08em}.deck{font-size:14px}.hero-bottom{gap:9px;flex-wrap:wrap;font-size:8px;line-height:1.5}.hero-bottom span:nth-child(3){display:none}.workspace{margin-top:18px;gap:20px}.work-panel,.receipt{padding:22px 17px}.field-block label,.field-heading{font-size:14px}.choice{padding:10px;min-height:109px}.choice.is-active{padding:9px}.choice strong{font-size:26px}.route-tab{font-size:10px;padding:10px 3px}.conditional-group{padding-left:12px;padding-right:12px}.receipt-title h2{font-size:49px}.total{font-size:58px}.receipt-actions{grid-template-columns:1fr 1fr}.receipt-actions button{font-size:11px}.under-receipt{margin:23px 9px}.facts{padding:57px 0 48px}.section-header{display:block}.section-header h2{font-size:35px;margin-top:18px}.facts-grid{grid-template-columns:1fr;gap:27px}.facts-grid h3{margin-top:13px;margin-bottom:10px}.method{padding:26px 18px;margin-bottom:48px}.method h2{font-size:43px}.footer{padding:20px 0}.footer a{font-size:9px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@charset "UTF-8";
+:root{--night:#12141c;--night-2:#1b1e28;--ink:#17171d;--paper:#f6f3ed;--paper-deep:#ede8df;--white:#fff;--line:#dcd7d0;--muted:#6b6b70;--coral:#ff786b;--coral-light:#ffb39f;--acid:#d8ff7c;--mint:#a4eacb;--blue:#b9b6ff;--sans:"Arial", "Helvetica Neue",Helvetica,sans-serif;--serif:Georgia,"Times New Roman",serif;--width:1360px}
+*,*::before,*::after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--coral);outline-offset:3px}.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:absolute;left:12px;top:-100px;z-index:9999;padding:12px 18px;background:var(--acid);color:#111}.skip-link:focus{top:12px}.layout-container{width:min(calc(100% - 96px),var(--width));margin-inline:auto}.section-pad{padding:104px 0}.section-index{font-size:11px;font-weight:800;letter-spacing:.18em;color:#8e4548;margin:0 0 24px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:44px;margin-bottom:38px}h1,h2,h3,p{margin-top:0}h2{margin-bottom:0;font-size:clamp(48px,6.3vw,94px);font-weight:850;letter-spacing:-.075em;line-height:.98}h2 em{font-family:var(--serif);font-weight:400;letter-spacing:-.065em}button,[type=button]{-webkit-tap-highlight-color:transparent}
+/* Masthead */
+.site-header{height:82px;background:var(--night);border-bottom:1px solid #ffffff24;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 max(48px,calc((100vw - var(--width))/2));gap:40px;position:relative;z-index:3}.brand{display:inline-flex;text-decoration:none;gap:12px;align-items:center}.brand-emblem{height:42px;width:49px;display:grid;place-items:center;background:var(--coral);color:var(--night);font-size:25px;font-weight:950;letter-spacing:-.14em;padding-right:4px;transform:skew(-7deg)}.brand-dot,.wordmark-period{color:var(--acid)}.brand-wordmark{font-size:14px;line-height:.86;font-weight:950;letter-spacing:-.08em}.wordmark-period{color:var(--coral)}.top-nav{display:flex;align-items:center;gap:36px;font-size:13px;font-weight:700}.top-nav>a{text-decoration:none;color:#eeeef0;transition:color .2s}.top-nav>a:hover{color:var(--coral)}.top-nav .nav-github{height:44px;background:#fff;color:var(--ink);padding:0 19px;display:inline-flex;align-items:center;gap:10px;border-radius:2px;font-size:12px}.nav-github svg{width:16px;height:16px}.top-nav .nav-github:hover{background:var(--acid);color:var(--night)}.arrow{font-weight:900}
+/* Hero: self-contained artwork, no trademark imagery or third-party fonts */
+.hero{background:var(--night);color:#fff;position:relative;isolation:isolate;overflow:hidden}.hero-glow{position:absolute;right:0;top:0;height:98%;width:65%;background:radial-gradient(ellipse at 72% 35%,#d8505770 0%,#833a6550 30%,#20233400 65%);pointer-events:none;z-index:-1}.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.13;z-index:-1;background-image:linear-gradient(#ffffff14 1px,transparent 1px),linear-gradient(90deg,#ffffff12 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,transparent 2%,#000 90%)}.hero-sun{position:absolute;width:620px;height:620px;border-radius:50%;top:45px;right:-110px;pointer-events:none;background:linear-gradient(180deg,#ffda9e 0%,#ff9174 38%,#ed597e 78%,#8d315f 100%);filter:blur(.2px);opacity:.63;box-shadow:0 0 110px #ea546b37;z-index:-1}.sun-inner{position:absolute;inset:62px;border:1px solid #fff4;border-radius:50%}.sun-line{position:absolute;left:-5%;width:110%;height:22px;background:var(--night);opacity:.6;bottom:20%}.sun-line.two{bottom:14%;height:30px}.sun-line.three{bottom:7%;height:43px}.hero-layout{min-height:656px;display:grid;grid-template-columns:minmax(0,1.16fr) minmax(370px,.84fr);align-items:center;gap:44px;padding-top:65px;padding-bottom:78px}.hero-copy{position:relative;z-index:2}.kicker{display:flex;gap:14px;align-items:center;color:#f9dccd;font-size:10px;letter-spacing:.16em;font-weight:800;margin-bottom:31px}.live-indicator{width:9px;height:9px;border-radius:50%;background:var(--acid);box-shadow:0 0 0 5px #d8ff7c20}.kicker-divider{color:#ffffff66}h1{font-size:clamp(76px,9.9vw,161px);letter-spacing:-.092em;font-weight:950;line-height:.86;margin:0;white-space:nowrap}.ink-outline{color:var(--coral)}.headline-dot{color:var(--acid)}.hero-deck{font-size:clamp(22px,2.65vw,36px);font-weight:750;letter-spacing:-.04em;line-height:1.23;max-width:550px;margin:37px 0 13px}.hero-deck em{font-family:var(--serif);font-weight:400;color:var(--coral-light)}.hero-detail{max-width:470px;color:#b8bbc2;font-size:16px;line-height:1.65;margin-bottom:30px}.hero-actions{display:flex;gap:24px;align-items:center;flex-wrap:wrap}.button-primary{background:var(--acid);color:var(--night);border:1px solid var(--acid);padding:20px 23px;min-height:56px;display:inline-flex;align-items:center;justify-content:space-between;gap:28px;font-weight:850;font-size:14px;letter-spacing:-.015em;text-decoration:none;transition:transform .2s,background .2s}.button-primary:hover{transform:translateY(-3px);background:#e9ffa8}.button-text{font-size:13px;font-weight:750;text-decoration:none;border-bottom:1px solid #ffffff80;padding:12px 0}.button-text:hover{color:var(--coral-light)}.hero-art{height:510px;position:relative;display:grid;place-items:center}.hero-art-index,.hero-art-caption{position:absolute;top:12px;left:0;color:#f5f1efab;font-weight:800;font-size:10px;letter-spacing:.18em}.hero-art-caption{top:auto;bottom:0;left:auto;right:2%}.tag-small{position:absolute;z-index:2;top:58px;right:18px;min-width:220px;transform:rotate(8deg);padding:21px 24px;background:#f0e6d5;color:var(--night);box-shadow:10px 12px 0 #0e0e1740;border:1px solid #fff}.tag-small>span,.tag-big>span{display:block;font-size:10px;font-weight:850;letter-spacing:.11em}.tag-small strong{display:block;font-size:47px;letter-spacing:-.07em;line-height:1.15;margin:6px 0}.tag-small small,.tag-big small{font-weight:750;font-size:8px;letter-spacing:.05em;display:block}.tag-arrow{position:absolute;right:0;top:190px;color:var(--acid);font-size:94px;transform:rotate(-4deg);font-family:var(--serif)}.tag-big{background:var(--acid);color:var(--night);padding:31px 31px 25px;width:min(440px,100%);transform:rotate(-5deg);border:1px solid #ffffff80;box-shadow:18px 24px 0 #08090d99;position:absolute;top:206px;left:0}.tag-big strong{display:block;font-weight:950;font-size:clamp(70px,8vw,116px);line-height:1.1;letter-spacing:-.095em;margin:2px 0 7px;white-space:nowrap}.tag-big strong span{font-size:.48em;letter-spacing:-.04em}.tag-big small{font-size:9px}.tag-footline{border-top:1px solid #16171a80;margin:19px 0 11px}.tag-big-footer{display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:800}.hero-ticker{background:#232630;border-top:1px solid #ffffff26;color:#c7c7d0}.ticker-inner{display:flex;align-items:center;gap:22px;height:62px;font-size:11px;letter-spacing:.12em;font-weight:800;white-space:nowrap}.ticker-separator{color:var(--coral);font-size:17px}.ticker-proof{margin-left:auto;font-size:10px;color:var(--acid)}
+/* Comparison summary */
+.comparison-section{background:var(--paper)}.section-side{text-align:right;min-width:205px}.section-side label{font-size:11px;font-weight:850;display:block;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}.section-side select{width:100%;background:transparent;border:0;border-bottom:2px solid var(--night);padding:11px 25px 11px 0;font-weight:750;color:var(--ink);border-radius:0;font-size:15px}.section-side p{font-size:11px;color:var(--muted);line-height:1.45;margin:11px 0 0}.route-comparison{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.comparison-card{display:flex;flex-direction:column;min-width:0;text-align:left;border:1px solid var(--line);background:white;min-height:350px;padding:27px;transition:border-color .2s,transform .2s,box-shadow .2s;color:var(--ink);position:relative}.comparison-card:hover{border-color:#36343d;transform:translateY(-5px);box-shadow:0 14px 36px #1a1d2114}.comparison-card.featured{background:#191c26;color:#fff;border-color:#191c26}.comparison-card .comparison-no{font-size:11px;letter-spacing:.13em;font-weight:850;color:#8b8389}.comparison-card.featured .comparison-no{color:var(--coral-light)}.comparison-card h3{font-size:21px;line-height:1.15;letter-spacing:-.05em;margin:17px 0 5px}.comparison-card .comparison-sub{font-size:12px;color:#737078}.comparison-card.featured .comparison-sub{color:#b8b9c2}.comparison-card .comparison-amount{font-size:clamp(38px,4.5vw,63px);font-weight:900;letter-spacing:-.075em;margin:34px 0 9px;line-height:1;white-space:nowrap}.comparison-card.featured .comparison-amount{color:var(--acid)}.comparison-card .comparison-caveat{font-size:12px;color:#7d7980;line-height:1.5;min-height:40px}.comparison-card.featured .comparison-caveat{color:#c1bfcb}.comparison-card .mini-bar{margin-top:auto;height:9px;background:#e5e0d9;display:flex;gap:2px;overflow:hidden}.comparison-card.featured .mini-bar{background:#454550}.mini-bar span{height:100%;display:block}.comparison-card .comparison-cta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ddd9d2;padding-top:20px;margin-top:22px;font-weight:800;font-size:12px}.comparison-card.featured .comparison-cta{border-color:#ffffff38}.comparison-cta span:last-child{font-size:20px}.section-annotation{color:#686769;font-size:12px;line-height:1.6;display:flex;align-items:start;gap:10px;max-width:940px;margin:22px 0 0}.section-annotation a{text-underline-offset:3px;font-weight:750}.annotation-star{font-size:18px;color:#ad554e;line-height:1}
+/* Configurator */
+.calculator-section{background:#e9e5dd;border-top:1px solid #e1d9d0}.calculator-heading{margin-bottom:38px}.calculator-heading h2{margin-bottom:18px}.calculator-heading>p:last-child{font-size:16px;color:#615d5f;line-height:1.5;max-width:630px}.calculator-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(400px,.91fr);align-items:start;gap:18px}.config-panel{background:#fcfaf6;padding:42px;border:1px solid #d6d1c8;box-shadow:0 10px 28px #16181d0a;min-width:0}.form-group-heading{display:flex;align-items:center;gap:16px;margin-bottom:23px}.form-seq{background:#22252e;color:var(--acid);height:38px;width:38px;display:grid;place-items:center;font-weight:850;font-size:12px}.form-group-heading h3{font-size:22px;font-weight:850;letter-spacing:-.045em;margin:0}.field-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{margin-bottom:25px;min-width:0}.field>label,.field-head>label{display:block;font-size:12px;font-weight:800;margin-bottom:10px}.field-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.field-head a{font-size:11px;color:#6e5166;font-weight:700;margin-bottom:10px;text-underline-offset:3px}.field select,.field input:not([type=range]):not(.sr-only){width:100%;height:53px;padding:0 14px;color:var(--ink);background:#fff;border:1px solid #cbc7c1;border-radius:0;font-size:14px;font-weight:650}.field select:hover,.field input:hover{border-color:#878084}.field select:focus,.field input:focus{border-color:#695a68;outline-color:var(--coral)}.field select{appearance:auto}.field-hint{color:#817d7e;font-size:11px;line-height:1.5;margin:9px 0 0}.field select option{color:#181818}.field .money-input{border:1px solid #cbc7c1;display:flex;align-items:center;background:white;height:53px}.money-input .currency-symbol,.money-input .unit-suffix{padding:0 12px;color:#7b7778;font-weight:800;font-size:15px}.money-input input:not([type=range]){border:none!important;background:transparent;height:51px;min-width:0;padding-left:0}.money-input:focus-within{outline:3px solid var(--coral);outline-offset:1px}.label-chip{color:#a05f62;font-size:9px;letter-spacing:.07em;font-weight:800;white-space:nowrap}.edition-options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.edition-options button{border:1px solid #d2cbc4;background:#f5f1e9;min-height:89px;padding:15px;text-align:left;display:flex;align-items:start;justify-content:space-between;gap:8px}.edition-options button[aria-pressed=true]{background:#fce2dc;border-color:#e47e72;box-shadow:inset 0 0 0 1px #e47e72}.edition-options button span{font-size:10px;font-weight:900;letter-spacing:.07em}.edition-options button small{font-size:8px;font-weight:600;color:#817b7c;display:block;margin-top:7px}.edition-options button strong{font-weight:850;font-size:19px;letter-spacing:-.06em;white-space:nowrap}.form-separator{border-top:1px solid var(--line);margin:10px 0 31px}.route-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.route-option{display:flex;flex-direction:column;justify-content:space-between;min-height:121px;text-align:left;padding:15px 11px;border:1px solid #d3cec7;background:#fff}.route-option[aria-pressed=true]{border:2px solid var(--night);padding:14px 10px;background:#e9f1dd}.route-glyph{font-size:27px;color:#e7796b;line-height:1.1}.route-option strong{font-size:12px;display:block;letter-spacing:-.025em;line-height:1.2}.route-option small{font-size:10px;display:block;color:#817d7f;margin-top:5px;line-height:1.2}.context-help{color:#807c7d;font-size:12px;margin:14px 0 28px;line-height:1.55}.conditional-group{border-top:1px solid #dedbd5;padding-top:23px}.conditional-group[hidden],.field[hidden],#tax-field[hidden],#cloud-custom-fields[hidden],.source-hint[hidden],.resale-block[hidden]{display:none!important}.source-hint{margin-top:12px;display:flex;align-items:center;gap:15px;flex-wrap:wrap}.source-hint button{background:#e8f3dd;border:1px solid #aabda1;color:#223126;padding:9px 11px;font-size:11px;font-weight:800}.source-hint a{font-size:11px;text-underline-offset:3px}.range-control{width:100%;cursor:pointer;accent-color:#e7796b;height:35px}.field-head output{font-size:12px;font-weight:800;color:#d35c60;margin-bottom:9px}.time-chips{display:flex;gap:9px;margin-top:7px}.time-chips button{font-size:11px;border:1px solid #c9c5bf;background:white;padding:9px 16px;font-weight:750}.time-chips button[aria-pressed=true]{background:var(--night);color:#fff;border-color:var(--night)}.cloud-pack-note{font-size:12px;background:#e9f3e2;border-left:3px solid #68b59b;padding:14px;line-height:1.55;margin-bottom:20px}.cloud-pack-note p{margin:0}.cloud-pack-note a{font-weight:800;text-underline-offset:2px}.advanced-fields{border-top:1px solid #dcd8d0;margin-top:17px}.advanced-fields summary{list-style:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:24px 0;font-size:13px;font-weight:850}.advanced-fields summary::-webkit-details-marker{display:none}.details-plus{font-size:24px;font-weight:400}.advanced-fields[open] .details-plus{transform:rotate(45deg)}.advanced-content{border-top:1px solid #e9e6df;padding:23px 0 5px}.validation-note{color:#a03339;font-size:12px;margin:5px 0 0;min-height:16px}
+/* Receipt */
+.result-panel{background:var(--night);color:white;padding:38px;position:sticky;top:18px;min-width:0;box-shadow:12px 13px 0 #c8cbc3}.result-topline{display:flex;justify-content:space-between;align-items:center;font-size:10px;letter-spacing:.13em;font-weight:850;color:#c7bfc4;padding-bottom:23px;border-bottom:1px solid #ffffff2b}.mini-led{width:6px;height:6px;background:var(--acid);display:inline-block;border-radius:50%;vertical-align:2px;margin-right:4px;box-shadow:0 0 9px var(--acid)}.result-code{color:#8a8d95}.result-kicker{font-size:12px;letter-spacing:.1em;color:var(--coral-light);font-weight:800;margin:28px 0 11px}.result-total{font-size:clamp(60px,6.5vw,103px);font-weight:950;line-height:1;letter-spacing:-.08em;color:var(--acid);overflow-wrap:anywhere}.result-condition{font-size:13px;line-height:1.5;color:#bcbec7;margin:15px 0 30px;min-height:38px}.result-breakdown{padding:0 0 24px;border-bottom:1px solid #ffffff28}.breakdown-header{display:flex;align-items:center;justify-content:space-between;font-size:10px;letter-spacing:.07em;gap:12px}.breakdown-header strong{font-size:11px}.breakdown-header span{font-size:10px;color:#b2acb3}.stacked-bar{display:flex;gap:2px;height:17px;margin:18px 0 11px;background:#343643;overflow:hidden}.stacked-bar span{height:100%;display:block;min-width:1px;transition:width .25s}.bar-legend{display:flex;gap:15px;flex-wrap:wrap}.bar-legend span{font-size:10px;color:#bcbec5;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}.bar-legend i{width:8px;height:8px;display:inline-block}.receipt-list-head{display:flex;align-items:center;justify-content:space-between;font-size:10px;font-weight:850;color:#9698a3;letter-spacing:.1em;margin-top:26px;margin-bottom:4px}.receipt-lines{max-height:420px;overflow-y:auto;scrollbar-width:thin}.line-item{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;padding:15px 0;border-bottom:1px solid #ffffff1c}.line-main{font-size:13px;font-weight:650;line-height:1.4}.line-money{font-size:14px;font-weight:850;white-space:nowrap}.evidence-tag{font-size:9px;letter-spacing:.06em;font-weight:750;margin-top:6px;color:#a0dabc}.evidence-tag.entered{color:#edc18a}.evidence-tag.conditional{color:#fda3ab}.evidence-tag.unknown{color:#ffacac}.evidence-tag a{text-decoration:underline;text-underline-offset:2px}.receipt-summary{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:22px}.receipt-summary span{color:#b9b9c2;font-size:11px;letter-spacing:.1em;font-weight:750}.receipt-summary strong{font-size:21px;letter-spacing:-.04em}.receipt-status{border:1px solid #efbc956b;background:#d77c6040;color:#ffe1d5;padding:14px;margin:20px 0 10px;display:flex;gap:12px;align-items:flex-start}.receipt-status.complete{background:#b4dbb721;border-color:#93d2a05e;color:#d7f3d2}.status-icon{font-size:18px;font-weight:900;line-height:1}.receipt-status p{font-size:12px;line-height:1.45;margin:1px 0 0}.resale-block{background:#ffffff17;margin-top:15px;padding:15px}.resale-block span{font-size:9px;color:#c5c4c5;letter-spacing:.1em;display:block}.resale-block strong{font-size:29px;color:var(--acid);display:block;margin:7px 0}.resale-block small{color:#b2afb6;font-size:11px}.result-actions{display:flex;gap:8px;margin-top:18px}.result-actions button{flex:1;padding:15px 12px;border:1px solid var(--acid);font-size:11px;font-weight:850;min-height:54px;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:5px}.action-share{background:var(--acid);color:#13131a}.action-share:hover{background:#eaffb2}.action-export{background:transparent;color:var(--acid)}.action-export:hover{background:#29322a}.result-actions button span{font-size:16px}.action-feedback{font-size:11px;color:var(--acid);min-height:14px;margin:10px 0 0}.result-footnote{font-size:10px;color:#979aa5;line-height:1.55;padding-top:13px;border-top:1px solid #ffffff27;margin:18px 0 0}
+/* International prices */
+.data-section{background:#fbf9f4}.data-heading{align-items:end}.section-intro{margin:22px 0 0;color:#676469;line-height:1.55;max-width:520px;font-size:16px}.data-date{text-align:right;display:flex;flex-direction:column;gap:5px;min-width:180px}.data-date span{font-size:10px;letter-spacing:.15em;font-weight:850;color:#8d4548}.data-date strong{font-size:36px;font-weight:900;letter-spacing:-.06em}.data-date small{font-size:11px;color:var(--muted)}.price-table-wrap{overflow-x:auto;border-top:2px solid #191a21}.price-table{width:100%;border-collapse:collapse;min-width:700px;text-align:left}.price-table th{font-size:10px;font-weight:850;letter-spacing:.1em;text-transform:uppercase;padding:19px 14px 18px;border-bottom:1px solid #ddd9d3;color:#77747b}.price-table th:first-child,.price-table td:first-child{padding-left:0}.price-table th:last-child,.price-table td:last-child{text-align:right;padding-right:0}.price-table td{border-bottom:1px solid #e1ddd7;padding:19px 14px;font-size:15px;font-weight:750}.price-table tr:hover td{background:#f0ede6}.price-table td:first-child{white-space:nowrap}.market-code{background:#e7e3dd;color:#39343b;width:39px;height:35px;display:inline-grid;vertical-align:middle;place-items:center;margin-right:12px;font-size:10px;font-weight:900;letter-spacing:.08em}.price-table .price-muted{font-size:12px;color:#87848a;font-weight:500}.price-table td a{color:#be5659;text-decoration:underline;text-underline-offset:3px;font-size:12px;font-weight:850}.price-footnote{font-size:12px;color:#787278;line-height:1.6;margin:18px 0 27px;max-width:1000px}.price-footnote a{font-weight:800;color:#923f43}.proof-strip{border:1px solid #d9d5d1;display:flex;align-items:stretch;justify-content:space-between}.proof-strip>div{padding:26px;display:flex;flex-direction:column;justify-content:center;min-width:0;border-right:1px solid #d9d5d1}.proof-strip>div:last-child{border:0}.proof-strip strong{font-size:43px;line-height:1;letter-spacing:-.07em}.proof-strip span{font-size:9px;letter-spacing:.08em;color:#68616a;font-weight:850;margin-top:12px}.proof-strip .proof-strip-link{background:#e9f1df;flex:1;text-align:center}.proof-strip-link a{color:#2a4037;font-size:13px;font-weight:800;text-underline-offset:3px}
+/* Editorial facts */
+.notes-section{background:#e9e5dd}.insight-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.insight-grid article{border-top:2px solid var(--night);padding-top:19px;display:flex;flex-direction:column}.insight-grid article>span{font-size:10px;letter-spacing:.1em;font-weight:850;color:#a05b57}.insight-grid article h3{font-size:27px;line-height:1.13;letter-spacing:-.055em;font-weight:850;margin:22px 0 15px}.insight-grid article p{font-size:13px;line-height:1.65;color:#5b5759;margin:0 0 23px}.insight-grid a{margin-top:auto;font-size:12px;font-weight:850;text-underline-offset:3px}
+/* Github */
+.open-section{background:#1b1d27;color:white;padding:110px 0}.open-inner{display:grid;grid-template-columns:1fr .82fr;gap:72px;align-items:center}.open-inner h2{font-size:clamp(52px,6vw,92px);margin-bottom:25px}.open-inner h2 em{color:var(--coral-light)}.open-inner>div>p:not(.section-index){color:#b9b6c0;line-height:1.7;max-width:480px;font-size:16px}.open-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:29px}.open-secondary{font-size:12px;font-weight:850;text-underline-offset:3px}.code-graphic{border:1px solid #ffffff32;background:#11141b;transform:rotate(2deg);box-shadow:18px 22px 0 #0c0e1480;min-width:0}.code-top{border-bottom:1px solid #ffffff26;padding:16px 22px;display:flex;justify-content:space-between;gap:15px;font-size:10px;color:#b2aeb7;letter-spacing:.1em}.code-graphic pre{font-size:clamp(13px,1.4vw,19px);line-height:1.8;color:#f3ecea;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;padding:30px 32px 35px;margin:0;white-space:pre-wrap}.code-comment{color:#8c929a}.code-accent{color:var(--acid)}.code-rose{color:var(--coral-light)}.site-footer{background:#13151b;color:#c0c0c7}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:30px;padding-block:30px;font-size:11px}.footer-brand{font-weight:900;text-decoration:none;font-size:17px;white-space:nowrap}.footer-brand span{color:var(--coral)}.footer-inner p{margin:0;color:#969aa1;line-height:1.5;max-width:450px}.footer-inner>div{display:flex;gap:22px;white-space:nowrap}.footer-inner>div a{text-underline-offset:3px}.mobile-cost-bar{display:none}
+/* responsive */
+@media(min-width:1500px){.hero-layout{min-height:708px}.hero-art{transform:translateX(26px)}}
+@media(max-width:1150px){.layout-container{width:min(calc(100% - 60px),var(--width))}.site-header{padding-inline:30px}.hero-layout{grid-template-columns:1.1fr .9fr;gap:10px}.hero-art{transform:scale(.86);transform-origin:center right}.hero-sun{right:-240px}h1{font-size:clamp(70px,9vw,114px)}.calculator-grid{grid-template-columns:1fr 1fr}.config-panel{padding:30px}.result-panel{padding:30px}.field-pair{gap:10px}.route-options{gap:5px}.route-option{padding:12px 9px}.route-option[aria-pressed=true]{padding:11px 8px}.insight-grid{grid-template-columns:repeat(2,1fr);row-gap:46px}.comparison-card{padding:23px}.proof-strip>div{padding:21px}}
+@media(max-width:800px){.section-pad{padding:72px 0}.layout-container{width:min(calc(100% - 42px),var(--width))}.site-header{padding-inline:21px;height:72px}.top-nav{gap:16px}.top-nav>a:not(.nav-github){display:none}.nav-github{height:40px!important;padding-inline:13px!important}.hero-layout{display:block;padding:60px 0 74px;min-height:0}.hero-copy{max-width:690px}.hero-art{position:relative;transform:none;height:490px;width:min(520px,100%);margin:30px auto 0}.hero-sun{right:-140px;top:220px}.hero-deck{font-size:27px}.ticker-inner{overflow:hidden;gap:13px}.ticker-proof{display:none}.comparison-section h2,.data-section h2{font-size:clamp(50px,10vw,78px)}.route-comparison{grid-template-columns:1fr;gap:12px}.comparison-card{min-height:230px;padding:24px}.comparison-card .comparison-amount{margin-top:18px}.comparison-card .comparison-caveat{min-height:0}.comparison-card .mini-bar{margin-top:17px}.comparison-card .comparison-cta{margin-top:18px}.calculator-grid{grid-template-columns:1fr}.result-panel{position:static;box-shadow:none}.field-pair{gap:14px}.open-inner{grid-template-columns:1fr;gap:50px}.open-inner h2{font-size:64px}.code-graphic{transform:rotate(1deg)}.data-date{min-width:140px}.proof-strip{flex-wrap:wrap}.proof-strip>div{flex:1 1 25%;text-align:center}.proof-strip .proof-strip-link{flex-basis:100%;border-top:1px solid #d9d5d1}.proof-strip span{line-height:1.3}.footer-inner{flex-wrap:wrap;align-items:start}.mobile-cost-bar{display:flex;position:fixed;bottom:0;left:0;right:0;background:#15171c;border-top:1px solid #ffffff36;padding:12px 22px calc(12px + env(safe-area-inset-bottom));z-index:10;color:#fff;align-items:center;justify-content:space-between;gap:20px;box-shadow:0 -7px 25px #0003}.mobile-cost-bar>div{display:flex;flex-direction:column}.mobile-cost-bar>div span{font-size:9px;color:#aeb2b4;letter-spacing:.12em}.mobile-cost-bar strong{color:var(--acid);font-size:25px;letter-spacing:-.06em}.mobile-cost-bar a{background:var(--acid);font-size:12px;font-weight:850;color:#161616;text-decoration:none;padding:13px 15px}.site-footer{padding-bottom:80px}}
+@media(max-width:530px){.brand-emblem{height:37px;width:43px;font-size:21px}.brand-wordmark{font-size:12px}.nav-github{font-size:11px!important;gap:7px!important}.nav-github svg{width:15px}.hero-layout{padding-top:45px}.hero .kicker{font-size:8px;letter-spacing:.11em;gap:9px}.hero h1{font-size:clamp(57px,13.3vw,80px);white-space:normal;line-height:.92}.hero-deck{font-size:23px;margin-top:26px}.hero-detail{font-size:14px}.button-primary{min-height:52px;padding:14px 17px;font-size:13px}.hero-actions{gap:17px}.button-text{font-size:12px}.hero-art{height:380px;margin-top:24px}.hero-sun{width:420px;height:420px;right:-230px;top:260px}.tag-small{top:5px;min-width:184px;padding:17px 18px;right:4px}.tag-small strong{font-size:37px}.tag-big{top:152px;width:91%;padding:25px 23px 20px;box-shadow:12px 16px 0 #08090d99}.tag-big strong{font-size:clamp(62px,16vw,83px)}.tag-arrow{top:90px;right:3px;font-size:78px}.hero-art-index{left:4px;top:0;font-size:8px}.hero-art-caption{font-size:8px;bottom:5px}.ticker-inner{font-size:8px;gap:9px;height:51px}.comparison-section .section-head{flex-direction:column;align-items:start;gap:22px}.comparison-section .section-side{text-align:left;min-width:0;width:100%}.comparison-section .section-side select{width:100%}.comparison-section h2,.data-section h2{font-size:56px}.calculator-heading h2{font-size:58px}.calculator-heading>p:last-child{font-size:14px}.config-panel{padding:21px}.field-pair{grid-template-columns:1fr;gap:0}.route-options{grid-template-columns:1fr}.route-option{min-height:64px;flex-direction:row;align-items:center;justify-content:start;gap:15px;padding:12px 15px}.route-option[aria-pressed=true]{padding:11px 14px}.route-glyph{width:33px;font-size:27px}.route-option small{margin-top:3px}.edition-options{gap:7px}.edition-options button{padding:13px 9px;min-height:95px;flex-direction:column;justify-content:space-between}.edition-options button strong{font-size:20px}.time-chips{justify-content:space-between}.time-chips button{flex:1;padding:10px 6px}.result-panel{padding:26px 22px}.result-total{font-size:clamp(59px,14vw,83px)}.result-actions{flex-direction:column}.result-actions button{min-height:52px}.data-heading{display:block}.data-date{text-align:left;display:block;margin-top:24px}.data-date strong{display:inline;margin-left:14px;font-size:26px}.data-date small{display:block;margin-top:5px}.proof-strip>div{flex-basis:50%;border-bottom:1px solid #d9d5d1}.insight-grid{grid-template-columns:1fr;row-gap:39px}.open-inner h2{font-size:53px}.open-inner>div>p:not(.section-index){font-size:14px}.code-graphic pre{padding:24px 20px;font-size:12px}.code-top{padding:14px}.footer-inner{display:block}.footer-inner p{margin:16px 0}.footer-inner>div{margin-top:20px}.site-footer{padding-bottom:70px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
 </style>
-  <title>GTA VI Cost Truth — How much does playing actually cost?</title>
   
+  <title>GTA VI Cost Truth — The real cost of playing</title>
 </head>
 <body>
-  <a class="skip" href="#calculator">Skip to calculator</a>
-  <div class="site-wrap">
-    <header class="site-header">
-      <a class="brand" href="./" aria-label="GTA VI Cost Truth, home">
-        <span class="brand-stamp" aria-hidden="true"><span>VI</span></span>
-        <span class="brand-type">COST <strong>TRUTH</strong><small>An independent cost ledger</small></span>
-      </a>
-      <div class="header-right"><span class="edition-mark">ISSUE 001 / NOV 2026</span><a class="small-link" href="#method">The methodology <span aria-hidden="true">↗</span></a></div>
-    </header>
+  <a class="skip-link" href="#calculator">Skip to calculator</a>
+  <header class="site-header" id="top">
+    <a href="./" class="brand" aria-label="GTA VI Cost Truth home"><span class="brand-emblem">VI<span class="brand-dot">.</span></span><span class="brand-wordmark">COST<br>TRUTH<span class="wordmark-period">.</span></span></a>
+    <nav class="top-nav" aria-label="Main navigation"><a href="#compare">Compare</a><a href="#calculator">Calculator</a><a href="#price-data">The data</a><a class="nav-github" href="https://github.com/fraware/gta-vi-cost-truth" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.1.76-.24.76-.53v-1.99c-3.08.67-3.73-1.3-3.73-1.3-.51-1.29-1.25-1.63-1.25-1.63-1.03-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1.01 1.72 2.64 1.22 3.28.94.1-.73.4-1.22.72-1.5-2.46-.28-5.05-1.23-5.05-5.49 0-1.22.44-2.22 1.15-3.01-.11-.28-.5-1.43.11-2.97 0 0 .94-.3 3.08 1.15a10.7 10.7 0 0 1 5.6 0c2.14-1.45 3.08-1.15 3.08-1.15.61 1.54.22 2.69.11 2.97.72.79 1.15 1.79 1.15 3.01 0 4.27-2.59 5.2-5.06 5.48.41.35.77 1.04.77 2.1v3.11c0 .29.2.64.77.53A11.2 11.2 0 0 0 12 .8Z"/></svg>Star on GitHub <span class="arrow">↗</span></a></nav>
+  </header>
 
-    <main>
-      <section class="hero" aria-labelledby="hero-title">
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-sun" aria-hidden="true"><div class="sun-inner"></div><span class="sun-line one"></span><span class="sun-line two"></span><span class="sun-line three"></span></div>
+      <div class="hero-layout layout-container">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="signal" aria-hidden="true"></span> GRAND THEFT AUTO VI / LAUNCH EDITION</p>
-          <h1 id="hero-title">The game is <span>$79.99.</span><br> What's the cost of <em>playing?</em></h1>
-          <p class="deck">The price tag is one number. Your actual bill is another. Build a personal cost receipt with dated storefront evidence, explicit assumptions, and no invented prices.</p>
-          <div class="hero-bottom"><span>01 &nbsp; SET YOUR SITUATION</span><span>02 &nbsp; READ THE RECEIPT</span><span>03 &nbsp; SHARE THE TRUTH</span></div>
+          <div class="kicker"><span class="live-indicator" aria-hidden="true"></span> LAUNCH-DAY PRICE INTELLIGENCE <span class="kicker-divider">/</span> NOV 19, 2026</div>
+          <h1 id="hero-title">THE <span class="ink-outline">$80</span><br>QUESTION<span class="headline-dot">.</span></h1>
+          <p class="hero-deck">GTA VI has a price tag. Playing it has a <em>price.</em> Find yours.</p>
+          <p class="hero-detail">Nine countries. Three ways to play. Real first-party store prices, every assumption exposed.</p>
+          <div class="hero-actions"><a class="button-primary" href="#calculator">Find my real cost <span aria-hidden="true">↘</span></a><a class="button-text" href="#compare">See the comparison <span aria-hidden="true">↓</span></a></div>
         </div>
-        <aside class="date-stamp" aria-label="Release information"><span>OFFICIAL RELEASE</span><strong>19<span>NOV</span></strong><span>2026 / PS5 · XBOX SERIES X|S</span><a href="https://ir.take2games.com/node/32311" target="_blank" rel="noopener noreferrer">Publisher source ↗</a></aside>
-      </section>
-
-      <section class="workspace" id="calculator" aria-label="Interactive cost calculator">
-        <div class="work-panel">
-          <div class="panel-top"><span class="panel-number">01 / YOUR SETUP</span><span class="panel-side">EDIT ANYTHING</span></div>
-          <div class="field-block">
-            <label for="market">Where are you buying?</label>
-            <div class="select-wrap"><select id="market" name="market"><option value="US">United States · USD</option><option value="FR">France · EUR</option><option value="GB">United Kingdom · GBP</option></select></div>
-            <p class="field-note">Prices are checked against the selected platform’s official storefront; they are dated observations.</p>
-          </div>
-          <div class="field-block">
-            <div class="field-heading"><span>Which edition?</span><a id="edition-source" class="micro-link" href="https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVISTANDARD001/" target="_blank" rel="noopener noreferrer">Verify listing ↗</a></div>
-            <div class="choices editions" role="group" aria-label="Game edition">
-              <button type="button" class="choice is-active" data-edition="standard" aria-pressed="true"><span>STANDARD</span><strong id="standard-price">$79.99</strong><small>Complete base game</small></button>
-              <button type="button" class="choice" data-edition="ultimate" aria-pressed="false"><span>ULTIMATE</span><strong id="ultimate-price">$99.99</strong><small>Optional premium content</small></button>
-            </div>
-          </div>
-          <div class="field-block route-block">
-            <label>Your way to play</label>
-            <div class="route-tabs" role="group" aria-label="Route to play">
-              <button type="button" data-route="own" class="route-tab is-active" aria-pressed="true">I own a console</button>
-              <button type="button" data-route="buy" class="route-tab" aria-pressed="false">I'm buying one</button>
-              <button type="button" data-route="cloud" class="route-tab" aria-pressed="false">Cloud streaming</button>
-            </div>
-            <p id="route-description" class="route-description">You already have supported hardware. Count the game and only the extras you choose.</p>
-          </div>
-          <div class="field-block" id="platform-field">
-            <label for="platform" id="platform-label">Your console</label>
-            <div class="select-wrap"><select id="platform" name="platform"></select></div>
-          </div>
-          <div id="buy-fields" class="conditional-group" hidden>
-            <div class="field-block">
-              <label for="hardware">Console price <span class="input-status">YOUR QUOTE</span></label>
-              <div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="hardware" type="text" inputmode="decimal" autocomplete="off" placeholder="Enter your actual price" aria-describedby="hardware-hint"></div>
-              <p class="field-note" id="hardware-hint">Unknown until you enter a quote. Used and refurbished prices are welcome.</p>
-              <button type="button" id="reference-quote" class="reference-button" hidden>Use Microsoft's published Series S price of $499.99 ↗</button>
-            </div>
-            <div class="field-block secondary-field">
-              <label for="resale">Expected resale value <span class="input-status">OPTIONAL ESTIMATE</span></label>
-              <div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="resale" type="text" inputmode="decimal" autocomplete="off" placeholder="Leave blank if keeping it"></div>
-              <p class="field-note">Reduces projected cost of ownership only. It never reduces cash needed today.</p>
-            </div>
-          </div>
-          <div id="cloud-fields" class="conditional-group" hidden>
-            <div class="cloud-warning"><strong>Cloud access is real. The tariff is not assumed.</strong><p>Microsoft confirms launch-day Xbox One streaming and paid playtime in supported markets. Check eligibility and enter a quotation from your account.</p><a href="https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/" target="_blank" rel="noopener noreferrer">Xbox announcement ↗</a></div>
-            <div class="field-block"><label for="cloud-pack">Price per cloud-time pack <span class="input-status">YOUR QUOTE</span></label><div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="cloud-pack" type="text" inputmode="decimal" autocomplete="off" placeholder="Unknown until quoted"></div></div>
-            <div class="two-fields"><div class="field-block"><label for="cloud-hours">Hours per pack</label><input id="cloud-hours" type="number" min="1" max="10000" step="1" placeholder="e.g. 10"></div><div class="field-block"><label for="planned-hours">Hours you plan to play</label><input id="planned-hours" type="number" min="1" max="10000" step="1" value="40"></div></div>
-            <p class="field-note cloud-note">Illustrative whole-pack billing. Subscription entitlements and other cloud payment models are not priced here. Verify actual offers before spending.</p>
-          </div>
-          <div class="more-fields">
-            <div class="field-block"><label for="extras">Extra one-time spending <span class="input-status">OPTIONAL</span></label><div class="currency-field"><span class="currency-symbol" data-symbol>$</span><input id="extras" type="text" inputmode="decimal" autocomplete="off" value="0.00"></div><p class="field-note">Accessories or other spending you decide to include.</p></div>
-            <div class="field-block" id="tax-field"><label for="tax">Estimated local sales tax <span class="input-status">US ONLY</span></label><div class="currency-field pct"><input id="tax" type="text" inputmode="decimal" autocomplete="off" placeholder="Enter your rate"><span>%</span></div><p class="field-note">Illustrative uniform rate. Exact tax treatment depends on location and item.</p></div>
-          </div>
+        <div class="hero-art" aria-label="Illustrated price comparison: $79.99 sticker price compared with the larger bill including a new console">
+          <span class="hero-art-index">PRICE TAG / VS / TRUE COST</span>
+          <div class="tag-small"><span>THE STICKER</span><strong>$79.99</strong><small>US STANDARD · BEFORE TAX</small></div>
+          <div class="tag-arrow" aria-hidden="true">↘</div>
+          <div class="tag-big"><span>BUYING AN XBOX SERIES S?</span><strong>$579<span>.98</span></strong><small>GAME + US CONSOLE REFERENCE · BEFORE TAX</small><div class="tag-footline"></div><div class="tag-big-footer"><span>$80 GAME</span><span>$500 HARDWARE</span></div></div>
+          <span class="hero-art-caption">01 — THE REALITY CHECK</span>
         </div>
+      </div>
+      <div class="hero-ticker"><div class="layout-container ticker-inner"><span>01 / GAME</span><span class="ticker-separator">+</span><span>02 / HARDWARE</span><span class="ticker-separator">+</span><span>03 / ACCESS</span><span class="ticker-separator">+</span><span>04 / YOUR EXTRAS</span><span class="ticker-proof">EVERY NUMBER HAS A SOURCE OR A LABEL.</span></div></div>
+    </section>
 
-        <div class="receipt-side">
-          <div class="receipt">
-            <div class="receipt-head"><span>02 / YOUR RECEIPT</span><span class="receipt-id">COST TRUTH — 001</span></div>
-            <div class="receipt-title"><span class="receipt-strap">A COST, NOT A PROMISE</span><h2 id="receipt-headline">Your cost<br>of entry.</h2><div class="total" id="main-total" aria-live="polite">$79.99<span>+ unknown tax</span></div><p id="total-context">Known minimum, before applicable sales tax.</p></div>
-            <div class="receipt-lines"><div class="receipt-line-head"><span>ITEMIZED COST</span><span>AMOUNT</span></div><div id="line-items"></div><div class="receipt-divider"></div><div class="receipt-subtotal"><span>Known subtotal</span><strong id="subtotal">$79.99</strong></div></div>
-            <div id="net-block" class="net-block" hidden><span>POTENTIAL NET COST IF RESOLD</span><strong id="net-value"></strong><small>Future estimate. Today's checkout total is unchanged.</small></div>
-            <div class="receipt-status" id="receipt-status"><span class="status-dot"></span><span id="receipt-status-text">Local tax rate is still unknown.</span></div>
-            <p class="receipt-footnote">Source checked <span id="checked-date">18 NOV 2026</span>. Your own inputs are estimates. This receipt is independent of Rockstar, Take-Two, Sony, and Microsoft.</p>
-            <div class="receipt-actions"><button type="button" id="share-btn" class="action-primary">Copy my receipt link <span aria-hidden="true">↗</span></button><button type="button" id="export-btn" class="action-secondary">Save as SVG <span aria-hidden="true">↓</span></button></div>
-            <p id="action-feedback" class="action-feedback" role="status" aria-live="polite"></p>
-          </div>
-          <div class="under-receipt"><span class="small-cross" aria-hidden="true">✳</span><p>Numbers marked <strong>VERIFIED</strong> reference a dated public storefront. <strong>YOUR INPUT</strong> means no official price was inferred. Missing costs stay missing.</p></div>
+    <section class="comparison-section section-pad" id="compare" aria-labelledby="compare-title">
+      <div class="layout-container">
+        <div class="section-head"><div><p class="section-index">01 / THE BIG PICTURE</p><h2 id="compare-title">Same game.<br><em>Different bill.</em></h2></div><div class="section-side"><label for="market-compare">Your country</label><select id="market-compare" aria-label="Country for price comparison"></select><p id="comparison-note">Published costs, not guaranteed checkout totals.</p></div></div>
+        <div class="route-comparison" id="route-comparison" aria-live="polite"></div>
+        <p class="section-annotation"><span class="annotation-star">✳</span> Comparisons use Standard Edition, a first-party hardware quote only if verified, and 40 prepaid cloud hours. Local taxes, eligibility, and unknown quotations are identified explicitly. <a href="#method">How we calculate ↗</a></p>
+      </div>
+    </section>
+
+    <section class="calculator-section section-pad" id="calculator" aria-labelledby="calculator-title">
+      <div class="layout-container"><div class="calculator-heading"><p class="section-index">02 / THE PRICE LAB</p><h2 id="calculator-title">Make it <em>your number.</em></h2><p>Change one thing. Watch the receipt change with it. Nothing is estimated without being labelled.</p></div>
+        <div class="calculator-grid">
+          <form id="scenario-form" class="config-panel" autocomplete="off" novalidate>
+            <div class="form-group-heading"><span class="form-seq">01</span><h3>The essentials</h3></div>
+            <div class="field-pair"><div class="field"><label for="market">Country / region</label><select id="market" name="market"></select></div><div class="field"><label for="platform">Device</label><select id="platform" name="platform"></select></div></div>
+            <div class="field"><div class="field-head"><label>Which edition?</label><a id="edition-source" target="_blank" rel="noopener noreferrer" href="https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi">Official price ↗</a></div><div class="edition-options" role="group" aria-label="Game edition"><button type="button" data-edition="standard" aria-pressed="true"><span>STANDARD <small>THE FULL GAME</small></span><strong id="standard-price">$79.99</strong></button><button type="button" data-edition="ultimate" aria-pressed="false"><span>ULTIMATE <small>EXTRA STORY CONTENT</small></span><strong id="ultimate-price">$99.99</strong></button></div></div>
+            <div class="form-separator"></div>
+            <div class="form-group-heading"><span class="form-seq">02</span><h3>How will you play?</h3></div>
+            <div class="route-options" role="group" aria-label="How you will play"><button type="button" class="route-option" data-route="own" aria-pressed="true"><span class="route-glyph">◉</span><span><strong>I have a console</strong><small>Already equipped</small></span></button><button type="button" class="route-option" data-route="buy" aria-pressed="false"><span class="route-glyph">▣</span><span><strong>I'm buying one</strong><small>Add hardware</small></span></button><button type="button" class="route-option" data-route="cloud" aria-pressed="false"><span class="route-glyph">◈</span><span><strong>I'll stream it</strong><small>Cloud playtime</small></span></button></div>
+            <p class="context-help" id="route-description">You own a supported console. No new hardware counted.</p>
+
+            <div id="game-quote-group" class="conditional-group" hidden><div class="field"><label for="game-price">Your game's price <span class="label-chip">YOUR QUOTE</span></label><div class="money-input"><span class="currency-symbol">$</span><input id="game-price" inputmode="decimal" placeholder="Enter a verified local quote"></div><p class="field-hint">This platform's local game price has not been independently verified. Use your retailer's checkout price.</p></div></div>
+            <div id="buy-fields" class="conditional-group" hidden><div class="field"><div class="field-head"><label for="hardware">Console price</label><span class="label-chip">OFFICIAL OR YOUR QUOTE</span></div><div class="money-input"><span class="currency-symbol">$</span><input id="hardware" inputmode="decimal" placeholder="Enter your console quote"></div><div class="source-hint" id="hardware-source-hint" hidden><button type="button" id="reference-quote">Use verified official price</button><a href="#sources" id="hardware-source-link" target="_blank" rel="noopener noreferrer">See source ↗</a></div><p class="field-hint">Used or refurbished? Enter the actual price you expect to pay.</p></div><div class="field"><label for="resale">Expected resale value <span class="label-chip">OPTIONAL</span></label><div class="money-input"><span class="currency-symbol">$</span><input id="resale" inputmode="decimal" placeholder="Leave blank if keeping it"></div><p class="field-hint">Only affects a separate future projection — never today's bill.</p></div></div>
+            <div id="cloud-fields" class="conditional-group" hidden><div class="field"><label for="cloud-pricing">Cloud access option</label><select id="cloud-pricing"><option value="official">Official prepaid packs · best combination</option><option value="ad">Ad-supported access · restricted</option><option value="custom">Use my own quoted plan</option></select><p class="field-hint">An Xbox digital game purchase is still necessary. Service and title availability vary by device.</p></div><div class="field"><div class="field-head"><label for="planned-hours">How many hours will you play?</label><output id="hours-output" for="hours-slider">40 hours</output></div><input id="hours-slider" class="range-control" type="range" min="1" max="200" step="1" value="40"><div class="time-chips" role="group" aria-label="Quick playtime presets"><button type="button" data-hours="10">10h</button><button type="button" data-hours="40">40h</button><button type="button" data-hours="100">100h</button><button type="button" data-hours="200">200h</button></div><input class="sr-only" type="number" id="planned-hours" min="1" max="10000" value="40"></div><div id="cloud-custom-fields" hidden><div class="field-pair"><div class="field"><label for="cloud-pack">Your pack price</label><div class="money-input"><span class="currency-symbol">$</span><input id="cloud-pack" inputmode="decimal" placeholder="Amount"></div></div><div class="field"><label for="cloud-hours">Hours in your pack</label><input id="cloud-hours" type="number" min="1" max="10000" step="1" placeholder="e.g. 10"></div></div></div><div id="cloud-pack-note" class="cloud-pack-note" aria-live="polite"></div></div>
+            <details class="advanced-fields"><summary><span>Fine-tune the estimate</span><span class="details-plus" aria-hidden="true">+</span></summary><div class="advanced-content"><div class="field"><label for="extras">Extra costs / accessories <span class="label-chip">OPTIONAL</span></label><div class="money-input"><span class="currency-symbol">$</span><input id="extras" inputmode="decimal" value="0.00"></div></div><div class="field" id="tax-field"><label for="tax">Your estimated sales tax <span class="label-chip">US / CA</span></label><div class="money-input"><input id="tax" inputmode="decimal" placeholder="e.g. 7.25"><span class="unit-suffix">%</span></div><p class="field-hint">Illustrative rate on the known subtotal. Local tax treatment differs by item and location.</p></div></div></details>
+            <p class="validation-note" id="validation-note" role="status" aria-live="polite"></p>
+          </form>
+
+          <aside class="result-panel" aria-label="Live calculated cost receipt"><div class="result-topline"><span><span class="mini-led"></span> LIVE CALCULATION</span><span class="result-code">VI / COST TRUTH</span></div>
+            <p class="result-kicker" id="result-kicker">YOUR COST OF ENTRY</p><div class="result-total" id="main-total" aria-live="polite">$79.99</div><p class="result-condition" id="total-context">Known subtotal. Your local tax is unresolved.</p>
+            <div class="result-breakdown"><div class="breakdown-header"><strong>WHERE THE MONEY GOES</strong><span id="breakdown-label">GAME ONLY</span></div><div class="stacked-bar" id="stacked-bar" role="img" aria-label="Proportional price breakdown"></div><div class="bar-legend" id="bar-legend"></div></div>
+            <div class="receipt-list-head"><span>THE RECEIPT</span><span>PRICE / EVIDENCE</span></div><div class="receipt-lines" id="line-items"></div>
+            <div class="receipt-summary"><span id="subtotal-label">KNOWN SUBTOTAL</span><strong id="subtotal">$79.99</strong></div><div class="receipt-status" id="receipt-status"><span class="status-icon">!</span><p id="receipt-status-text">Local tax is not yet entered.</p></div>
+            <div class="resale-block" id="net-block" hidden><span>IF YOU LATER RESELL THE CONSOLE</span><strong id="net-value"></strong><small>Speculative net cost. Does not change the amount paid today.</small></div>
+            <div class="result-actions"><button type="button" class="action-share" id="share-btn">Copy a link to my result <span>↗</span></button><button type="button" class="action-export" id="export-btn">Save share image <span>↓</span></button></div><p class="action-feedback" id="action-feedback" role="status" aria-live="polite"></p>
+            <p class="result-footnote">Storefront snapshot <span id="checked-date">NOV 19, 2026</span> · Values marked as user estimates are never presented as independently verified.</p>
+          </aside>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="compare" aria-labelledby="compare-title">
-        <div class="compare-heading"><span>THREE ROUTES / ONE GAME</span><h2 id="compare-title">How you play changes the bill.</h2><p>Illustrative baseline choices. Select a route to inspect its full, editable receipt.</p></div>
-        <div class="compare-cards" role="group" aria-label="Quick cost scenarios">
-          <button type="button" data-preset="own" class="compare-card"><span class="compare-index">01 / ALREADY EQUIPPED</span><strong id="compare-own">$79.99</strong><span>Game only, with applicable tax noted separately</span><em>View receipt ↗</em></button>
-          <button type="button" data-preset="buy" class="compare-card"><span class="compare-index">02 / BUY THE HARDWARE</span><strong id="compare-buy">$579.98</strong><span id="compare-buy-note">US Xbox Series S reference, before tax</span><em>View receipt ↗</em></button>
-          <button type="button" data-preset="cloud" class="compare-card"><span class="compare-index">03 / STREAM ON XBOX ONE</span><strong id="compare-cloud">$79.99+</strong><span>Game plus cloud access, tariff unresolved</span><em>View receipt ↗</em></button>
-        </div>
-      </section>
+    <section class="data-section section-pad" id="price-data" aria-labelledby="data-title"><div class="layout-container"><div class="section-head data-heading"><div><p class="section-index">03 / REAL WORLD, REAL PRICES</p><h2 id="data-title">The <em>price board.</em></h2><p class="section-intro">Nine countries, published platform listings and cloud offers. No currency conversion masquerading as a local price.</p></div><div class="data-date"><span>DATA CUT</span><strong>19.11.26</strong><small>Curated snapshot, not live checkout</small></div></div>
+      <div class="price-table-wrap"><table class="price-table"><caption class="sr-only">Official GTA VI Standard and Ultimate Edition prices for supported countries, plus local Xbox 50-hour cloud packs where verified</caption><thead><tr><th scope="col">Market</th><th scope="col">Standard</th><th scope="col">Ultimate</th><th scope="col">Cloud / 50h</th><th scope="col">First-party source</th></tr></thead><tbody id="price-tbody"></tbody></table></div><p class="price-footnote">Game prices refer to Xbox storefronts in this board; PlayStation prices are used separately in your receipt if independently verified. Cloud pack prices apply only where published and supported. <a href="./SOURCE_NOTES.md">Read every source and caveat ↗</a></p>
+      <div class="proof-strip"><div><strong>9</strong><span>MARKETS CHECKED</span></div><div><strong>5</strong><span>LOCAL CLOUD CATALOGS</span></div><div><strong>0</strong><span>CONVERTED PRICE GUESSWORK</span></div><div class="proof-strip-link"><a href="https://github.com/fraware/gta-vi-cost-truth/blob/main/src/catalog.mjs" target="_blank" rel="noopener noreferrer">Audit the raw data ↗</a></div></div></div></section>
 
-      <section class="facts" aria-labelledby="facts-title"><div class="section-header"><span>BEYOND THE STICKER</span><h2 id="facts-title">Four things worth knowing.</h2></div><div class="facts-grid"><article><span class="fact-number">01</span><h3>You might need no new console.</h3><p>Owners of supported PS5 and Xbox Series X|S systems already have the main piece of hardware.</p></article><article><span class="fact-number">02</span><h3>Xbox One gets a cloud route.</h3><p>Xbox announced launch-day cloud streaming to Xbox One. Streaming is a separate expense and subject to market and account availability.</p></article><article><span class="fact-number">03</span><h3>Single-player is not an online subscription.</h3><p>The base campaign is a single-player experience with offline play on PlayStation. Do not automatically add PS Plus or GTA+ to the minimum cost.</p></article><article><span class="fact-number">04</span><h3>Resale isn't money in your pocket yet.</h3><p>A future resale price is speculative. Our receipt keeps that projection separate from today's purchase.</p></article></div></section>
-      <section class="method" id="method" aria-labelledby="method-title"><div><p class="eyebrow">THE METHODOLOGY</p><h2 id="method-title">No mystery numbers.</h2><p>Every published price has a source and verification date. User quotations are marked as such. Unknown tax, hardware, or cloud fees remain unresolved until entered. No registration, cookies, third-party analytics, or external fonts. The calculation runs in your browser.</p><span class="small-link">Evidence log is included in the project source package</span></div><div class="method-list"><div><span>01</span><p>Verified PlayStation and Xbox storefront prices for the US, France, and UK.</p></div><div><span>02</span><p>Integer-based arithmetic, with tests for taxes, unknowns, cloud packs, and projected resale.</p></div><div><span>03</span><p>Shareable URL state with no identity or location tracking.</p></div><div><span>04</span><p>No official GTA art, branding assets, or claim of affiliation.</p></div></div></section>
-    </main>
-    <footer class="footer"><div class="brand-mini">VI <span>COST TRUTH</span></div><div>INDEPENDENT. OPEN SOURCE. BUILT TO BE CHECKED.</div><a href="#hero-title">BACK TO TOP ↑</a></footer>
-  </div>
+    <section class="notes-section section-pad" id="method" aria-labelledby="method-title"><div class="layout-container"><div class="section-head"><div><p class="section-index">04 / READ BEFORE YOU BUY</p><h2 id="method-title">The fine print.<br><em>Without the tricks.</em></h2></div></div><div class="insight-grid"><article><span>01 / HARDWARE</span><h3>Already own a PS5?</h3><p>Count the game and your chosen extras. The confirmed single-player release has offline play on PlayStation, with no mandatory PS Plus subscription for the base story.</p><a href="https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVISTANDARD001/" target="_blank" rel="noopener noreferrer">PlayStation listing ↗</a></article><article><span>02 / CLOUD</span><h3>Xbox One has a route.</h3><p>Microsoft confirms GTA VI streaming to Xbox One and Series X|S at launch, and lists prepaid playtime packs. The game purchase is separate. Other devices and advertising-supported access have their own eligibility limits.</p><a href="https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/" target="_blank" rel="noopener noreferrer">Xbox announcement ↗</a></article><article><span>03 / PHYSICAL</span><h3>A box doesn't contain a disc.</h3><p>Rockstar states that physical copies carry a digital download code. Factor in your connection, local store rules, and code-region compatibility before buying.</p><a href="https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions" target="_blank" rel="noopener noreferrer">Rockstar support ↗</a></article><article><span>04 / PLATFORM</span><h3>No announced native PC edition.</h3><p>PlayStation 5 and Xbox Series X|S are the confirmed native launch systems. Cloud streaming on a supported PC is a different proposition and requires verification of GTA VI availability on that device.</p><a href="https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi" target="_blank" rel="noopener noreferrer">Publisher release ↗</a></article></div></div></section>
+
+    <section class="open-section" id="sources"><div class="layout-container open-inner"><div><p class="section-index">05 / THE CODE IS THE RECEIPT</p><h2>Don't take<br><em>our word for it.</em></h2><p>No signup, tracking, affiliate commission, or opaque formula. Inspect the prices, challenge the assumptions, and reproduce the tests. Made for players. Open for builders.</p><div class="open-actions"><a class="button-primary" href="https://github.com/fraware/gta-vi-cost-truth" target="_blank" rel="noopener noreferrer">Explore the code on GitHub ↗</a><a class="open-secondary" href="./SOURCE_NOTES.md">Browse the evidence ↗</a></div></div><div class="code-graphic" aria-hidden="true"><div class="code-top"><span>total-cost.js</span><span>PUBLIC / AUDITABLE</span></div><pre><span class="code-comment">// Never turn unknown into zero.</span>
+
+<span class="code-accent">cost</span> = game
+     + hardware
+     + access
+     + yourExtras;
+
+<span class="code-rose">if</span> (unknown.length)
+  return <span class="code-rose">"not fully priced"</span>;
+
+<span class="code-comment">// Your situation. Your receipt.</span></pre></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="layout-container footer-inner"><a href="#top" class="footer-brand">VI<span>.</span> COST TRUTH</a><p>Independent cost research. Not affiliated with Rockstar Games, Take-Two, Sony, or Microsoft.</p><div><a href="https://github.com/fraware/gta-vi-cost-truth" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#top">Back to top ↑</a></div></div></footer>
+  <div class="mobile-cost-bar" id="mobile-cost-bar"><div><span>YOUR COST</span><strong id="mobile-total">$79.99+</strong></div><a href="#calculator">Edit my receipt ↗</a></div>
 <script>
 (()=>{
 /**
- * Point-in-time, independently verifiable storefront observations.
- * These records are a curated snapshot, not a live pricing API.
- * ISO dates refer to verification during preparation of this release.
+ * GTA VI Cost Truth — independently inspected first-party price snapshots.
+ * The data is intentionally maintained in version control rather than fetched
+ * from unofficial scraping endpoints at runtime.
+ * Monetary values are integers in the currency's smallest unit (JPY = yen).
  */
-const VERIFIED_ON = '2026-11-18';
+const VERIFIED_ON = '2026-11-19';
+
+const xboxGameUrl = (region, edition) => `https://www.xbox.com/${region}/games/store/grand-theft-auto-vi/${edition === 'standard' ? '9P3H4968GRSM' : '9NNZSNHLR63L'}`;
+const psGameUrl = (region, edition) => `https://store.playstation.com/${region}/product/EP1004-PPSA01547_00-${edition === 'standard' ? 'GTAVISTANDARD001' : 'GTAVIULTIMATE001'}`;
+const market = ({ name, currency, locale, decimals = 2, taxIncluded, xboxLocale, psLocale = null, xbox, ps = null }) => Object.freeze({
+  name, currency, locale, decimals, taxIncluded,
+  game: Object.freeze({
+    xbox: Object.freeze({ prices: Object.freeze({ standard: xbox[0], ultimate: xbox[1] }), source: Object.freeze({ standard: xboxGameUrl(xboxLocale,'standard'), ultimate: xboxGameUrl(xboxLocale,'ultimate') }) }),
+    playstation: ps ? Object.freeze({ prices: Object.freeze({ standard: ps[0], ultimate: ps[1] }), source: Object.freeze({ standard: psGameUrl(psLocale,'standard'), ultimate: psGameUrl(psLocale,'ultimate') }) }) : null,
+  }),
+});
 
 const MARKETS = Object.freeze({
-  US: Object.freeze({
-    label: 'United States', currency: 'USD', locale: 'en-US', taxesIncluded: false,
-    prices: Object.freeze({ standard: 7999, ultimate: 9999 }),
-    source: Object.freeze({
-      standard: 'https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVISTANDARD001/',
-      ultimate: 'https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVIULTIMATE001',
-    }),
-    xboxSource: Object.freeze({
-      standard: 'https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9P3H4968GRSM',
-      ultimate: 'https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9NNZSNHLR63L',
-    }),
-  }),
-  FR: Object.freeze({
-    label: 'France', currency: 'EUR', locale: 'fr-FR', taxesIncluded: true,
-    prices: Object.freeze({ standard: 7999, ultimate: 9999 }),
-    source: Object.freeze({
-      standard: 'https://store.playstation.com/fr-fr/product/EP1004-PPSA01547_00-GTAVISTANDARD001',
-      ultimate: 'https://store.playstation.com/fr-fr/product/EP1004-PPSA01547_00-GTAVIULTIMATE001',
-    }),
-    xboxSource: Object.freeze({
-      standard: 'https://www.xbox.com/fr-FR/games/store/grand-theft-auto-vi/9P3H4968GRSM',
-      ultimate: 'https://www.xbox.com/fr-FR/games/store/grand-theft-auto-vi/9NNZSNHLR63L',
-    }),
-  }),
-  GB: Object.freeze({
-    label: 'United Kingdom', currency: 'GBP', locale: 'en-GB', taxesIncluded: true,
-    prices: Object.freeze({ standard: 6999, ultimate: 8999 }),
-    source: Object.freeze({
-      standard: 'https://store.playstation.com/en-gb/product/EP1004-PPSA01547_00-GTAVISTANDARD001/',
-      ultimate: 'https://store.playstation.com/en-gb/product/EP1004-PPSA01547_00-GTAVIULTIMATE001',
-    }),
-    xboxSource: Object.freeze({
-      standard: 'https://www.xbox.com/en-GB/games/store/grand-theft-auto-vi/9NL3WWNZLZZN',
-      ultimate: 'https://www.xbox.com/en-GB/games/store/grand-theft-auto-vi/9NNZSNHLR63L',
-    }),
-  }),
+  US: market({ name:'United States', currency:'USD', locale:'en-US', taxIncluded:false, xboxLocale:'en-US', psLocale:'en-us', xbox:[7999,9999], ps:[7999,9999] }),
+  FR: market({ name:'France', currency:'EUR', locale:'fr-FR', taxIncluded:true, xboxLocale:'fr-FR', psLocale:'fr-fr', xbox:[7999,9999], ps:[7999,9999] }),
+  GB: market({ name:'United Kingdom', currency:'GBP', locale:'en-GB', taxIncluded:true, xboxLocale:'en-GB', psLocale:'en-gb', xbox:[6999,8999], ps:[6999,8999] }),
+  CA: market({ name:'Canada', currency:'CAD', locale:'en-CA', taxIncluded:false, xboxLocale:'en-CA', psLocale:'en-ca', xbox:[10999,13999], ps:[10999,13999] }),
+  AU: market({ name:'Australia', currency:'AUD', locale:'en-AU', taxIncluded:true, xboxLocale:'en-AU', xbox:[12995,15995] }),
+  DE: market({ name:'Germany', currency:'EUR', locale:'de-DE', taxIncluded:true, xboxLocale:'de-DE', psLocale:'de-de', xbox:[7999,9999], ps:[7999,9999] }),
+  ES: market({ name:'Spain', currency:'EUR', locale:'es-ES', taxIncluded:true, xboxLocale:'es-ES', xbox:[7999,9999] }),
+  IT: market({ name:'Italy', currency:'EUR', locale:'it-IT', taxIncluded:true, xboxLocale:'it-IT', xbox:[7999,9999] }),
+  JP: market({ name:'Japan', currency:'JPY', locale:'ja-JP', decimals:0, taxIncluded:true, xboxLocale:'ja-JP', xbox:[9800,12280] }),
 });
 
 const SOURCES = Object.freeze({
-  release: 'https://ir.take2games.com/node/32311',
+  release: 'https://www.take2games.com/ir/news/rockstar-games-announces-pre-orders-grand-theft-auto-vi',
+  platforms: 'https://support.rockstargames.com/articles/4QfG4FmZCf5W1gS8jy4UVT/grand-theft-auto-vi-platform-editions-and-versions',
   cloud: 'https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/',
-  xboxHardware: 'https://www.microsoft.com/en-us/p/-xbox-series-s--/942J774TP9JN/5NCQ',
-  gameOffline: 'https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVISTANDARD001/',
+  xboxHardwareUS: 'https://www.microsoft.com/en-us/p/xbox-series-s/942J774TP9JN/2JBX',
+  xboxHardwareFR: 'https://www.microsoft.com/fr-fr/p/xbox-series-s/942j774tp9jn',
+  xboxHardwareGB: 'https://www.microsoft.com/en-gb/d/Xbox-Series-S/942J774TP9JN/24K9',
+  xboxHardwareCA: 'https://www.microsoft.com/en-ca/d/xbox-series-s/942j774tp9jn',
+  xboxHardwareAU: 'https://www.microsoft.com/en-au/p/xbox-series-s/942j774tp9jn',
+  psHardwareGB: 'https://direct.playstation.com/en-gb/hardware/ps5',
+  psHardwareUS: 'https://direct.playstation.com/en-us/hardware/ps5',
+  psHardwareFR: 'https://www.playstation.com/fr-fr/ps5/digital-edition-825-gb/',
+  xboxCloudTerms: 'https://www.xbox.com/en-US/cloud-gaming',
 });
 
-// A single US manufacturer's public starting price is included as an illustration.
-// All other hardware quotations are explicitly entered by the visitor.
-const HARDWARE_REFERENCE = Object.freeze({
-  id: 'series-s-us-2026-11-18',
-  market: 'US',
-  model: 'xbox-series-s',
-  cents: 49999,
-  source: SOURCES.xboxHardware,
-  verifiedOn: VERIFIED_ON,
-  description: 'Microsoft Store starting price; configuration, promotions and tax may vary',
+const hardwareQuote = (market, model, amount, url, label) => Object.freeze({ id:`${market}-${model}-${VERIFIED_ON}`, market, model, amount, source:url, label, verifiedOn:VERIFIED_ON });
+const HARDWARE_REFERENCES = Object.freeze({
+  'US:xbox-series-s': hardwareQuote('US','xbox-series-s',49999,SOURCES.xboxHardwareUS,'Microsoft Store · 512 GB'),
+  'US:ps5-digital': hardwareQuote('US','ps5-digital',59900,SOURCES.psHardwareUS,'PlayStation Direct · 825 GB'),
+  'US:ps5-disc': hardwareQuote('US','ps5-disc',64900,SOURCES.psHardwareUS,'PlayStation Direct · 1 TB'),
+  'US:ps5-pro': hardwareQuote('US','ps5-pro',89900,SOURCES.psHardwareUS,'PlayStation Direct · PS5 Pro'),
+  'FR:xbox-series-s': hardwareQuote('FR','xbox-series-s',49999,SOURCES.xboxHardwareFR,'Microsoft Store · 512 Go'),
+  'FR:ps5-digital': hardwareQuote('FR','ps5-digital',59999,SOURCES.psHardwareFR,'PlayStation · 825 Go'),
+  'GB:xbox-series-s': hardwareQuote('GB','xbox-series-s',42999,SOURCES.xboxHardwareGB,'Microsoft Store · 512 GB'),
+  'GB:ps5-digital': hardwareQuote('GB','ps5-digital',51999,SOURCES.psHardwareGB,'PlayStation Direct · 825 GB'),
+  'CA:xbox-series-s': hardwareQuote('CA','xbox-series-s',64999,SOURCES.xboxHardwareCA,'Microsoft Store · 512 GB'),
+  'AU:xbox-series-s': hardwareQuote('AU','xbox-series-s',69900,SOURCES.xboxHardwareAU,'Microsoft Store · 512 GB'),
 });
 
 const HARDWARE = Object.freeze({
-  'ps5-digital': { label: 'PlayStation 5 Digital', ecosystem: 'playstation' },
-  'ps5-disc': { label: 'PlayStation 5 with disc drive', ecosystem: 'playstation' },
-  'ps5-pro': { label: 'PlayStation 5 Pro', ecosystem: 'playstation' },
-  'xbox-series-s': { label: 'Xbox Series S', ecosystem: 'xbox' },
-  'xbox-one': { label: 'Xbox One (cloud streaming only)', ecosystem: 'xbox' },
-  'xbox-series-x': { label: 'Xbox Series X', ecosystem: 'xbox' },
+  'ps5-digital': { label:'PlayStation 5 Digital', short:'PS5 Digital', ecosystem:'playstation' },
+  'ps5-disc': { label:'PlayStation 5 (disc model)', short:'PS5 Disc', ecosystem:'playstation' },
+  'ps5-pro': { label:'PlayStation 5 Pro', short:'PS5 Pro', ecosystem:'playstation' },
+  'xbox-series-s': { label:'Xbox Series S', short:'Series S', ecosystem:'xbox' },
+  'xbox-series-x': { label:'Xbox Series X', short:'Series X', ecosystem:'xbox' },
+  'xbox-one': { label:'Xbox One · cloud only', short:'Xbox One', ecosystem:'xbox', cloudOnly:true },
+  'pc-cloud': { label:'Windows PC · cloud availability varies', short:'Windows PC', ecosystem:'xbox', cloudOnly:true, unconfirmedDevice:true },
+  'tv-cloud': { label:'Supported smart TV · verify GTA VI', short:'Smart TV', ecosystem:'xbox', cloudOnly:true, unconfirmedDevice:true },
+  'phone-cloud': { label:'Mobile device · verify GTA VI', short:'Phone / tablet', ecosystem:'xbox', cloudOnly:true, unconfirmedDevice:true },
+});
+
+const cloudPacks = (region, amounts) => Object.freeze([10,25,50].map((hours,i) => Object.freeze({
+  hours, amount:amounts[i], verifiedOn:VERIFIED_ON,
+  source:`https://www.xbox.com/${region}/games/store/${region === 'fr-FR' ? `temps-de-jeu-sur-le-cloud-${hours}-heures` : `cloud-playtime-${hours}-hours`}/${hours === 10 ? '9pl4njhpdn7l' : hours === 25 ? '9pg1fs0brh5h' : '9mtv0kn0j3c0'}`,
+})));
+const CLOUD_PACKS = Object.freeze({
+  US: cloudPacks('en-US',[399,799,1199]),
+  FR: cloudPacks('fr-FR',[349,699,1099]),
+  GB: cloudPacks('en-GB',[299,599,899]),
+  CA: cloudPacks('en-CA',[499,1099,1699]),
+  AU: cloudPacks('en-AU',[595,1195,1795]),
 });
 
 
-
 /**
- * Monetary values are integer minor units (cents/pence). For this catalog all
- * currencies have two decimal places; introduce currency metadata for others.
- * This engine does no currency conversion and never represents unknown as zero.
+ * Exact minimum-cost whole-pack cover for a user's requested cloud playtime.
+ * The cost objective is primary; unused hours, then pack count break ties.
+ * Packs must be nonnegative, bounded integer values.
  */
-function parseMoney(value) {
-  if (value === '' || value === null || value === undefined) return null;
-  const s = String(value).trim().replace(',', '.');
-  if (!/^(?:\d{1,7})(?:\.\d{1,2})?$/.test(s)) return null;
-  const [whole, fractional = ''] = s.split('.');
-  const cents = Number(whole) * 100 + Number(fractional.padEnd(2, '0'));
-  return Number.isSafeInteger(cents) && cents <= 999999999 ? cents : null;
+function cheapestCloudPacks(hours, packs) {
+  if (!Number.isSafeInteger(hours) || hours < 1 || hours > 10000)
+    throw new RangeError('Planned hours must be an integer from 1 to 10,000');
+  if (!Array.isArray(packs) || packs.length < 1 || packs.length > 20 ||
+      packs.some(p => !Number.isSafeInteger(p.hours) || p.hours < 1 || p.hours > 10000 ||
+                      !Number.isSafeInteger(p.amount) || p.amount < 0 || p.amount > 999999999))
+    throw new RangeError('Invalid cloud playtime catalog');
+  const maxHours = Math.max(...packs.map(p=>p.hours));
+  const limit = hours + maxHours - 1;
+  const dp = Array(limit + 1).fill(null);
+  dp[0] = { amount:0, count:0, quantities:Array(packs.length).fill(0) };
+  for (let h=0; h<=limit; h++) {
+    const current = dp[h];
+    if (!current) continue;
+    for (let i=0;i<packs.length;i++) {
+      const next = h+packs[i].hours;
+      if (next>limit) continue;
+      const amount = current.amount+packs[i].amount;
+      const count=current.count+1;
+      const previous=dp[next];
+      if (!previous || amount < previous.amount || (amount === previous.amount && count < previous.count)) {
+        const quantities = current.quantities.slice(); quantities[i]++;
+        dp[next]={ amount,count,quantities };
+      }
+    }
+  }
+  let result=null;
+  for (let h=hours;h<=limit;h++) {
+    const p=dp[h];if(!p)continue;
+    if(!result || p.amount<result.amount || (p.amount===result.amount && h<result.coveredHours) ||
+       (p.amount===result.amount && h===result.coveredHours && p.count<result.count))
+      result={...p,coveredHours:h};
+  }
+  if(!result)throw new RangeError('No cloud pack combination found');
+  return {
+    totalAmount:result.amount, coveredHours:result.coveredHours, unusedHours:result.coveredHours-hours,
+    selection:packs.map((pack,i)=>({...pack,quantity:result.quantities[i]})).filter(p=>p.quantity),
+  };
 }
 
-function printMoney(cents, market) {
-  if (!Number.isSafeInteger(cents)) return 'Unknown';
-  const m = MARKETS[market];
-  if (!m) throw new RangeError(`Unknown market: ${market}`);
-  return new Intl.NumberFormat(m.locale, {
-    style: 'currency', currency: m.currency, minimumFractionDigits: 2,
-  }).format(cents / 100);
-}
 
+
+
+const MAX_AMOUNT = 999999999;
+const monetary = (value, field, nullable = true) => {
+  if (value === null && nullable) return null;
+  if (!Number.isSafeInteger(value) || value < 0 || value > MAX_AMOUNT) throw new RangeError(`Invalid ${field}`);
+  return value;
+};
+
+/** Parse a nonnegative amount into the market currency's smallest unit. */
+function parseMoney(value, market='US') {
+  if (value === null || value === undefined || String(value).trim() === '') return null;
+  const d=MARKETS[market]?.decimals;
+  if (d === undefined) throw new RangeError('Unknown market');
+  const s=String(value).trim().replace(/\s/g,'').replace(',','.');
+  if (!(d === 0 ? /^\d{1,9}$/.test(s) : new RegExp(`^\\d{1,9}(?:\\.\\d{1,${d}})?$`).test(s))) return null;
+  const [whole,part='']=s.split('.');
+  const unit=10**d;
+  const valueMinor=Number(whole)*unit+Number(part.padEnd(d,'0'));
+  return Number.isSafeInteger(valueMinor) && valueMinor <= MAX_AMOUNT ? valueMinor : null;
+}
+function printMoney(amount, market) {
+  if (amount === null || !Number.isSafeInteger(amount)) return 'Not priced';
+  const m=MARKETS[market]; if(!m)throw new RangeError('Unknown market');
+  return new Intl.NumberFormat(m.locale,{style:'currency',currency:m.currency,minimumFractionDigits:m.decimals,maximumFractionDigits:m.decimals}).format(amount / (10**m.decimals));
+}
 function defaultScenario() {
   return {
-    market: 'US', edition: 'standard', route: 'own', platform: 'ps5-digital',
-    hardwareCents: null, hardwareQuote: 'personal', extraCents: 0,
-    taxBasisPoints: null, resaleCents: null, cloudPackCents: null,
-    cloudHoursPerPack: null, plannedHours: 40,
+    market:'US', edition:'standard', route:'own', platform:'ps5-digital',
+    hardwareCents:null, hardwareQuote:'personal', gameCents:null,
+    extraCents:0, taxBasisPoints:null, resaleCents:null,
+    plannedHours:40, cloudPricingMode:'official', cloudPackCents:null, cloudHoursPerPack:null,
   };
 }
-
-function money(value, field, { nullable = true } = {}) {
-  if (value === null && nullable) return null;
-  if (!Number.isSafeInteger(value) || value < 0 || value > 999999999)
-    throw new RangeError(`${field} must be a nonnegative integer of minor currency units`);
-  return value;
-}
+const rule = (bool,message) => { if(!bool)throw new RangeError(message); };
 
 /**
- * Return a receipt with typed evidence and explicit unresolved obligations.
- * Cash now is never offset by hypothetical future resale. Unknown local taxes
- * and unknown cloud tariffs block an all-in checkout figure.
+ * Compute a source-linked cost receipt. Unknown values are kept distinct from
+ * zero and block the claim that a receipt is a complete cost projection.
+ * Currency conversion is never performed.
  */
-function calculate(input) {
-  if (!input || !MARKETS[input.market]) throw new RangeError('Unsupported market');
-  if (!['standard', 'ultimate'].includes(input.edition)) throw new RangeError('Unsupported edition');
-  if (!['own', 'buy', 'cloud'].includes(input.route)) throw new RangeError('Unsupported route');
-  if (!HARDWARE[input.platform]) throw new RangeError('Unsupported hardware');
-  if (input.route === 'cloud' && !input.platform.startsWith('xbox-'))
-    throw new RangeError('Cloud route is represented with an Xbox device only');
-  if (input.route !== 'cloud' && input.platform === 'xbox-one')
-    throw new RangeError('Xbox One is a cloud-only path for GTA VI');
-
-  const market = MARKETS[input.market];
-  const game = market.prices[input.edition];
-  const extra = money(input.extraCents, 'Extra expenditure', { nullable: false });
-  const lines = [{
-    id: 'game', label: `GTA VI · ${input.edition === 'standard' ? 'Standard' : 'Ultimate'}`,
-    cents: game, evidence: 'verified', source: HARDWARE[input.platform].ecosystem === 'xbox' ? market.xboxSource[input.edition] : market.source[input.edition],
-    checked: VERIFIED_ON,
-  }];
-  let subtotal = game + extra;
-  const unknown = [];
-  if (input.route === 'buy') {
-    const hardware = money(input.hardwareCents, 'Hardware price');
-    if (hardware === null) {
-      unknown.push('Console quotation');
-      lines.push({ id: 'hardware', label: HARDWARE[input.platform].label, cents: null, evidence: 'unknown' });
+function calculate(scenario) {
+  rule(scenario && MARKETS[scenario.market], 'Unsupported country');
+  const m=MARKETS[scenario.market];
+  rule(['standard','ultimate'].includes(scenario.edition),'Unsupported edition');
+  rule(['own','buy','cloud'].includes(scenario.route),'Unsupported play route');
+  const hardware=HARDWARE[scenario.platform];
+  rule(hardware,'Unsupported device');
+  rule(scenario.route === 'cloud' ? hardware.ecosystem === 'xbox' : !hardware.cloudOnly, 'Device not supported for this play route');
+  rule(Number.isSafeInteger(scenario.plannedHours) && scenario.plannedHours>=1 && scenario.plannedHours<=10000,'Hours must be between 1 and 10,000');
+  const extra = monetary(scenario.extraCents,'extras',false);
+  const resale = scenario.route==='buy' ? monetary(scenario.resaleCents,'resale') : null;
+  const quote = scenario.route==='buy' ? monetary(scenario.hardwareCents,'hardware quotation') : null;
+  const userGame = monetary(scenario.gameCents,'personal game price');
+  const lines=[]; const unknown=[]; const caveats=[];
+  let subtotal=0; let cloudPlan=null;
+  const push=(id,label,amount,evidence,source=null,category='other')=>{
+    lines.push({id,label,amount,evidence,source,category,checked:source?VERIFIED_ON:null});
+    if(amount!==null)subtotal+=amount;
+  };
+  const currentGame=m.game[hardware.ecosystem];
+  if(currentGame) {
+    push('game',`GTA VI · ${scenario.edition==='standard'?'Standard':'Ultimate'} edition`,currentGame.prices[scenario.edition],'verified',currentGame.source[scenario.edition],'game');
+  } else if(userGame!==null) {
+    push('game',`GTA VI · ${scenario.edition==='standard'?'Standard':'Ultimate'} (your quote)`,userGame,'entered',null,'game');
+    caveats.push('The game price for this platform and region was entered by you; first-party verification is pending.');
+  } else {
+    unknown.push('First-party PlayStation price for this country');
+    push('game','GTA VI · price not verified for this platform',null,'unknown',null,'game');
+  }
+  if(scenario.route==='buy') {
+    const ref=HARDWARE_REFERENCES[`${scenario.market}:${scenario.platform}`];
+    if(quote===null) {
+      unknown.push('New or refurbished console price');
+      push('hardware',hardware.label,null,'unknown',null,'hardware');
     } else {
-      subtotal += hardware;
-      const verified = input.market === HARDWARE_REFERENCE.market &&
-        input.platform === HARDWARE_REFERENCE.model &&
-        input.hardwareQuote === HARDWARE_REFERENCE.id &&
-        hardware === HARDWARE_REFERENCE.cents;
-      lines.push({
-        id: 'hardware', label: HARDWARE[input.platform].label, cents: hardware,
-        evidence: verified ? 'verified' : 'entered',
-        source: verified ? HARDWARE_REFERENCE.source : null,
-        checked: verified ? HARDWARE_REFERENCE.verifiedOn : null,
-      });
+      const verified=Boolean(ref && ref.amount===quote && ref.id===scenario.hardwareQuote);
+      push('hardware',hardware.label,quote,verified?'verified':'entered',verified?ref.source:null,'hardware');
     }
   }
-  if (extra > 0) lines.push({ id: 'extras', label: 'Other one-time costs', cents: extra, evidence: 'entered' });
-
-  if (input.route === 'cloud') {
-    const pack = money(input.cloudPackCents, 'Cloud pack price');
-    const perPack = input.cloudHoursPerPack;
-    const hours = input.plannedHours;
-    if (!Number.isInteger(hours) || hours < 1 || hours > 10000)
-      throw new RangeError('Planned hours must be between 1 and 10,000');
-    if (pack === null || !Number.isInteger(perPack) || perPack < 1 || perPack > 10000) {
-      unknown.push('Cloud-play tariff');
-      lines.push({ id: 'cloud', label: `Cloud access · ${hours} planned hours`, cents: null, evidence: 'unknown' });
+  if(extra) push('extras','Accessories and other one-time costs',extra,'entered',null,'extras');
+  if(scenario.route==='cloud') {
+    const mode=scenario.cloudPricingMode ?? 'official';
+    rule(['official','custom','ad'].includes(mode),'Unsupported cloud payment type');
+    if(hardware.unconfirmedDevice) {
+      unknown.push('GTA VI availability on the selected cloud device');
+      caveats.push('Xbox documents cloud gaming for several device types, but GTA VI launch support is explicitly announced for Xbox One and Xbox Series X|S. Verify this device in the Xbox app.');
+    }
+    if(mode==='ad') {
+      push('cloud-ad','Ad-supported access · coverage not established',null,'conditional',null,'cloud');
+      unknown.push('Ad-supported session and monthly limits for planned hours');
+      caveats.push('Microsoft lists a zero-subscription-cost ad-supported route, with session and monthly caps. This receipt does not establish sufficient access for your planned hours. Game purchase remains necessary.');
+    } else if(mode==='official') {
+      const packs=CLOUD_PACKS[scenario.market];
+      if(!packs) {
+        unknown.push('Local prepaid cloud pack prices');
+        push('cloud','Cloud access · official local tariff unavailable',null,'unknown',null,'cloud');
+      } else {
+        cloudPlan=cheapestCloudPacks(scenario.plannedHours,packs);
+        for(const p of cloudPlan.selection)push(`cloud-${p.hours}`,`${p.quantity} × ${p.hours}-hour Xbox cloud pack`,p.quantity*p.amount,'verified',p.source,'cloud');
+        caveats.push(`Prepaid pack estimate covers ${cloudPlan.coveredHours} hours; ${cloudPlan.unusedHours} hours exceed your requested playtime. Eligibility and playable titles vary.`);
+      }
     } else {
-      const packs = Math.ceil(hours / perPack);
-      const cloudCost = packs * pack;
-      subtotal += cloudCost;
-      lines.push({ id: 'cloud', label: `Cloud play · ${packs} × ${perPack}h pack`, cents: cloudCost, evidence: 'entered' });
+      const pack=monetary(scenario.cloudPackCents,'custom cloud price');
+      const packHours=scenario.cloudHoursPerPack;
+      if(pack===null || !Number.isSafeInteger(packHours) || packHours<1 || packHours>10000) {
+        unknown.push('Custom cloud access tariff');
+        push('cloud','Cloud access · personal rate missing',null,'unknown',null,'cloud');
+      } else {
+        const quantity=Math.ceil(scenario.plannedHours/packHours);
+        cloudPlan={ totalAmount:quantity*pack, coveredHours:quantity*packHours, unusedHours:quantity*packHours-scenario.plannedHours,
+          selection:[{hours:packHours,amount:pack,quantity}]};
+        push('cloud',`${quantity} × ${packHours}-hour custom cloud pack`,cloudPlan.totalAmount,'entered',null,'cloud');
+      }
     }
   }
-  let tax = 0;
-  if (!market.taxesIncluded) {
-    const bps = input.taxBasisPoints;
-    if (bps === null || bps === undefined) {
-      unknown.push('Applicable sales tax');
-      tax = null;
-      lines.push({ id: 'tax', label: 'Sales tax · rate not entered', cents: null, evidence: 'unknown' });
+  let tax=null;
+  if(!m.taxIncluded) {
+    const bps=scenario.taxBasisPoints;
+    if(bps===null || bps===undefined) {
+      unknown.push('Local sales tax');
+      push('tax','Estimated checkout taxes',null,'unknown',null,'tax');
     } else {
-      if (!Number.isInteger(bps) || bps < 0 || bps > 10000)
-        throw new RangeError('Illustrative tax percentage outside 0–100%');
-      tax = Math.round((subtotal * bps) / 10000);
-      lines.push({ id: 'tax', label: `Estimated sales tax · ${(bps / 100).toFixed(2)}%`, cents: tax, evidence: 'entered' });
+      rule(Number.isSafeInteger(bps) && bps>=0 && bps<=10000,'Invalid sales tax rate');
+      tax=Math.round(subtotal*bps/10000);
+      push('tax',`Illustrative tax · ${(bps/100).toFixed(2)}%`,tax,'entered',null,'tax');
     }
+    caveats.push('One entered rate is applied to all modelled items. Actual game, hardware, and cloud tax treatment differs by jurisdiction and merchant.');
+  } else {
+    caveats.push('Storefront game and cloud prices are displayed inclusive of applicable indirect taxes; personal hardware quotes should include tax.');
   }
-  const resale = input.route === 'buy' ? money(input.resaleCents, 'Projected resale') : null;
-  const checkout = unknown.length === 0 && tax !== null ? subtotal + tax : null;
-  const net = checkout !== null && resale !== null ? checkout - resale : null;
+  const complete=unknown.length===0;
+  const total=complete?subtotal:null;
+  const net=total!==null&&resale!==null?total-resale:null;
   return {
-    currency: market.currency, market: input.market, edition: input.edition,
-    route: input.route, lines, subtotal, checkout, futureNetIfResold: net,
-    estimatedFutureResale: resale, unknown, fullyPriced: unknown.length === 0,
-    assumptions: [
-      'Published game prices are dated snapshots; verify again before purchase.',
-      ...(market.taxesIncluded ? ['Storefront game price includes local indirect tax.'] :
-        ['US tax model applies one illustrative rate to all selected items; actual tax can differ.']),
-      ...(input.route === 'cloud' ? ['Cloud plan availability and eligibility must be confirmed; no streaming tariff is assumed.'] : []),
-      ...(resale !== null ? ['Future resale is a personal estimate, not guaranteed money or a checkout discount.'] : []),
-    ],
+    market:scenario.market,currency:m.currency,edition:scenario.edition,route:scenario.route,platform:scenario.platform,
+    lines,subtotal,checkout:total,unknown,fullyPriced:complete,cloudPlan,estimatedFutureResale:resale,futureNetIfResold:net,
+    caveats,checked:VERIFIED_ON,
   };
 }
 
-/** URL payload encodes scenario values only; no user identity or location is read. */
+/** URL encoding preserves only allowlisted scenario keys and strictly validates decoded state. */
 function encodeScenario(scenario) {
-  const keys = Object.keys(defaultScenario());
-  const payload = Object.fromEntries(keys.map(k => [k, scenario[k] ?? null]));
-  const json = JSON.stringify(payload);
-  // encodeURIComponent ensures an ASCII, URL-safe and Unicode-safe payload.
-  return encodeURIComponent(json);
+  const fields=Object.keys(defaultScenario());
+  return 'v1.'+encodeURIComponent(JSON.stringify(Object.fromEntries(fields.map(k=>[k,scenario[k]]))));
 }
-
-/** Strict bounded decode avoids oversized or malformed shared links. */
-function decodeScenario(payload) {
-  if (!payload || typeof payload !== 'string' || payload.length > 4096) return null;
+function decodeScenario(value) {
+  if(typeof value!=='string' || value.length>2500 || !value.startsWith('v1.'))return null;
   try {
-    const parsed = JSON.parse(decodeURIComponent(payload));
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
-    const defaults = defaultScenario();
-    const result = { ...defaults };
-    for (const key of Object.keys(defaults)) {
-      if (Object.hasOwn(parsed, key)) result[key] = parsed[key];
-    }
+    const raw=JSON.parse(decodeURIComponent(value.slice(3)));
+    if(!raw || typeof raw!=='object' || Array.isArray(raw))return null;
+    const defaults=defaultScenario();
+    const result={...defaults};
+    for(const k of Object.keys(defaults))if(Object.hasOwn(raw,k))result[k]=raw[k];
     calculate(result);
     return result;
-  } catch { return null; }
+  } catch {return null;}
 }
 
 
 
 
 const $ = (id) => document.getElementById(id);
-const moneyInput = (cents) => cents === null ? '' : (cents / 100).toFixed(2);
-const symbol = (market) => ({ US: '$', FR: '€', GB: '£' })[market];
-const escapeXml = (value) => String(value).replace(/[&<>"']/g, (c) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&apos;' })[c]);
-const params = new URLSearchParams(window.location.search);
-let state = decodeScenario(params.get('s')) ?? defaultScenario();
-let receipt;
-
-const descriptions = {
-  own: 'You already own a PS5 or Xbox Series X|S. Count the game and only the extras you choose.',
-  buy: 'Enter your real console quote. A future resale estimate will appear separately from the upfront bill.',
-  cloud: 'Xbox One cloud streaming is confirmed for launch in supported markets. Purchased playtime is an additional cost.',
+const moneyText = (value) => printMoney(value,state.market);
+const currency = () => MARKETS[state.market];
+const routes = {
+  own: 'You own a supported console. The game and the extras you choose are the cost of entry.',
+  buy: 'Add a first-party console quotation or enter your actual new, used, or refurbished price.',
+  cloud: 'GTA VI is confirmed for Xbox console cloud streaming. Other devices must be checked for eligibility.',
 };
+const barColors = {game:'#ff9b84',hardware:'#a6efce',cloud:'#b9b6ff',extras:'#fee18a',tax:'#a4aab6'};
+let state = decodeScenario(new URLSearchParams(location.search).get('s')) ?? defaultScenario();
+let receipt = null;
 
-function compatibleHardware() {
-  return Object.entries(HARDWARE).filter(([id]) => state.route === 'cloud'
-    ? id.startsWith('xbox-') : id !== 'xbox-one');
+function option(value,label) {
+  const el=document.createElement('option');el.value=value;el.textContent=label;return el;
 }
-
+function formatInput(amount) {
+  if(amount===null)return '';
+  return (amount/(10**currency().decimals)).toFixed(currency().decimals);
+}
+function symbol() {
+  return new Intl.NumberFormat(currency().locale,{style:'currency',currency:currency().currency})
+    .formatToParts(0).find(part=>part.type==='currency')?.value || currency().currency;
+}
+function devicesForRoute() {
+  return Object.entries(HARDWARE).filter(([,device])=>state.route==='cloud' ? device.ecosystem==='xbox' : !device.cloudOnly);
+}
+function gameCatalog() {
+  return currency().game[HARDWARE[state.platform].ecosystem];
+}
+function setMessage(message='') { $('validation-note').textContent=message; }
+function sourceLink(el,url) {
+  if(url){el.href=url;el.hidden=false;}else{el.removeAttribute('href');el.hidden=true;}
+}
+function writeStateToUrl() {
+  try {
+    const u=new URL(location.href);u.searchParams.set('s',encodeScenario(state));
+    history.replaceState(null,'',u);
+  } catch { /* Static, local and sandbox previews remain fully functional. */ }
+}
 function renderForm() {
-  $('market').value = state.market;
-  for (const [ed, cents] of Object.entries(MARKETS[state.market].prices)) {
-    $(`${ed}-price`).textContent = printMoney(cents, state.market);
+  $('market').value=state.market;
+  $('market-compare').value=state.market;
+  const devices=devicesForRoute();
+  if(!devices.some(([id])=>id===state.platform))state.platform=devices[0][0];
+  $('platform').replaceChildren(...devices.map(([id,d])=>option(id,d.label)));
+  $('platform').value=state.platform;
+  for(const button of document.querySelectorAll('[data-edition]'))button.setAttribute('aria-pressed',String(button.dataset.edition===state.edition));
+  for(const button of document.querySelectorAll('[data-route]'))button.setAttribute('aria-pressed',String(button.dataset.route===state.route));
+  const catalog=gameCatalog();
+  $('standard-price').textContent=catalog ? moneyText(catalog.prices.standard) : 'Local quote';
+  $('ultimate-price').textContent=catalog ? moneyText(catalog.prices.ultimate) : 'Local quote';
+  sourceLink($('edition-source'),catalog?.source[state.edition]);
+  $('game-quote-group').hidden=Boolean(catalog);
+  $('game-price').value=formatInput(state.gameCents);
+  $('route-description').textContent=routes[state.route];
+  $('buy-fields').hidden=state.route!=='buy';
+  $('cloud-fields').hidden=state.route!=='cloud';
+  $('hardware').value=formatInput(state.hardwareCents);
+  $('resale').value=formatInput(state.resaleCents);
+  $('extras').value=formatInput(state.extraCents);
+  $('tax-field').hidden=currency().taxIncluded;
+  $('tax').value=state.taxBasisPoints===null?'':(state.taxBasisPoints/100).toFixed(2);
+  for(const el of document.querySelectorAll('.currency-symbol'))el.textContent=symbol();
+  const reference=HARDWARE_REFERENCES[`${state.market}:${state.platform}`];
+  $('hardware-source-hint').hidden=!(reference && state.route==='buy');
+  if(reference){$('reference-quote').textContent=`Use ${moneyText(reference.amount)} · ${reference.label}`;sourceLink($('hardware-source-link'),reference.source);}
+  $('cloud-pricing').value=state.cloudPricingMode;
+  $('cloud-custom-fields').hidden=state.cloudPricingMode!=='custom';
+  $('cloud-pack').value=formatInput(state.cloudPackCents);
+  $('cloud-hours').value=state.cloudHoursPerPack??'';
+  $('planned-hours').value=state.plannedHours;
+  $('hours-slider').value=Math.min(200,state.plannedHours);
+  $('hours-output').textContent=`${state.plannedHours.toLocaleString()} hours`;
+  for(const button of document.querySelectorAll('[data-hours]'))button.setAttribute('aria-pressed',String(Number(button.dataset.hours)===state.plannedHours));
+  const packs=CLOUD_PACKS[state.market];
+  const pricing=$('cloud-pricing');
+  const officialOption=pricing.querySelector('option[value=official]');
+  officialOption.textContent=packs?'Official prepaid packs · best combination':'Official prepaid packs · local tariff missing';
+  if(state.route==='cloud'){
+    const note=$('cloud-pack-note');
+    if(state.cloudPricingMode==='official' && receipt?.cloudPlan){
+      const selection=receipt.cloudPlan.selection.map(p=>`${p.quantity} × ${p.hours}h`).join(' + ');
+      note.textContent=`Optimal store pack mix: ${selection}. Covers ${receipt.cloudPlan.coveredHours}h, with ${receipt.cloudPlan.unusedHours}h left over. Check eligibility and availability in your account.`;
+    } else if(state.cloudPricingMode==='ad') {
+      note.textContent='Microsoft lists ad-supported access with session and monthly limits. The model deliberately leaves your full playtime coverage unresolved.';
+    } else if(state.cloudPricingMode==='official') {
+      note.textContent='First-party cloud-playtime tariffs have not been verified for this country. Select a custom plan to enter your quoted rate.';
+    } else {
+      note.textContent='Custom plans are personal estimates. Enter a price and pack size from your provider.';
+    }
   }
-  for (const b of document.querySelectorAll('[data-edition]')) {
-    const active = b.dataset.edition === state.edition;
-    b.classList.toggle('is-active', active);
-    b.setAttribute('aria-pressed', String(active));
-  }
-  for (const b of document.querySelectorAll('[data-route]')) {
-    const active = b.dataset.route === state.route;
-    b.classList.toggle('is-active', active);
-    b.setAttribute('aria-pressed', String(active));
-  }
-  $('route-description').textContent = descriptions[state.route];
-  $('buy-fields').hidden = state.route !== 'buy';
-  $('cloud-fields').hidden = state.route !== 'cloud';
-  $('platform-label').textContent = state.route === 'cloud' ? 'Your Xbox device' : state.route === 'buy' ? 'Console to purchase' : 'Your console';
-  const valid = compatibleHardware();
-  if (!valid.some(([id]) => id === state.platform)) state.platform = valid[0][0];
-  $('edition-source').href = HARDWARE[state.platform].ecosystem === 'xbox' ?
-    MARKETS[state.market].xboxSource[state.edition] : MARKETS[state.market].source[state.edition];
-  $('platform').replaceChildren(...valid.map(([id, record]) => {
-    const option = document.createElement('option');
-    option.value = id; option.textContent = record.label;
-    return option;
-  }));
-  $('platform').value = state.platform;
-  $('tax-field').hidden = state.market !== 'US';
-  for (const el of document.querySelectorAll('[data-symbol]')) el.textContent = symbol(state.market);
-  $('hardware').value = moneyInput(state.hardwareCents);
-  $('resale').value = moneyInput(state.resaleCents);
-  $('extras').value = moneyInput(state.extraCents);
-  $('cloud-pack').value = moneyInput(state.cloudPackCents);
-  $('cloud-hours').value = state.cloudHoursPerPack ?? '';
-  $('planned-hours').value = state.plannedHours;
-  $('tax').value = state.taxBasisPoints === null ? '' : (state.taxBasisPoints / 100).toFixed(2);
-  $('reference-quote').hidden = !(state.market === 'US' && state.platform === 'xbox-series-s' && state.route === 'buy');
 }
 
-function lineElement(line) {
-  const container = document.createElement('div'); container.className = 'line-item';
-  const left = document.createElement('div');
-  const name = document.createElement('div'); name.textContent = line.label;
-  const tag = document.createElement('div'); tag.className = `evidence-tag ${line.evidence}`;
-  const label = line.evidence === 'verified' ? '✓ VERIFIED · SOURCE' : line.evidence === 'entered' ? '↗ YOUR INPUT' : '● UNKNOWN';
-  if (line.source) {
-    const a = document.createElement('a'); a.textContent = label; a.href = line.source;
-    a.target = '_blank'; a.rel = 'noopener noreferrer'; tag.append(a);
-  } else { tag.textContent = label; }
-  left.append(name,tag);
-  const value = document.createElement('strong');
-  value.textContent = line.cents === null ? '—' : printMoney(line.cents, state.market);
-  container.append(left,value);
-  return container;
+function lineNode(line) {
+  const wrap=document.createElement('div');wrap.className='line-item';
+  const left=document.createElement('div');
+  const label=document.createElement('div');label.className='line-main';label.textContent=line.label;
+  const evidence=document.createElement('div');evidence.className=`evidence-tag ${line.evidence}`;
+  const titles={ verified:'✓ OFFICIAL LISTING', entered:'↗ YOUR QUOTE', unknown:'● NOT PRICED', conditional:'◇ ACCESS RESTRICTED' };
+  if(line.source){const link=document.createElement('a');link.href=line.source;link.target='_blank';link.rel='noopener noreferrer';link.textContent=titles[line.evidence]+' ↗';evidence.append(link);}
+  else evidence.textContent=titles[line.evidence];
+  left.append(label,evidence);
+  const value=document.createElement('strong');value.className='line-money';value.textContent=moneyText(line.amount);
+  wrap.append(left,value);return wrap;
 }
-
+function renderBreakdown() {
+  const known=receipt.lines.filter(line=>line.amount>0 && barColors[line.category]);
+  const totals=Object.fromEntries(Object.keys(barColors).map(k=>[k,known.filter(l=>l.category===k).reduce((sum,l)=>sum+l.amount,0)]));
+  const total=Object.values(totals).reduce((a,b)=>a+b,0);
+  const chart=$('stacked-bar');chart.replaceChildren();
+  const legend=$('bar-legend');legend.replaceChildren();
+  for(const [category,amount] of Object.entries(totals)){
+    if(!amount)continue;
+    const item=document.createElement('span');item.style.width=`${amount/total*100}%`;item.style.background=barColors[category];chart.append(item);
+    const label=document.createElement('span');const mark=document.createElement('i');mark.style.background=barColors[category];
+    label.append(mark,document.createTextNode(`${category.toUpperCase()} ${Math.round(amount/total*100)}%`));legend.append(label);
+  }
+  chart.setAttribute('aria-label',total ? Object.entries(totals).filter(([,v])=>v).map(([k,v])=>`${k}: ${moneyText(v)}`).join('; ') : 'No known priced items');
+  $('breakdown-label').textContent=receipt.fullyPriced?'MODELLED TOTAL':'KNOWN AMOUNTS ONLY';
+}
 function renderReceipt() {
-  receipt = calculate(state);
-  $('receipt-headline').innerHTML = state.route === 'cloud' ? 'Your planned<br>cloud bill.' : 'Your cost<br>of entry.';
-  $('line-items').replaceChildren(...receipt.lines.map(lineElement));
-  $('subtotal').textContent = printMoney(receipt.subtotal, state.market);
-  const total = $('main-total'); total.replaceChildren();
-  const headline = document.createTextNode(printMoney(receipt.checkout ?? receipt.subtotal, state.market));
-  total.append(headline);
-  const suffix = document.createElement('span');
-  if (receipt.fullyPriced) {
-    suffix.textContent = 'total under selected assumptions';
-    $('total-context').textContent = state.route === 'cloud' ?
-      'Projected game and cloud-play expenditure for the chosen hours, not necessarily paid at once.' :
-      'Game, included choices and applicable modelled tax.';
-  } else {
-    suffix.textContent = '+ unresolved costs';
-    $('total-context').textContent = 'Known amount only. Your complete bill is not yet established.';
-  }
-  total.append(suffix);
-  $('net-block').hidden = receipt.futureNetIfResold === null;
-  if (receipt.futureNetIfResold !== null) $('net-value').textContent = printMoney(receipt.futureNetIfResold, state.market);
-  $('receipt-status').classList.toggle('complete', receipt.fullyPriced);
-  $('receipt-status-text').textContent = receipt.fullyPriced ?
-    'All selected line items have values. Personal estimates are not verified prices.' :
-    `Still unknown: ${receipt.unknown.join(' · ')}.`;
+  receipt=calculate(state);
+  const fully=receipt.fullyPriced;
+  const label=state.route==='cloud'?'THE COST OF YOUR STREAMING PLAN':state.route==='buy'?'YOUR GAME + HARDWARE':'THE COST OF ENTRY';
+  $('result-kicker').textContent=label;
+  $('main-total').textContent=moneyText(fully?receipt.checkout:receipt.subtotal);
+  $('mobile-total').textContent=moneyText(fully?receipt.checkout:receipt.subtotal)+(fully?'':'+');
+  const hasUnknownGame=receipt.lines.some(l=>l.id==='game' && l.amount===null);
+  if(hasUnknownGame && receipt.subtotal===0){$('main-total').textContent='Not priced';$('mobile-total').textContent='Not priced';}
+  $('total-context').textContent=fully ? (state.route==='cloud'?'Projected total for your chosen number of hours. Cloud access may be purchased at different times.':'Modeled total under the selected assumptions.') : `Known amount only. ${receipt.unknown.length} unresolved ${receipt.unknown.length===1?'item':'items'} prevent a final price.`;
+  $('line-items').replaceChildren(...receipt.lines.map(lineNode));
+  $('subtotal').textContent=moneyText(receipt.subtotal);
+  $('receipt-status').classList.toggle('complete',fully);
+  $('receipt-status').querySelector('.status-icon').textContent=fully?'✓':'!';
+  $('receipt-status-text').textContent=fully?'All modelled items have values. Your estimates and eligibility still need confirmation.':`Still unknown: ${receipt.unknown.join(' · ')}.`;
+  $('net-block').hidden=receipt.futureNetIfResold===null;
+  if(receipt.futureNetIfResold!==null)$('net-value').textContent=moneyText(receipt.futureNetIfResold);
+  $('checked-date').textContent='NOV 19, 2026';
+  renderBreakdown();
 }
-
+function makeComparison(route) {
+  const scenario={...defaultScenario(),market:state.market,edition:state.edition,route};
+  if(route==='buy'){
+    scenario.platform='xbox-series-s';
+    const ref=HARDWARE_REFERENCES[`${state.market}:${scenario.platform}`];
+    if(ref){scenario.hardwareCents=ref.amount;scenario.hardwareQuote=ref.id;}
+  }
+  if(route==='cloud')scenario.platform='xbox-one';
+  return calculate(scenario);
+}
 function renderComparison() {
-  const baseline = MARKETS[state.market].prices[state.edition];
-  const buy = baseline + (state.market === 'US' ? HARDWARE_REFERENCE.cents : 0);
-  $('compare-own').textContent = printMoney(baseline, state.market) + (state.market === 'US' ? '+' : '');
-  $('compare-buy').textContent = state.market === 'US' ? printMoney(buy, state.market) + '+' : 'QUOTE NEEDED';
-  $('compare-buy-note').textContent = state.market === 'US' ? 'US Xbox Series S starting-price example, before tax' : 'Enter a local console price; no amount has been assumed';
-  $('compare-cloud').textContent = printMoney(baseline, state.market) + '+';
+  const node=$('route-comparison');node.replaceChildren();
+  const items=[
+    {id:'own',name:'Already equipped',desc:'Supported console already owned',num:'01 / OWN IT',cta:'Use my console'},
+    {id:'buy',name:'Buying new hardware',desc:'Xbox Series S first-party quote if available',num:'02 / BUY IT',cta:'Add a console',featured:true},
+    {id:'cloud',name:'Xbox cloud streaming',desc:'40 planned hours + the game',num:'03 / STREAM IT',cta:'Build a cloud plan'},
+  ];
+  for(const item of items) {
+    const r=makeComparison(item.id);
+    const lackingHardware=item.id==='buy' && r.unknown.some(x=>/console price/i.test(x));
+    const display=lackingHardware?'Needs quote':r.subtotal>0?moneyText(r.subtotal):'Needs quote';
+    const tax=r.unknown.includes('Local sales tax') && !lackingHardware;
+    const caveat=r.unknown.length?`+ ${r.unknown.join(' · ')}`:item.id==='cloud'?'Estimated cost for 40 hours':'Published game and hardware prices';
+    const card=document.createElement('button');card.type='button';card.className='comparison-card'+(item.featured?' featured':'');card.dataset.preset=item.id;
+    const t=document.createElement('span');t.className='comparison-no';t.textContent=item.num;
+    const h=document.createElement('h3');h.textContent=item.name;
+    const sub=document.createElement('span');sub.className='comparison-sub';sub.textContent=item.desc;
+    const amount=document.createElement('strong');amount.className='comparison-amount';amount.textContent=display+(tax?'+':'');
+    const note=document.createElement('span');note.className='comparison-caveat';note.textContent=caveat;
+    const chart=document.createElement('div');chart.className='mini-bar';
+    const known=r.lines.filter(l=>l.amount>0);
+    const sum=known.reduce((acc,l)=>acc+l.amount,0);
+    for(const line of known){const b=document.createElement('span');b.style.width=`${line.amount/sum*100}%`;b.style.background=barColors[line.category]??'#888';chart.append(b);}
+    const cta=document.createElement('span');cta.className='comparison-cta';cta.append(document.createTextNode(item.cta));
+    const arrow=document.createElement('span');arrow.textContent='↗';cta.append(arrow);
+    card.append(t,h,sub,amount,note,chart,cta);
+    card.addEventListener('click',()=>applyPreset(item.id));node.append(card);
+  }
+  $('comparison-note').textContent=`${currency().name} · local ${currency().currency} · ${state.edition==='standard'?'Standard':'Ultimate'} edition`;
 }
-
+function renderTable() {
+  const node=$('price-tbody');node.replaceChildren();
+  for(const [code,m] of Object.entries(MARKETS)){
+    const tr=document.createElement('tr');
+    const name=document.createElement('td');const iso=document.createElement('span');iso.className='market-code';iso.textContent=code;
+    name.append(iso,document.createTextNode(m.name));tr.append(name);
+    for(const edition of ['standard','ultimate']){
+      const td=document.createElement('td');td.textContent=printMoney(m.game.xbox.prices[edition],code);tr.append(td);
+    }
+    const cloud=document.createElement('td');
+    if(CLOUD_PACKS[code])cloud.textContent=printMoney(CLOUD_PACKS[code][2].amount,code);
+    else{cloud.textContent='Not verified';cloud.className='price-muted';}tr.append(cloud);
+    const linkCell=document.createElement('td');const link=document.createElement('a');link.href=m.game.xbox.source.standard;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Xbox Store ↗';linkCell.append(link);tr.append(linkCell);
+    node.append(tr);
+  }
+}
 function refresh() {
-  renderForm(); renderReceipt(); renderComparison();
-  const current = new URL(window.location.href);
-  current.searchParams.set('s', encodeScenario(state));
-  try { window.history.replaceState(null, '', current); }
-  catch { /* Local-file previews may deny URL history updates. */ }
+  renderReceipt();renderForm();renderComparison();writeStateToUrl();
 }
-
-function changeMoney(input, prop) {
-  const raw = input.value.trim();
-  const value = parseMoney(raw);
-  if (raw !== '' && value === null) {
-    $('action-feedback').textContent = 'Invalid amount rejected; the previous valid value was retained.';
-    input.value = moneyInput(state[prop]);
-    return;
-  }
-  input.removeAttribute('aria-invalid');
-  $('action-feedback').textContent = '';
-  state[prop] = value;
-  if (prop === 'hardwareCents') state.hardwareQuote = 'personal';
-  renderReceipt();
-  syncUrl();
+function resetPriceQuotes() {
+  state.hardwareCents=null;state.hardwareQuote='personal';state.resaleCents=null;state.gameCents=null;
 }
-
-function syncUrl() {
-  const url = new URL(window.location.href);
-  url.searchParams.set('s', encodeScenario(state));
-  try { window.history.replaceState(null, '', url); }
-  catch { /* Keep the calculator usable in standalone local previews. */ }
+function applyPreset(route) {
+  state.route=route;
+  state.platform=route==='cloud'?'xbox-one':route==='buy'?'xbox-series-s':'ps5-digital';
+  state.cloudPricingMode='official';resetPriceQuotes();
+  const ref=route==='buy'?HARDWARE_REFERENCES[`${state.market}:${state.platform}`]:null;
+  if(ref){state.hardwareCents=ref.amount;state.hardwareQuote=ref.id;}
+  setMessage();refresh();$('calculator').scrollIntoView({behavior:'smooth',block:'start'});
 }
-
-for (const button of document.querySelectorAll('[data-preset]')) {
-  button.addEventListener('click', () => {
-    state.route = button.dataset.preset;
-    state.platform = state.route === 'cloud' ? 'xbox-one' : state.route === 'buy' ? 'xbox-series-s' : 'ps5-digital';
-    state.hardwareCents = state.route === 'buy' && state.market === 'US' ? HARDWARE_REFERENCE.cents : null;
-    state.hardwareQuote = state.route === 'buy' && state.market === 'US' ? HARDWARE_REFERENCE.id : 'personal';
-    state.resaleCents = null; state.extraCents = 0;
-    refresh(); document.getElementById('calculator').scrollIntoView({ behavior: 'smooth', block: 'start' });
+function updateMoneyField(field,key) {
+  const raw=field.value.trim();
+  const value=parseMoney(raw,state.market);
+  if(raw!=='' && value===null){setMessage(`Invalid price in ${key.replace(/Cents$/,'')}. Previous amount retained.`);field.value=formatInput(state[key]);return;}
+  state[key]=value;if(key==='hardwareCents')state.hardwareQuote='personal';
+  setMessage();refresh();
+}
+function updateTax(field) {
+  const raw=field.value.trim().replace(',','.');
+  if(raw && !/^\d{1,3}(?:\.\d{1,2})?$/.test(raw)){setMessage('Enter a tax rate from 0 to 100 with up to 2 decimals.');return;}
+  const basis=raw===''?null:Math.round(Number(raw)*100);
+  if(basis!==null && basis>10000){setMessage('A tax rate above 100% is outside the model.');return;}
+  state.taxBasisPoints=basis;setMessage();refresh();
+}
+function bindInputs() {
+  $('scenario-form').addEventListener('submit',event=>event.preventDefault());
+  for(const id of ['market','market-compare'])$(id).addEventListener('change',event=>{
+    state.market=event.target.value;
+    resetPriceQuotes();state.extraCents=0;state.taxBasisPoints=null;state.cloudPackCents=null;
+    setMessage('Changing currency cleared all personal monetary inputs to prevent false conversions.');refresh();
   });
-}
-
-$('market').addEventListener('change', (event) => {
-  state.market = event.target.value;
-  state.hardwareCents = null;
-  state.hardwareQuote = 'personal';
-  state.resaleCents = null;
-  state.extraCents = 0;
-  state.cloudPackCents = null;
-  state.taxBasisPoints = null;
-  $('action-feedback').textContent = 'Currency changed; custom monetary inputs were cleared to prevent false conversion.';
-  refresh();
-});
-for (const button of document.querySelectorAll('[data-edition]')) {
-  button.addEventListener('click', () => { state.edition = button.dataset.edition; refresh(); });
-}
-for (const button of document.querySelectorAll('[data-route]')) {
-  button.addEventListener('click', () => {
-    state.route = button.dataset.route;
-    if (state.route === 'cloud') state.platform = 'xbox-one';
-    else if (state.route === 'buy') state.platform = 'xbox-series-s';
-    else state.platform = 'ps5-digital';
-    state.hardwareCents = null; state.hardwareQuote = 'personal'; state.resaleCents = null;
-    refresh();
+  $('platform').addEventListener('change',event=>{state.platform=event.target.value;resetPriceQuotes();setMessage();refresh();});
+  for(const btn of document.querySelectorAll('[data-edition]'))btn.addEventListener('click',()=>{state.edition=btn.dataset.edition;state.gameCents=null;setMessage();refresh();});
+  for(const btn of document.querySelectorAll('[data-route]'))btn.addEventListener('click',()=>{state.route=btn.dataset.route;state.platform=state.route==='cloud'?'xbox-one':state.route==='buy'?'xbox-series-s':'ps5-digital';resetPriceQuotes();setMessage();refresh();});
+  for(const [id,key] of [['game-price','gameCents'],['hardware','hardwareCents'],['resale','resaleCents'],['extras','extraCents'],['cloud-pack','cloudPackCents']])$(id).addEventListener('change',event=>updateMoneyField(event.target,key));
+  $('tax').addEventListener('change',event=>updateTax(event.target));
+  $('reference-quote').addEventListener('click',()=>{
+    const ref=HARDWARE_REFERENCES[`${state.market}:${state.platform}`];
+    if(!ref)return;state.hardwareCents=ref.amount;state.hardwareQuote=ref.id;setMessage();refresh();
   });
-}
-$('platform').addEventListener('change', (event) => {
-  state.platform = event.target.value;
-  state.hardwareCents = null; state.hardwareQuote = 'personal'; state.resaleCents = null;
-  refresh();
-});
-for (const [id, prop] of [['hardware','hardwareCents'],['resale','resaleCents'],['extras','extraCents'],['cloud-pack','cloudPackCents']]) {
-  $(id).addEventListener('change', (e) => changeMoney(e.target, prop));
-}
-$('reference-quote').addEventListener('click', () => {
-  state.hardwareCents = HARDWARE_REFERENCE.cents;
-  state.hardwareQuote = HARDWARE_REFERENCE.id;
-  refresh();
-});
-$('tax').addEventListener('change', (e) => {
-  const amount = parseMoney(e.target.value);
-  if (e.target.value.trim() && (amount === null || amount > 10000)) {
-    $('action-feedback').textContent = 'Invalid tax rate rejected; the previous valid rate was retained.';
-    e.target.value = state.taxBasisPoints === null ? '' : (state.taxBasisPoints / 100).toFixed(2);
-    return;
-  }
-  e.target.removeAttribute('aria-invalid');
-  state.taxBasisPoints = amount;
-  renderReceipt(); syncUrl();
-});
-for (const [id, prop] of [['cloud-hours','cloudHoursPerPack'],['planned-hours','plannedHours']]) {
-  $(id).addEventListener('change', e => {
-    const value = e.target.value.trim() === '' ? null : Number(e.target.value);
-    if (value !== null && (!Number.isInteger(value) || value < 1 || value > 10000)) {
-      $('action-feedback').textContent = 'Invalid number of hours rejected; the previous valid value was retained.';
-      e.target.value = state[prop] ?? '';
-      return;
-    }
-    if (prop === 'plannedHours' && value === null) {
-      $('action-feedback').textContent = 'Planned play time must be at least one hour.';
-      e.target.value = state.plannedHours; return;
-    }
-    e.target.removeAttribute('aria-invalid'); state[prop] = value;
-    renderReceipt(); syncUrl();
+  $('cloud-pricing').addEventListener('change',event=>{state.cloudPricingMode=event.target.value;setMessage();refresh();});
+  const updateHours=val=>{
+    const n=Number(val);
+    if(!Number.isSafeInteger(n)||n<1||n>10000){setMessage('Playtime must be between 1 and 10,000 whole hours.');return;}
+    state.plannedHours=n;setMessage();refresh();
+  };
+  $('hours-slider').addEventListener('input',event=>updateHours(event.target.value));
+  $('planned-hours').addEventListener('change',event=>updateHours(event.target.value));
+  for(const btn of document.querySelectorAll('[data-hours]'))btn.addEventListener('click',()=>updateHours(btn.dataset.hours));
+  $('cloud-hours').addEventListener('change',event=>{
+    const raw=event.target.value.trim();const n=raw===''?null:Number(raw);
+    if(n!==null&&(!Number.isSafeInteger(n)||n<1||n>10000)){setMessage('Custom pack size must be between 1 and 10,000 whole hours.');return;}
+    state.cloudHoursPerPack=n;setMessage();refresh();
   });
+  $('share-btn').addEventListener('click',shareResult);
+  $('export-btn').addEventListener('click',exportImage);
 }
-
-$('share-btn').addEventListener('click', async () => {
-  syncUrl();
+async function shareResult() {
+  writeStateToUrl();
+  const url=location.href;
   try {
-    await navigator.clipboard.writeText(window.location.href);
-    $('action-feedback').textContent = 'Receipt link copied. It includes your settings, never your identity.';
+    if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(url);
+    else {
+      const temporary=document.createElement('textarea');temporary.value=url;temporary.style.position='fixed';temporary.style.top='-10000px';
+      document.body.append(temporary);temporary.select();if(!document.execCommand('copy'))throw new Error('Clipboard not supported');temporary.remove();
+    }
+    $('action-feedback').textContent='Receipt link copied. It includes only your choices, no personal identity.';
   } catch {
-    $('action-feedback').textContent = 'Clipboard access unavailable. Copy the address-bar URL to share.';
+    $('action-feedback').textContent='Clipboard unavailable. Copy your browser address to share the receipt.';
   }
-});
-
-function makeSvgReceipt() {
-  const text = (x,y,str,size = 22,fill='#e8f0e0',weight='400') =>
-    `<text x="${x}" y="${y}" font-family="Arial,Helvetica,sans-serif" font-size="${size}" fill="${fill}" font-weight="${weight}">${escapeXml(str)}</text>`;
-  const lines = receipt.lines.map((line,i)=> {
-    const y = 405 + i * 42;
-    return text(80,y,`${line.label} [${line.evidence.toUpperCase()}]`,17) +
-      text(830,y,line.cents === null ? 'UNKNOWN' : printMoney(line.cents, state.market),18,'#e0fa8a','700');
-  }).join('');
-  const height = Math.max(760, 540 + receipt.lines.length * 42);
-  const total = receipt.checkout ?? receipt.subtotal;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="${height}" viewBox="0 0 1000 ${height}">
-<rect width="1000" height="${height}" fill="#1b2923"/><rect x="60" y="50" width="880" height="${height-100}" fill="none" stroke="#738a70" stroke-width="2"/>
-${text(80,111,'VI  /  COST TRUTH',24,'#dcfa72','800')}${text(80,168,'THE GAME PRICE IS ONLY THE START',18,'#b5c7b3','700')}
-${text(80,245,printMoney(total,state.market),84,'#dcfa72','800')}
-${text(80,286,receipt.fullyPriced?'MODELLED TOTAL':'KNOWN COST · OTHER COSTS UNRESOLVED',19,'#dce7d9','700')}
-${text(80,350,`${MARKETS[state.market].label.toUpperCase()}  /  ${state.route.toUpperCase()}  /  ${state.edition.toUpperCase()}`,18,'#a8bea4')}
-${lines}${text(80,height-158,`KNOWN SUBTOTAL   ${printMoney(receipt.subtotal,state.market)}`,21,'#e4f3df','700')}
-${text(80,height-117,'OFFICIAL GAME PRICES CHECKED 18 NOV 2026 · ALL OTHER QUOTES ARE PERSONAL INPUTS',12,'#b8c9b5')}
-${text(80,height-91,'INDEPENDENT PROJECT · NOT AFFILIATED WITH ROCKSTAR, TAKE-TWO, SONY OR MICROSOFT',11,'#b8c9b5')}
-</svg>`;
 }
-$('export-btn').addEventListener('click', () => {
-  try {
-    const blob = new Blob([makeSvgReceipt()], {type:'image/svg+xml;charset=utf-8'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url;
-    a.download = `gta-vi-cost-truth-${state.market.toLowerCase()}.svg`;
-    document.body.append(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
-    $('action-feedback').textContent = 'Receipt image saved as an editable SVG file.';
-  } catch { $('action-feedback').textContent = 'Unable to export receipt in this browser.'; }
-});
 
-refresh();
+/** Produce a custom 1200×630 PNG using Canvas, without external assets or services. */
+async function exportImage() {
+  try {
+    const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=630;
+    const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Canvas unavailable');
+    const gradient=ctx.createLinearGradient(0,0,1200,630);gradient.addColorStop(0,'#171922');gradient.addColorStop(1,'#313244');
+    ctx.fillStyle=gradient;ctx.fillRect(0,0,1200,630);
+    ctx.strokeStyle='#ffffff1e';for(let x=0;x<1200;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,630);ctx.stroke();}
+    for(let y=0;y<630;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(1200,y);ctx.stroke();}
+    const sun=ctx.createRadialGradient(990,80,20,930,195,330);sun.addColorStop(0,'#ffcd9d');sun.addColorStop(.6,'#fa7d78');sun.addColorStop(1,'#9f477766');
+    ctx.fillStyle=sun;ctx.beginPath();ctx.arc(1010,215,250,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#d8ff7c';ctx.fillRect(70,65,72,65);
+    ctx.fillStyle='#171922';ctx.font='bold 40px Arial';ctx.fillText('VI.',85,112);
+    ctx.fillStyle='#ffffff';ctx.font='bold 30px Arial';ctx.fillText('COST TRUTH',165,106);
+    ctx.fillStyle='#ffc1a9';ctx.font='bold 20px Arial';ctx.fillText('THE REAL PRICE OF PLAYING GTA VI',70,195);
+    const known=receipt.subtotal>0?printMoney(receipt.fullyPriced?receipt.checkout:receipt.subtotal,state.market):'NOT PRICED';
+    ctx.fillStyle='#d8ff7c';ctx.font=`900 ${known.length>16?89:128}px Arial`;ctx.fillText(known,64,362,1080);
+    ctx.fillStyle='#ffffff';ctx.font='bold 31px Arial';ctx.fillText(`${state.route==='own'?'OWN A CONSOLE':state.route==='buy'?'BUY A CONSOLE':'CLOUD PLAY'}  /  ${MARKETS[state.market].name.toUpperCase()}`,70,421);
+    ctx.fillStyle='#c2bec9';ctx.font='24px Arial';
+    ctx.fillText(receipt.fullyPriced?'MODELED TOTAL · ASSUMPTIONS APPLY':'KNOWN AMOUNT ONLY · UNRESOLVED COSTS EXIST',70,463);
+    ctx.strokeStyle='#ffffff6b';ctx.beginPath();ctx.moveTo(70,515);ctx.lineTo(1130,515);ctx.stroke();
+    ctx.fillStyle='#dcd8e0';ctx.font='bold 18px Arial';ctx.fillText('VERIFIED PRICES. NO HIDDEN GUESSES.',70,565);
+    ctx.font='18px Arial';ctx.fillText('fraware.github.io/gta-vi-cost-truth',746,565);
+    const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+    if(!blob)throw new Error('PNG export unsupported');
+    const url=URL.createObjectURL(blob);const link=document.createElement('a');link.href=url;link.download=`gta-vi-cost-truth-${state.market.toLowerCase()}.png`;document.body.append(link);link.click();link.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1500);
+    $('action-feedback').textContent='Share image saved as PNG. It contains your current result, without personal information.';
+  } catch {
+    $('action-feedback').textContent='Unable to save PNG in this browser. Try the shareable receipt link instead.';
+  }
+}
+
+function start() {
+  for(const [code,m] of Object.entries(MARKETS)){
+    $('market').append(option(code,`${m.name} · ${m.currency}`));
+    $('market-compare').append(option(code,`${m.name} · ${m.currency}`));
+  }
+  bindInputs();renderTable();refresh();
+}
+start();
 
 })();
 </script>

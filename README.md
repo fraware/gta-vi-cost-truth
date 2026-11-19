@@ -1,74 +1,47 @@
 # GTA VI Cost Truth
 
-**The game costs $79.99 in the US. What will it actually cost you to play?**
+### The $80 question.
 
-An independent, evidence-backed calculator for the full cost of starting *Grand Theft Auto VI*. No login, backend, analytics, third-party fonts, or invented prices. All calculations run in the browser.
+GTA VI's US Standard Edition is listed at $79.99. The hardware you own, the device you might buy, your country, and the way you play change the bill. **GTA VI Cost Truth** turns those choices into an independently auditable cost receipt.
 
-[Open the website](https://fraware.github.io/gta-vi-cost-truth/) (GitHub Pages must first be activated) · [See the price evidence](SOURCE_NOTES.md) · [Read the methodology](#method) · [Contribute](#contributing)
+**[Open the website](https://fraware.github.io/gta-vi-cost-truth/)** · [Explore the price snapshot](data/prices.json) · [Check the sources](SOURCE_NOTES.md) · [Run the tests](tests/engine.test.mjs)
 
-![Social preview showing GTA VI Cost Truth](assets/og.png)
+![The $80 question — GTA VI Cost Truth](assets/og.png)
 
-## What it calculates
+## What you get
 
-Choose a country, game edition, and way to play. The receipt separates **published prices**, **your own estimates**, and **unknown costs**. Every published item links to its storefront, with a verification date.
+- **Three purchasing routes.** Use an existing console, buy new hardware, or use a documented Xbox console cloud path. These routes are deliberately not presented as interchangeable; cloud access and device eligibility need separate checks.
+- **Nine markets.** United States, France, United Kingdom, Canada, Australia, Germany, Spain, Italy, and Japan. Game prices come from regional Xbox storefronts; independently verified PlayStation prices are used only in markets where sources were checked. We never derive local list prices from exchange rates.
+- **Five verified cloud-playtime catalogs.** Prepaid Xbox Store 10-, 25-, and 50-hour packs for US, FR, GB, CA, and AU. An exact optimizer selects the least expensive whole-pack combination for the requested time horizon. Other markets remain unpriced unless a personal quote is provided.
+- **First-party hardware reference prices.** Dated quotations for selected PlayStation and Xbox hardware in supported markets. A user-entered price stays clearly identified as a personal estimate, even if it matches an official amount.
+- **Receipts with evidence.** Every line is a verified listing, personal quotation, unknown, or conditional item. The headline shows a known subtotal, not a complete total, if important costs are absent.
+- **Private sharing.** Shareable URLs contain only scenario settings. PNG receipt export is produced locally in the browser. No user accounts, analytics scripts, cookies, backend, affiliate links, or runtime scraping.
+- **Auditable tooling.** A dependency-free JavaScript engine, Node CLI, machine-readable JSON price dataset, and automated tests.
 
-- **Already own a console:** game edition and optional extras. Compatible native platforms are PlayStation 5 / PS5 Pro and Xbox Series X|S.
-- **Buy a console:** game + entered device quote + extras, with first-party US shortcuts for Xbox Series S ($499.99) and PlayStation 5 Digital 825 GB ($599.99). Resale projections are separated from upfront expenditure.
-- **Use Xbox Cloud Gaming:** game + the least-expensive combination of official **10-, 25-, and 50-hour prepaid packs** in the US, France, or UK. GTA VI-specific launch-day cloud playback is represented for Xbox One and Xbox Series X|S. Microsoft lists additional devices for its cloud service generally; that broader eligibility has not been established for this game. A different personal cloud tariff can also be entered. Device, account, game, and regional eligibility must be verified with Xbox.
+## Run the website
 
-**Sample:** Playing 40 hours of the US Standard Edition through Xbox Cloud Gaming uses one 50-hour pack, $11.99, plus the $79.99 game. The modelled *known subtotal* is **$91.98**, before applicable US sales tax and personal extras. Buying four 10-hour packs would cost $15.96; the optimiser avoids that excess. The 10 unused prepaid hours are disclosed.
+The production site is static HTML, CSS, and ES modules. It needs no server-side runtime, framework, package installation, or API key.
 
-## Price ledger
-
-All figures below are manually recorded **first-party storefront snapshots, checked November 19, 2026**, and might differ from a subsequent checkout. They are not a continuously refreshed data feed.
-
-| Market | Standard | Ultimate | Cloud 10h | Cloud 25h | Cloud 50h |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| United States | $79.99 | $99.99 | $3.99 | $7.99 | $11.99 |
-| France | €79.99 | €99.99 | €3.49 | €6.99 | €10.99 |
-| United Kingdom | £69.99 | £89.99 | £2.99 | £5.99 | £8.99 |
-
-Direct retailer URLs, device references, and inclusion criteria are in [SOURCE_NOTES.md](SOURCE_NOTES.md). No FX conversion or guessed regional taxes are used. For the US, entering a sales-tax percentage produces an **illustrative** estimate. The actual tax base, jurisdiction, and final checkout treatment can vary.
-
-Xbox also advertises ad-supported cloud access and monthly Game Pass hours in eligible circumstances. This product prices the separate prepaid-pack route, not every available entitlement. **Cloud gaming availability for a given game and account must be confirmed before a purchase.** The game purchase itself is separate.
-
-## Method
-
-The calculator uses integer minor currency units (cents or pence). A null quotation means **unknown**, not zero. A complete scenario receipt indicates that all *selected* inputs have values; it is never a guaranteed checkout quote.
-
-For native console play:
-
-```text
-known subtotal = game + chosen extras + console price (if buying)
-US illustrative sales tax = round(known subtotal × rate in basis points / 10,000)
-scenario expenditure = known subtotal + tax, only if inputs are complete
-contingent net after resale = scenario expenditure − entered resale estimate
-```
-
-For Xbox cloud packs, a bounded unbounded-knapsack algorithm finds the minimum price of whole packs that **cover at least the planned hours**. It also reports unused purchased hours, and does not assume prorated refunds, game inclusion in Game Pass, or unrestricted cloud access. For the cloud route, scenario expenditure encompasses hours used over time, not necessarily a single immediate charge.
-
-## Run and test
-
-Only a local static HTTP server is needed to use the website.
-
-```sh
+```bash
 python3 -m http.server 8080
-# visit http://localhost:8080
+# Visit http://localhost:8080/
 ```
 
-Use Node.js 20+ to reproduce the deterministic tests and build the offline demonstration.
+Node.js 20+ is used for tests, machine-readable snapshots, and the standalone build.
 
-```sh
+```bash
 npm test
+npm run build:data
 npm run build:demo
+# Open dist/standalone.html as a self-contained offline preview.
 ```
 
-The engine is in [src/engine.mjs](src/engine.mjs), the catalog in [src/catalog.mjs](src/catalog.mjs), and the pack optimisation in [src/cloud.mjs](src/cloud.mjs).
+### Use the calculation engine
 
 ```js
 import { calculate, defaultScenario } from './src/engine.mjs';
 
-const receipt = calculate({
+const result = calculate({
   ...defaultScenario(),
   market: 'FR',
   route: 'cloud',
@@ -76,19 +49,36 @@ const receipt = calculate({
   plannedHours: 40,
 });
 
-console.log(receipt.checkout);                 // 9098 (€90.98)
-console.log(receipt.cloudPlan.selection);       // one 50-hour pack
-console.log(receipt.lines.map(x => x.source));  // first-party URLs
+console.log(result.checkout);     // 9098 euro cents: game + 50-hour pack
+console.log(result.cloudPlan);    // Exact pack selection and unused hours
+console.log(result.lines);        // Sources, prices, and evidence statuses
 ```
 
-## Existing projects and differentiation
+```bash
+# JSON receipts for scripts, reports, and independent checks
+node scripts/cost.mjs --market FR --route cloud --device xbox-one --hours 40
+node scripts/cost.mjs --market US --route buy --device xbox-series-s --use-official-hardware --tax-rate 8.25
+node scripts/cost.mjs --market JP --route own --device xbox-series-x --edition ultimate
+```
 
-Other GTA VI cost calculators already exist, including [GTA6Cost](https://gta6cost.com/calculator/), [GTA Corner](https://www.gtacorner.com/cost-to-play), and [Kalkio](https://kalkio.vercel.app/tools/gta-6-total-cost/). [LeonidaLab's open-source GTA VI price index](https://github.com/LeonidaLab/gta6-price-index) covers a much broader range of countries.
+The export at [`data/prices.json`](data/prices.json) is generated from [`src/catalog.mjs`](src/catalog.mjs). It contains the observation date, currency metadata, prices, and first-party links. **It is a curated dated snapshot, not a live price-feed API.** The arithmetic operates on integer minor units (including zero-decimal JPY) and never performs foreign-exchange conversion.
 
-This project concentrates on **item-level first-party provenance, exact multi-pack optimisation, typed unknowns, and a portable receipt** rather than duplicating a global retail price index. The application does not claim to be the first calculator in its category.
+## Evidence and limitations
+
+The source ledger documents observations made November 19, 2026. Actual checkout amounts, taxes, availability, promotional discounts, cloud service restrictions, game editions, and regional entitlement rules can differ. Changes to market or currency clear stored personal quotes to avoid accidental conversion. US and Canadian sales taxes are deliberately unresolved until a local rate is entered; the illustrative rate applies uniformly to the known subtotal and is not a merchant-specific tax computation. For cloud play, game purchase and prepaid time expenditure are combined into a **playtime-horizon projection**, not a claim that both charges occur at checkout simultaneously.
+
+The official GTA VI native launch platform list contains PlayStation 5 and Xbox Series X|S. Xbox One is documented as a cloud streaming path. PC, phone, and television options are individually marked conditional: **a generic Xbox Cloud Gaming device list does not establish GTA VI launch availability for every device.** Neither free ad-supported access nor unlimited entitlement is presumed. The price and provenance of each included product are linked in the receipt.
+
+See [SOURCE_NOTES.md](SOURCE_NOTES.md) for the exact references and [LAUNCH.md](LAUNCH.md) for publication checks.
+
+## Prior art and positioning
+
+GTA VI total-cost calculators and market-price indexes already exist, including GTA6Cost, GTA Corner, Kalkio, and LeonidaLab's GTA VI Price Index. This is **not** a claim of being the first calculator in the category. Its design emphasis is a comparison-first editorial interface, local-first receipt sharing, exact cloud-pack optimization, and price/evidence provenance in an independently testable open-source engine.
 
 ## Contributing
 
-Corrections need a first-party URL, country, product, displayed currency, verification date, and tax interpretation, plus an automated regression test for pricing or calculation changes. Open an issue for inaccurate quotations, missing prior art, device constraints, or accessibility problems.
+Corrections, first-party market sources, localization, accessibility repairs, and reproducible test cases are welcome through GitHub issues and pull requests. An additional verified quote needs an official product-page URL, specific market, currency, edition or device, date of observation, tax treatment, and regression test. Never replace an absent price with an inferred exchange-rate conversion. If uncertain about a listing, prefer an explicit unknown.
 
-The repository is independent of Rockstar Games, Take-Two Interactive, PlayStation, and Xbox. No proprietary game art is included. Original source code and graphics are [MIT licensed](LICENSE).
+## License and independence
+
+[MIT](LICENSE). Independently developed and unaffiliated with Rockstar Games, Take-Two Interactive, Sony, Microsoft, or their affiliates. All product and company names are trademarks of their respective owners. Original graphics contain no copied game or console artwork.

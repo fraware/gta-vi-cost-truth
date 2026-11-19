@@ -1,20 +1,35 @@
-# Release checklist
+# Public release playbook
 
-This project is aimed at honest, useful cost comparisons in the week of GTA VI's release. GitHub Trending is an external ranking and any particular position is unverified.
+## Position
 
-- [x] Independent first-party game price and launch-date citations recorded.
-- [x] Three supported game-price markets with currency-specific values.
-- [x] First-party Xbox cloud packs for all three markets, with an exact multi-pack optimiser.
-- [x] Two first-party US new-console reference prices.
-- [x] Modular, zero-dependency cost engine with explicit missing values.
-- [x] Shareable URL and locally generated SVG receipt.
-- [x] GitHub test and static deployment workflow definitions.
-- [ ] Confirm the first GitHub Actions runs and successful Pages deployment.
-- [ ] Verify the actual public HTTPS site and mobile layout.
-- [x] Add the raster social preview to the repository and configure Open Graph/Twitter tags.
-- [ ] Verify the social preview on the deployed host and major link-sharing clients.
-- [ ] Test receipt sharing from a second browser, including cloud and US tax unknowns.
-- [ ] Validate current prices, cloud plans, and availability again on launch day.
-- [ ] Obtain direct usability feedback before public outreach.
+**The $80 question.** The game's sticker price does not determine a player's actual cost of entry. A dynamic receipt compares already-owned consoles, purchased hardware, and supported Xbox cloud streaming, with first-party pricing and explicit uncertainty.
 
-Initial positioning: “GTA VI is $79.99 in the US. How much does it cost for *your* setup?” Avoid unsupported claims of uniqueness or traction.
+The open-source differentiator is a country-aware data catalog, pure calculation engine, exact prepaid-pack optimization, JSON dataset, CLI, and per-line provenance. The product differentiator is a strong comparison-led design and personal shareable receipt, with no account or runtime tracking.
+
+## Responsible release checklist
+
+- [x] Independent, dated first-party price observations across nine regional game storefronts.
+- [x] Five regionally published Microsoft cloud-playtime catalogs and exact optimization.
+- [x] Ten sourced hardware reference quotes from first-party vendors.
+- [x] Local-first share URLs and 1200×630 PNG receipt export.
+- [x] JS engine, portable JSON export, CLI and tests.
+- [x] Mark unresolved tax, eligibility, unverified device support and game prices.
+- [ ] Confirm successful GitHub Actions test and static publishing workflows for the exact release SHA.
+- [ ] Confirm GitHub Pages is enabled and the public URL loads without errors.
+- [ ] Verify mobile, tablet and desktop interaction in a real browser against the live URL.
+- [ ] Verify link sharing from a clean browser, quote provenance, source links and PNG export.
+- [ ] Inspect social-platform open graph previews and accessibility with automated and manual audit.
+- [ ] Check current storefront prices on release day and update sources if they changed.
+- [ ] Get independent player feedback and correct the interface before promoting it widely.
+
+## Suggested public headline
+
+GTA VI is $79.99 in the US. What will it actually cost you to play? Compare your console, cloud access and country, then share a receipt backed by official listings.
+
+## GitHub-native distribution
+
+Source-linked per-line receipts, a deliberately minimal zero-dependency engine, and portable machine-readable official-price observations give developers reasons to reproduce, extend and contribute. The website presents the GitHub repository as a primary place to audit and improve the data, not a decorative footer. Invite market additions backed by first-party URLs and dated observations. Track genuine stars, visitors completing receipts, sourced corrections, contributors, and issues; do not claim traction before measuring it.
+
+## Integrity
+
+Multiple competing calculators already exist. This project does not claim to be the first, guarantee access to cloud streaming, offer live store prices, or guarantee a #1 GitHub Trending ranking. Avoid paid/automated fake stars, misleading countdowns, fake scarcity, and mass unsolicited outreach. Only report verified deployment, tests and product results.

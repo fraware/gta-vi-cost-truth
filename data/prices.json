@@ -1,0 +1,426 @@
+{
+  "schemaVersion": 1,
+  "snapshotDate": "2026-11-19",
+  "note": "Dated manually checked first-party storefront prices; not a live feed or guaranteed checkout total.",
+  "markets": {
+    "US": {
+      "name": "United States",
+      "currency": "USD",
+      "locale": "en-US",
+      "decimals": 2,
+      "taxIncluded": false,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/en-US/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVISTANDARD001",
+            "ultimate": "https://store.playstation.com/en-us/product/EP1004-PPSA01547_00-GTAVIULTIMATE001"
+          }
+        }
+      }
+    },
+    "FR": {
+      "name": "France",
+      "currency": "EUR",
+      "locale": "fr-FR",
+      "decimals": 2,
+      "taxIncluded": true,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://www.xbox.com/fr-FR/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/fr-FR/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://store.playstation.com/fr-fr/product/EP1004-PPSA01547_00-GTAVISTANDARD001",
+            "ultimate": "https://store.playstation.com/fr-fr/product/EP1004-PPSA01547_00-GTAVIULTIMATE001"
+          }
+        }
+      }
+    },
+    "GB": {
+      "name": "United Kingdom",
+      "currency": "GBP",
+      "locale": "en-GB",
+      "decimals": 2,
+      "taxIncluded": true,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 6999,
+            "ultimate": 8999
+          },
+          "source": {
+            "standard": "https://www.xbox.com/en-GB/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/en-GB/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": {
+          "prices": {
+            "standard": 6999,
+            "ultimate": 8999
+          },
+          "source": {
+            "standard": "https://store.playstation.com/en-gb/product/EP1004-PPSA01547_00-GTAVISTANDARD001",
+            "ultimate": "https://store.playstation.com/en-gb/product/EP1004-PPSA01547_00-GTAVIULTIMATE001"
+          }
+        }
+      }
+    },
+    "CA": {
+      "name": "Canada",
+      "currency": "CAD",
+      "locale": "en-CA",
+      "decimals": 2,
+      "taxIncluded": false,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 10999,
+            "ultimate": 13999
+          },
+          "source": {
+            "standard": "https://www.xbox.com/en-CA/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/en-CA/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": {
+          "prices": {
+            "standard": 10999,
+            "ultimate": 13999
+          },
+          "source": {
+            "standard": "https://store.playstation.com/en-ca/product/EP1004-PPSA01547_00-GTAVISTANDARD001",
+            "ultimate": "https://store.playstation.com/en-ca/product/EP1004-PPSA01547_00-GTAVIULTIMATE001"
+          }
+        }
+      }
+    },
+    "AU": {
+      "name": "Australia",
+      "currency": "AUD",
+      "locale": "en-AU",
+      "decimals": 2,
+      "taxIncluded": true,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 12995,
+            "ultimate": 15995
+          },
+          "source": {
+            "standard": "https://www.xbox.com/en-AU/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/en-AU/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": null
+      }
+    },
+    "DE": {
+      "name": "Germany",
+      "currency": "EUR",
+      "locale": "de-DE",
+      "decimals": 2,
+      "taxIncluded": true,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://www.xbox.com/de-DE/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/de-DE/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://store.playstation.com/de-de/product/EP1004-PPSA01547_00-GTAVISTANDARD001",
+            "ultimate": "https://store.playstation.com/de-de/product/EP1004-PPSA01547_00-GTAVIULTIMATE001"
+          }
+        }
+      }
+    },
+    "ES": {
+      "name": "Spain",
+      "currency": "EUR",
+      "locale": "es-ES",
+      "decimals": 2,
+      "taxIncluded": true,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://www.xbox.com/es-ES/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/es-ES/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": null
+      }
+    },
+    "IT": {
+      "name": "Italy",
+      "currency": "EUR",
+      "locale": "it-IT",
+      "decimals": 2,
+      "taxIncluded": true,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 7999,
+            "ultimate": 9999
+          },
+          "source": {
+            "standard": "https://www.xbox.com/it-IT/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/it-IT/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": null
+      }
+    },
+    "JP": {
+      "name": "Japan",
+      "currency": "JPY",
+      "locale": "ja-JP",
+      "decimals": 0,
+      "taxIncluded": true,
+      "game": {
+        "xbox": {
+          "prices": {
+            "standard": 9800,
+            "ultimate": 12280
+          },
+          "source": {
+            "standard": "https://www.xbox.com/ja-JP/games/store/grand-theft-auto-vi/9P3H4968GRSM",
+            "ultimate": "https://www.xbox.com/ja-JP/games/store/grand-theft-auto-vi/9NNZSNHLR63L"
+          }
+        },
+        "playstation": null
+      }
+    }
+  },
+  "hardwareReferences": {
+    "US:xbox-series-s": {
+      "id": "US-xbox-series-s-2026-11-19",
+      "market": "US",
+      "model": "xbox-series-s",
+      "amount": 49999,
+      "source": "https://www.microsoft.com/en-us/p/xbox-series-s/942J774TP9JN/2JBX",
+      "label": "Microsoft Store · 512 GB",
+      "verifiedOn": "2026-11-19"
+    },
+    "US:ps5-digital": {
+      "id": "US-ps5-digital-2026-11-19",
+      "market": "US",
+      "model": "ps5-digital",
+      "amount": 59900,
+      "source": "https://direct.playstation.com/en-us/hardware/ps5",
+      "label": "PlayStation Direct · 825 GB",
+      "verifiedOn": "2026-11-19"
+    },
+    "US:ps5-disc": {
+      "id": "US-ps5-disc-2026-11-19",
+      "market": "US",
+      "model": "ps5-disc",
+      "amount": 64900,
+      "source": "https://direct.playstation.com/en-us/hardware/ps5",
+      "label": "PlayStation Direct · 1 TB",
+      "verifiedOn": "2026-11-19"
+    },
+    "US:ps5-pro": {
+      "id": "US-ps5-pro-2026-11-19",
+      "market": "US",
+      "model": "ps5-pro",
+      "amount": 89900,
+      "source": "https://direct.playstation.com/en-us/hardware/ps5",
+      "label": "PlayStation Direct · PS5 Pro",
+      "verifiedOn": "2026-11-19"
+    },
+    "FR:xbox-series-s": {
+      "id": "FR-xbox-series-s-2026-11-19",
+      "market": "FR",
+      "model": "xbox-series-s",
+      "amount": 49999,
+      "source": "https://www.microsoft.com/fr-fr/p/xbox-series-s/942j774tp9jn",
+      "label": "Microsoft Store · 512 Go",
+      "verifiedOn": "2026-11-19"
+    },
+    "FR:ps5-digital": {
+      "id": "FR-ps5-digital-2026-11-19",
+      "market": "FR",
+      "model": "ps5-digital",
+      "amount": 59999,
+      "source": "https://www.playstation.com/fr-fr/ps5/digital-edition-825-gb/",
+      "label": "PlayStation · 825 Go",
+      "verifiedOn": "2026-11-19"
+    },
+    "GB:xbox-series-s": {
+      "id": "GB-xbox-series-s-2026-11-19",
+      "market": "GB",
+      "model": "xbox-series-s",
+      "amount": 42999,
+      "source": "https://www.microsoft.com/en-gb/d/Xbox-Series-S/942J774TP9JN/24K9",
+      "label": "Microsoft Store · 512 GB",
+      "verifiedOn": "2026-11-19"
+    },
+    "GB:ps5-digital": {
+      "id": "GB-ps5-digital-2026-11-19",
+      "market": "GB",
+      "model": "ps5-digital",
+      "amount": 51999,
+      "source": "https://direct.playstation.com/en-gb/hardware/ps5",
+      "label": "PlayStation Direct · 825 GB",
+      "verifiedOn": "2026-11-19"
+    },
+    "CA:xbox-series-s": {
+      "id": "CA-xbox-series-s-2026-11-19",
+      "market": "CA",
+      "model": "xbox-series-s",
+      "amount": 64999,
+      "source": "https://www.microsoft.com/en-ca/d/xbox-series-s/942j774tp9jn",
+      "label": "Microsoft Store · 512 GB",
+      "verifiedOn": "2026-11-19"
+    },
+    "AU:xbox-series-s": {
+      "id": "AU-xbox-series-s-2026-11-19",
+      "market": "AU",
+      "model": "xbox-series-s",
+      "amount": 69900,
+      "source": "https://www.microsoft.com/en-au/p/xbox-series-s/942j774tp9jn",
+      "label": "Microsoft Store · 512 GB",
+      "verifiedOn": "2026-11-19"
+    }
+  },
+  "cloudPacks": {
+    "US": [
+      {
+        "hours": 10,
+        "amount": 399,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-US/games/store/cloud-playtime-10-hours/9pl4njhpdn7l"
+      },
+      {
+        "hours": 25,
+        "amount": 799,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-US/games/store/cloud-playtime-25-hours/9pg1fs0brh5h"
+      },
+      {
+        "hours": 50,
+        "amount": 1199,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-US/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0"
+      }
+    ],
+    "FR": [
+      {
+        "hours": 10,
+        "amount": 349,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-10-heures/9pl4njhpdn7l"
+      },
+      {
+        "hours": 25,
+        "amount": 699,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-25-heures/9pg1fs0brh5h"
+      },
+      {
+        "hours": 50,
+        "amount": 1099,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/fr-FR/games/store/temps-de-jeu-sur-le-cloud-50-heures/9mtv0kn0j3c0"
+      }
+    ],
+    "GB": [
+      {
+        "hours": 10,
+        "amount": 299,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-GB/games/store/cloud-playtime-10-hours/9pl4njhpdn7l"
+      },
+      {
+        "hours": 25,
+        "amount": 599,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-GB/games/store/cloud-playtime-25-hours/9pg1fs0brh5h"
+      },
+      {
+        "hours": 50,
+        "amount": 899,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-GB/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0"
+      }
+    ],
+    "CA": [
+      {
+        "hours": 10,
+        "amount": 499,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-CA/games/store/cloud-playtime-10-hours/9pl4njhpdn7l"
+      },
+      {
+        "hours": 25,
+        "amount": 1099,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-CA/games/store/cloud-playtime-25-hours/9pg1fs0brh5h"
+      },
+      {
+        "hours": 50,
+        "amount": 1699,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-CA/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0"
+      }
+    ],
+    "AU": [
+      {
+        "hours": 10,
+        "amount": 595,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-AU/games/store/cloud-playtime-10-hours/9pl4njhpdn7l"
+      },
+      {
+        "hours": 25,
+        "amount": 1195,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-AU/games/store/cloud-playtime-25-hours/9pg1fs0brh5h"
+      },
+      {
+        "hours": 50,
+        "amount": 1795,
+        "verifiedOn": "2026-11-19",
+        "source": "https://www.xbox.com/en-AU/games/store/cloud-playtime-50-hours/9mtv0kn0j3c0"
+      }
+    ]
+  }
+}
