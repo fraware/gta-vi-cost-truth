@@ -1,12 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-<rect width="1200" height="630" fill="#17251f"/>
-<rect x="72" y="62" width="72" height="72" rx="10" fill="#dcfa72"/>
-<text x="87" y="111" font-family="Arial,Helvetica,sans-serif" font-size="38" font-weight="900" fill="#17251f">VI</text>
-<text x="166" y="111" font-family="Arial,Helvetica,sans-serif" font-size="31" font-weight="800" letter-spacing="2" fill="#f0f1ea">COST TRUTH</text>
-<path d="M72 174H1128" stroke="#677269"/>
-<text x="72" y="268" font-family="Arial,Helvetica,sans-serif" font-size="55" font-weight="800" fill="#f0f1ea">THE GAME IS</text>
-<text x="72" y="389" font-family="Arial,Helvetica,sans-serif" font-size="117" font-weight="900" fill="#dcfa72">$79.99.</text>
-<text x="72" y="481" font-family="Georgia,'Times New Roman',serif" font-style="italic" font-size="63" fill="#f0f1ea">What's the cost of playing?</text>
-<path d="M72 547H1128" stroke="#677269"/>
-<text x="72" y="591" font-family="Arial,Helvetica,sans-serif" font-size="24" letter-spacing="3" fill="#a6b5ab">VERIFIED PRICES. HONEST UNKNOWNS. YOUR RECEIPT.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+<defs>
+ <radialGradient id="atmosphere" cx="81%" cy="42%" r="58%">
+  <stop offset="0" stop-color="#733a47" stop-opacity="0.57"/>
+  <stop offset="0.47" stop-color="#392631" stop-opacity="0.21"/>
+  <stop offset="1" stop-color="#11131b" stop-opacity="0"/>
+ </radialGradient>
+ <linearGradient id="faint" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0" stop-color="#141722"/><stop offset="1" stop-color="#0f1118"/>
+ </linearGradient>
+ <filter id="shadow" x="-45%" y="-45%" width="210%" height="210%">
+  <feGaussianBlur stdDeviation="17"/>
+ </filter>
+ <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="0.8" fill="#ffffff" opacity=".22"/></pattern>
+</defs>
+<rect width="1280" height="640" fill="url(#faint)"/>
+<rect width="1280" height="640" fill="url(#atmosphere)"/>
+<rect x="754" y="0" width="526" height="640" fill="url(#dots)" opacity=".19"/>
+<path d="M744 48 V591" stroke="#ffffff" stroke-opacity=".14" stroke-width="1"/>
+<!-- Identity -->
+<path d="M72 55 H136 L129 122 H66 Z" fill="#ff806f"/>
+<text x="78" y="104" font-family="Inter Display,Inter,Arial,sans-serif" font-weight="900" font-size="36" letter-spacing="-3" fill="#11131b">VI<tspan fill="#d8ff7c">.</tspan></text>
+<text x="157" y="90" font-family="Inter Display,Inter,Arial,sans-serif" font-size="30" font-weight="820" letter-spacing="-1.1" fill="#f6f3ed">COST TRUTH</text>
+<text x="159" y="111" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="2.5" fill="#aeb0ba">GTA VI  /  TOTAL COST CALCULATOR</text>
+<path d="M73 146 H694" stroke="#ffffff" stroke-opacity=".27"/>
+<!-- Editorial headline -->
+<text x="66" y="244" font-family="Inter Display,Inter,Arial,sans-serif" font-size="80" font-weight="890" letter-spacing="-4" fill="#f6f3ed">THE</text>
+<text x="235" y="244" font-family="Inter Display,Inter,Arial,sans-serif" font-size="80" font-weight="890" letter-spacing="-4" fill="#f6f3ed">GAME</text>
+<text x="505" y="244" font-family="Inter Display,Inter,Arial,sans-serif" font-size="80" font-weight="890" letter-spacing="-4" fill="#f6f3ed">IS</text>
+<text x="68" y="373" font-family="Inter Display,Inter,Arial,sans-serif" font-size="132" font-weight="920" letter-spacing="-9" fill="#d8ff7c">$79.99<tspan fill="#ff8075">.</tspan></text>
+<text x="553" y="353" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="780" letter-spacing="1" fill="#c9d0c9">US LIST PRICE</text>
+<text x="70" y="472" font-family="Inter Display,Inter,Arial,sans-serif" font-size="77" font-weight="890" letter-spacing="-4" fill="#f6f3ed">WHAT</text>
+<text x="345" y="472" font-family="Inter Display,Inter,Arial,sans-serif" font-size="77" font-weight="890" letter-spacing="-4" fill="#f6f3ed">WILL</text>
+<text x="70" y="548" font-family="Inter Display,Inter,Arial,sans-serif" font-size="77" font-weight="890" letter-spacing="-4" fill="#ff9c8d">YOU</text>
+<text x="252" y="548" font-family="Inter Display,Inter,Arial,sans-serif" font-size="77" font-weight="890" letter-spacing="-4" fill="#ff9c8d">PAY?</text>
+<path d="M73 576 H694" stroke="#ffffff" stroke-opacity=".27"/>
+<text x="73" y="605" font-family="Inter,Arial,sans-serif" font-size="12" font-weight="760" letter-spacing="2" fill="#ccd0d1">PS5   ·   XBOX   ·   CLOUD      /      9 MARKETS      /      OPEN SOURCE</text>
+<!-- Receipt shadow and physical stationery -->
+<g transform="rotate(3 1018 350)">
+  <rect x="818" y="132" width="392" height="433" rx="5" fill="#000" opacity=".44" filter="url(#shadow)" transform="translate(14 17)"/>
+  <path d="M805 120 H1207 V564 L1196 556 L1185 564 L1174 556 L1163 564 L1152 556 L1141 564 L1130 556 L1119 564 L1108 556 L1097 564 L1086 556 L1075 564 L1064 556 L1053 564 L1042 556 L1031 564 L1020 556 L1009 564 L998 556 L987 564 L976 556 L965 564 L954 556 L943 564 L932 556 L921 564 L910 556 L899 564 L888 556 L877 564 L866 556 L855 564 L844 556 L833 564 L822 556 L805 564 Z" fill="#f5f1e8"/>
+  <path d="M834 155 H1177" stroke="#22232a" stroke-opacity=".6" stroke-width="2"/>
+  <text x="838" y="182" font-family="Inter,Arial,sans-serif" font-size="11" font-weight="820" letter-spacing="2" fill="#41444a">COST TRUTH  /  RECEIPT NO. 001</text>
+  <path d="M838 202 H1176" stroke="#24252a" stroke-opacity=".27"/>
+  <text x="838" y="244" font-family="Inter Display,Inter,Arial,sans-serif" font-size="33" font-weight="850" letter-spacing="-1.6" fill="#22242b">The real bill.</text>
+  <text x="838" y="281" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="730" fill="#45434a">GTA VI · Standard (US)</text>
+  <text x="1173" y="281" text-anchor="end" font-family="Inter Display,Inter,Arial,sans-serif" font-size="19" font-weight="820" fill="#191a20">$79.99</text>
+  <path d="M838 293 H1176" stroke="#24252a" stroke-opacity=".17"/>
+  <text x="838" y="326" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="730" fill="#45434a">Console / hardware</text>
+  <text x="1173" y="326" text-anchor="end" font-family="Inter Display,Inter,Arial,sans-serif" font-size="18" font-weight="820" fill="#cc685e">VARIES</text>
+  <path d="M838 338 H1176" stroke="#24252a" stroke-opacity=".17"/>
+  <text x="838" y="371" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="730" fill="#45434a">Cloud / subscriptions</text>
+  <text x="1173" y="371" text-anchor="end" font-family="Inter Display,Inter,Arial,sans-serif" font-size="18" font-weight="820" fill="#cc685e">OPTIONAL</text>
+  <path d="M838 383 H1176" stroke="#24252a" stroke-opacity=".17"/>
+  <text x="838" y="416" font-family="Inter,Arial,sans-serif" font-size="15" font-weight="730" fill="#45434a">Tax + extras</text>
+  <text x="1173" y="416" text-anchor="end" font-family="Inter Display,Inter,Arial,sans-serif" font-size="18" font-weight="820" fill="#cc685e">DEPENDS</text>
+  <rect x="821" y="438" width="369" height="101" rx="1" fill="#191d24"/>
+  <text x="839" y="470" font-family="Inter,Arial,sans-serif" font-size="10.5" font-weight="820" letter-spacing="2.5" fill="#d5dfd1">YOUR TOTAL</text>
+  <text x="839" y="514" font-family="Inter Display,Inter,Arial,sans-serif" font-size="34" font-weight="890" letter-spacing="-1.4" fill="#dcff87">FIND OUT  →</text>
+  
+</g>
+<!-- coral index marker -->
+<rect x="1082" y="62" width="128" height="35" fill="#ff8979"/>
+<text x="1146" y="85" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="11.5" font-weight="850" letter-spacing="0.8" fill="#15141b">OPEN SOURCE</text>
 </svg>
