@@ -2,7 +2,7 @@
 
 **GTA VI cost calculator for PS5, Xbox, and supported cloud routes. Official regional prices, honest unknowns, and a receipt you can verify.**
 
-**[Try the live calculator](https://fraware.github.io/gta-vi-cost-truth/)** · [Use the calculation API](docs/API.md) · [Download the price data](data/prices.json) · [Review the sources](SOURCE_NOTES.md)
+**[Try the live calculator](https://fraware.github.io/gta-vi-cost-truth/)** · [Press and launch reference](PRESS.md) · [Use the calculation API](docs/API.md) · [Download the price data](data/prices.json) · [Review the sources](SOURCE_NOTES.md)
 
 ![GTA VI Cost Truth — The $80 Question](assets/og.png)
 
