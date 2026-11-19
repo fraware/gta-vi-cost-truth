@@ -118,10 +118,14 @@ test('40h cloud route buys one 50h pack, not four 10h packs', () => {
   }
 });
 
-test('cloud supports PC and smart TV without claiming a native GTA VI release', () => {
-  assert.equal(calculate(scenario({market:'GB',route:'cloud',platform:'pc-cloud'})).checkout,7898);
-  assert.equal(calculate(scenario({market:'FR',route:'cloud',platform:'tv-cloud'})).checkout,9098);
-  assert.throws(()=>calculate(scenario({market:'FR',route:'own',platform:'pc-cloud'})));
+test('GTA VI cloud support is restricted to officially announced Xbox consoles', () => {
+  for (const platform of ['xbox-one','xbox-series-s','xbox-series-x']) {
+    assert.equal(calculate(scenario({ market:'FR',route:'cloud',platform })).checkout,9098);
+  }
+  for (const platform of ['pc-cloud','tv-cloud','phone-cloud','ps5-disc']) {
+    assert.throws(()=>calculate(scenario({ market:'FR',route:'cloud',platform })));
+  }
+  assert.throws(()=>calculate(scenario({ market:'FR',route:'own',platform:'xbox-one' })));
 });
 
 test('official PS5 Digital quote is source-backed only at the exact quoted price', () => {

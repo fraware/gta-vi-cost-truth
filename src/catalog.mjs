@@ -103,7 +103,4 @@ export const HARDWARE = Object.freeze({
   'xbox-series-s': { label: 'Xbox Series S', ecosystem: 'xbox' },
   'xbox-one': { label: 'Xbox One (cloud streaming only)', ecosystem: 'xbox' },
   'xbox-series-x': { label: 'Xbox Series X', ecosystem: 'xbox' },
-  'pc-cloud': { label: 'Windows PC (cloud streaming only)', ecosystem: 'xbox', cloudOnly: true },
-  'tv-cloud': { label: 'Supported smart TV (cloud streaming only)', ecosystem: 'xbox', cloudOnly: true },
-  'phone-cloud': { label: 'Supported phone or tablet (cloud only)', ecosystem: 'xbox', cloudOnly: true },
 });

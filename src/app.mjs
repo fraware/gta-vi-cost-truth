@@ -12,7 +12,7 @@ let receipt;
 const descriptions = {
   own: 'You already own a PS5 or Xbox Series X|S. Count the game and only the extras you choose.',
   buy: 'Enter your real console quote. A future resale estimate will appear separately from the upfront bill.',
-  cloud: 'Stream on a supported device using first-party Xbox cloud-playtime packs, or enter a different offer from your account.',
+  cloud: 'Stream on Xbox One or Xbox Series X|S using first-party Xbox cloud-playtime packs, or enter a quote from your account.',
 };
 
 function compatibleHardware() {
@@ -38,7 +38,7 @@ function renderForm() {
   $('route-description').textContent = descriptions[state.route];
   $('buy-fields').hidden = state.route !== 'buy';
   $('cloud-fields').hidden = state.route !== 'cloud';
-  $('platform-label').textContent = state.route === 'cloud' ? 'Device you will stream on' : state.route === 'buy' ? 'Console to purchase' : 'Your console';
+  $('platform-label').textContent = state.route === 'cloud' ? 'Xbox console to stream on' : state.route === 'buy' ? 'Console to purchase' : 'Your console';
   const valid = compatibleHardware();
   if (!valid.some(([id]) => id === state.platform)) state.platform = valid[0][0];
   $('edition-source').href = HARDWARE[state.platform].ecosystem === 'xbox' ?

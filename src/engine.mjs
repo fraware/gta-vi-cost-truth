@@ -50,8 +50,10 @@ export function calculate(input) {
   if (!['standard', 'ultimate'].includes(input.edition)) throw new RangeError('Unsupported edition');
   if (!['own', 'buy', 'cloud'].includes(input.route)) throw new RangeError('Unsupported route');
   if (!HARDWARE[input.platform]) throw new RangeError('Unsupported hardware');
-  if (input.route === 'cloud' && HARDWARE[input.platform].ecosystem !== 'xbox')
-    throw new RangeError('Selected device does not support the modelled Xbox cloud route');
+  // The GTA VI announcement specifically confirms Xbox-console cloud access.
+  // General Xbox Cloud Gaming device compatibility is not GTA VI support evidence.
+  if (input.route === 'cloud' && !['xbox-one','xbox-series-s','xbox-series-x'].includes(input.platform))
+    throw new RangeError('GTA VI cloud streaming is documented for Xbox consoles');
   if (input.route !== 'cloud' && (input.platform === 'xbox-one' || HARDWARE[input.platform].cloudOnly))
     throw new RangeError('Selected device has no confirmed native GTA VI release');
 

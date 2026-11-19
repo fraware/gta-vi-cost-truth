@@ -14,7 +14,7 @@ Choose a country, game edition, and way to play. The receipt separates **publish
 
 - **Already own a console:** game edition and optional extras. Compatible native platforms are PlayStation 5 / PS5 Pro and Xbox Series X|S.
 - **Buy a console:** game + entered device quote + extras, with first-party US shortcuts for Xbox Series S ($499.99) and PlayStation 5 Digital 825 GB ($599.99). Resale projections are separated from upfront expenditure.
-- **Use Xbox Cloud Gaming:** game + the least-expensive combination of official **10-, 25-, and 50-hour prepaid packs** in the US, France, or UK. Eligible Xbox One, newer Xbox, PC, supported smart TV, and phone/tablet streaming situations are represented. A different personal cloud tariff can also be entered. Device, account, game, and regional eligibility must be verified with Xbox.
+- **Use Xbox Cloud Gaming:** game + the least-expensive combination of official **10-, 25-, and 50-hour prepaid packs** in the US, France, or UK. GTA VI-specific launch-day cloud playback is represented for Xbox One and Xbox Series X|S. Microsoft lists additional devices for its cloud service generally; that broader eligibility has not been established for this game. A different personal cloud tariff can also be entered. Device, account, game, and regional eligibility must be verified with Xbox.
 
 **Sample:** Playing 40 hours of the US Standard Edition through Xbox Cloud Gaming uses one 50-hour pack, $11.99, plus the $79.99 game. The modelled *known subtotal* is **$91.98**, before applicable US sales tax and personal extras. Buying four 10-hour packs would cost $15.96; the optimiser avoids that excess. The 10 unused prepaid hours are disclosed.
 

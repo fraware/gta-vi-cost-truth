@@ -53,3 +53,7 @@ Microsoft describes other streaming options, including supported free ad-funded 
 ## Additional first-party US console example
 
 [PlayStation Direct](https://direct.playstation.com/en-us/hardware/ps5) lists PlayStation 5 Digital Edition (825GB) at a starting price of $599.99 on the US storefront. This is a dated hardware reference, not a guaranteed checkout price. Other regions and models remain without a prefilled quote.
+
+## Game-specific cloud device restriction
+
+[Microsoft's November 10 GTA VI announcement](https://news.xbox.com/en-us/2026/11/10/grand-theft-auto-6-comes-to-xbox-cloud-gaming-november-19/) explicitly lists Xbox One and Xbox Series X|S for this game's launch-day cloud streaming. The [Xbox UK GTA VI listing](https://www.xbox.com/en-GB/games/store/grand-theft-auto-vi/9NL3WWNZLZZN) describes cloud playback on Xbox consoles. General Xbox Cloud Gaming documentation includes PCs, phones, tablets and televisions, yet that alone does not establish GTA VI access on those device categories. The calculator accordingly restricts GTA VI cloud scenarios to the announced Xbox consoles.
